@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5AA542D-8853-4514-BD29-550206738E63}</ProjectGuid>
+    <ProjectGuid>{CFB526F7-9C70-48D3-A928-7E11F57AA7B7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>eInspektor</RootNamespace>
     <AssemblyName>eInspektor</AssemblyName>
@@ -53,9 +53,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
