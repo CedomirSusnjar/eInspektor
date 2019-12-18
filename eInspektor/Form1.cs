@@ -19,6 +19,7 @@ namespace eInspektor
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("ojs1a");
             Console.WriteLine("ojsa");
             Console.WriteLine("ojsa");
         }
