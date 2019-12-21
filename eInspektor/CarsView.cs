@@ -12,9 +12,16 @@ namespace eInspektor
 {
     public partial class CarsView : Form
     {
+        public StartForm startForm { get; set; }
         public CarsView()
         {
             InitializeComponent();
+        }
+
+        private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            startForm.Show();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace eInspektor
 {
     public partial class Dashboard : Form
     {
+        public StartForm startForm { get; set; }
         public Dashboard()
         {
             InitializeComponent();
@@ -70,7 +71,8 @@ namespace eInspektor
 
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            startForm.Show();
         }
     }
 }

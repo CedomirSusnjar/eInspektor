@@ -19,19 +19,26 @@ namespace eInspektor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new Dashboard().Show();
+            Dashboard d = new Dashboard();
+            d.startForm = this;
+            d.Show();
             Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new CarsView().Show();
+            CarsView d = new CarsView();
+            d.startForm = this;
+            d.Show();
             Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new InspectorView().Show();
+            InspectorView d = new InspectorView();
+            d.startForm = this;
+            d.Show();
+            Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)

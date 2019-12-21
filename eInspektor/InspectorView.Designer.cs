@@ -57,19 +57,20 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
+            this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // štampajToolStripMenuItem
             // 
             this.štampajToolStripMenuItem.Name = "štampajToolStripMenuItem";
-            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.štampajToolStripMenuItem.Text = "Štampaj";
             // 
             // sačuvajToolStripMenuItem
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             // 
             // dataGridView1
@@ -83,6 +84,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(840, 422);
             this.dataGridView1.TabIndex = 1;
@@ -91,23 +93,28 @@
             // name
             // 
             this.name.HeaderText = "Ime";
+            this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.Width = 200;
             // 
             // lastname
             // 
             this.lastname.HeaderText = "Prezime";
+            this.lastname.MinimumWidth = 6;
             this.lastname.Name = "lastname";
             this.lastname.Width = 200;
             // 
             // shift
             // 
             this.shift.HeaderText = "Smjena";
+            this.shift.MinimumWidth = 6;
             this.shift.Name = "shift";
+            this.shift.Width = 125;
             // 
             // abscence
             // 
             this.abscence.HeaderText = "Prisustvo";
+            this.abscence.MinimumWidth = 6;
             this.abscence.Name = "abscence";
             this.abscence.Width = 150;
             // 

@@ -12,6 +12,7 @@ namespace eInspektor
 {
     public partial class InspectorView : Form
     {
+        public StartForm startForm { get; set; }
         public InspectorView()
         {
             InitializeComponent();
@@ -20,6 +21,12 @@ namespace eInspektor
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            startForm.Show();
         }
     }
 }

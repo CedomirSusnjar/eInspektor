@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.štampajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.registration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seats = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tag = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +53,25 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // nazadToolStripMenuItem
+            // 
+            this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.nazadToolStripMenuItem.Text = "Nazad";
+            this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
+            // 
+            // štampajToolStripMenuItem
+            // 
+            this.štampajToolStripMenuItem.Name = "štampajToolStripMenuItem";
+            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.štampajToolStripMenuItem.Text = "Štampaj";
+            // 
+            // sačuvajToolStripMenuItem
+            // 
+            this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -63,43 +82,31 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(800, 422);
             this.dataGridView1.TabIndex = 1;
             // 
-            // nazadToolStripMenuItem
-            // 
-            this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.nazadToolStripMenuItem.Text = "Nazad";
-            // 
-            // štampajToolStripMenuItem
-            // 
-            this.štampajToolStripMenuItem.Name = "štampajToolStripMenuItem";
-            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
-            this.štampajToolStripMenuItem.Text = "Štampaj";
-            // 
-            // sačuvajToolStripMenuItem
-            // 
-            this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
-            this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
-            // 
             // registration
             // 
             this.registration.HeaderText = "Registracija";
+            this.registration.MinimumWidth = 6;
             this.registration.Name = "registration";
+            this.registration.Width = 125;
             // 
             // seats
             // 
             this.seats.HeaderText = "Br. sjedišta";
+            this.seats.MinimumWidth = 6;
             this.seats.Name = "seats";
             this.seats.Width = 120;
             // 
             // tag
             // 
             this.tag.HeaderText = "Br. vozila";
+            this.tag.MinimumWidth = 6;
             this.tag.Name = "tag";
+            this.tag.Width = 125;
             // 
             // CarsView
             // 
