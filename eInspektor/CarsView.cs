@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace eInspektor
 {
-    public partial class Form1 : Form
+    public partial class CarsView : Form
     {
-        public Form1()
+        public CarsView()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(tbPin.Text);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
