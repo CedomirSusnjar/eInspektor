@@ -16,7 +16,7 @@ namespace eInspektor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CarsView());
+            Application.Run(new StartForm());
         }
     }
 }

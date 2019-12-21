@@ -15,6 +15,7 @@ namespace eInspektor
         public Dashboard()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
