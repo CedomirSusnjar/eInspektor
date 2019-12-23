@@ -45,5 +45,11 @@ namespace eInspektor
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new Subjects().Show();
+        }
     }
 }

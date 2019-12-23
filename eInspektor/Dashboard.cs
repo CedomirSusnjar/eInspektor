@@ -74,5 +74,15 @@ namespace eInspektor
             this.Close();
             startForm.Show();
         }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void štampajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
