@@ -19,10 +19,19 @@ namespace eInspektor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(tbPin.Text);
+            if (true)
+            {
+                new StartForm().Show();
+                Hide();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

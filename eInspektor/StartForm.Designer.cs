@@ -82,6 +82,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "Izvještaji";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -144,6 +145,7 @@
             this.odjavaToolStripMenuItem.Name = "odjavaToolStripMenuItem";
             this.odjavaToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.odjavaToolStripMenuItem.Text = "Odjava";
+            this.odjavaToolStripMenuItem.Click += new System.EventHandler(this.odjavaToolStripMenuItem_Click);
             // 
             // StartForm
             // 
@@ -155,7 +157,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StartForm";
+            this.Text = "Koordinator";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

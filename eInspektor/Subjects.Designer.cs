@@ -114,7 +114,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Subjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Subjects";
+            this.Text = "Subjekti";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
