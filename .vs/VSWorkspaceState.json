@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\eInspektor",
-    "\\eInspektor\\eInspektor"
+    "\\eInspektor"
   ],
-  "SelectedNode": "\\eInspektor\\eInspektor.sln",
+  "SelectedNode": "\\eInspektor\\CarsView.cs",
   "PreviewInSolutionExplorer": false
 }
