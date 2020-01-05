@@ -43,13 +43,26 @@ namespace eInspektor
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            new Reclamation().Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             Hide();
             new Subjects().Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new Reports().Show();
+        }
+
+        private void odjavaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new Form1().Show();
         }
     }
 }

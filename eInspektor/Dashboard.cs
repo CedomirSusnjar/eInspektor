@@ -17,6 +17,7 @@ namespace eInspektor
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+           // tableLayoutPanel1.Controls.Add(new GroupBox());
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -66,7 +67,7 @@ namespace eInspektor
 
         private void generisiPlanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+                new GroupBox();
         }
 
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,6 +82,11 @@ namespace eInspektor
         }
 
         private void štampajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
