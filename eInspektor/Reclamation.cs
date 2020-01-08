@@ -26,7 +26,13 @@ namespace eInspektor
 
         private void Reclamation_Load(object sender, EventArgs e)
         {
-            //nazadToolStripMenuItem_Click(sender, e);
+           
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            if (e.CloseReason == CloseReason.UserClosing)
+                startForm.Show();
         }
     }
 }
