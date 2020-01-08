@@ -56,20 +56,20 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // štampajToolStripMenuItem
             // 
             this.štampajToolStripMenuItem.Name = "štampajToolStripMenuItem";
-            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.štampajToolStripMenuItem.Text = "Štampaj";
             // 
             // sačuvajToolStripMenuItem
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             // 
             // dataGridView1
@@ -119,6 +119,7 @@
             this.Name = "CarsView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vozila";
+            this.Load += new System.EventHandler(this.CarsView_Load_1);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -17,12 +17,27 @@ namespace eInspektor
         {
             InitializeComponent();
             startForm = new StartForm();
+
+            using (DatabaseModel db = new DatabaseModel())
+            {
+                var allCompanies = (from c in db.companies select c).ToList();
+
+                foreach (var company in allCompanies)
+                {
+                    dataGridView1.Rows.Add(company.name, "address placeholder", company.owner, company.last_control, "inspektor?");
+                }
+            }
         }
 
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
             startForm.Show();
+        }
+
+        private void Subjects_Load(object sender, EventArgs e)
+        {
+            //nazadToolStripMenuItem_Click(sender, e);
         }
     }
 }

@@ -47,8 +47,9 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
+            this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // Reports
             // 
@@ -60,6 +61,7 @@
             this.Name = "Reports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Izvještaji";
+            this.Load += new System.EventHandler(this.Reports_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

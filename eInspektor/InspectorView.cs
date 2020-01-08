@@ -16,17 +16,28 @@ namespace eInspektor
         public InspectorView()
         {
             InitializeComponent();
+
+            using(DatabaseModel db = new DatabaseModel())
+            {
+                var allInspectors = (from i in db.inspectors select i).ToList();
+
+                foreach (var inspector in allInspectors)
+                {
+                    dataGridView1.Rows.Add(inspector.name, "surname placeholder", inspector.shift);
+                }
+            }
+
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
             startForm.Show();
+        }
+
+        private void InspectorView_Load(object sender, EventArgs e)
+        {
+            //nazadToolStripMenuItem_Click(sender, e);
         }
     }
 }

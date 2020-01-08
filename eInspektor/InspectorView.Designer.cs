@@ -57,20 +57,20 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // štampajToolStripMenuItem
             // 
             this.štampajToolStripMenuItem.Name = "štampajToolStripMenuItem";
-            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.štampajToolStripMenuItem.Text = "Štampaj";
             // 
             // sačuvajToolStripMenuItem
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             // 
             // dataGridView1
@@ -88,7 +88,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(970, 422);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // name
             // 
@@ -129,6 +128,7 @@
             this.Name = "InspectorView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inspektori";
+            this.Load += new System.EventHandler(this.InspectorView_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

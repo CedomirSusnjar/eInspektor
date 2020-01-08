@@ -145,7 +145,7 @@
             // odjavaToolStripMenuItem
             // 
             this.odjavaToolStripMenuItem.Name = "odjavaToolStripMenuItem";
-            this.odjavaToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            this.odjavaToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.odjavaToolStripMenuItem.Text = "Odjava";
             this.odjavaToolStripMenuItem.Click += new System.EventHandler(this.odjavaToolStripMenuItem_Click);
             // 
@@ -160,6 +160,7 @@
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Koordinator";
+            this.Load += new System.EventHandler(this.StartForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
