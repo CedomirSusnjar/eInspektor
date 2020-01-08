@@ -12,9 +12,21 @@ namespace eInspektor
 {
     public partial class Reports : Form
     {
+        public StartForm startForm { get; set; }
         public Reports()
         {
             InitializeComponent();
+        }
+
+        private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            startForm.Show();
+        }
+
+        private void Reports_Load(object sender, EventArgs e)
+        {
+            //nazadToolStripMenuItem_Click(sender, e);
         }
     }
 }

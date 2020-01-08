@@ -54,7 +54,7 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
@@ -70,6 +70,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1117, 422);
             this.dataGridView1.TabIndex = 1;
@@ -77,30 +78,35 @@
             // name
             // 
             this.name.HeaderText = "Ime";
+            this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.Width = 150;
             // 
             // address
             // 
             this.address.HeaderText = "Adresa";
+            this.address.MinimumWidth = 6;
             this.address.Name = "address";
             this.address.Width = 150;
             // 
             // owner
             // 
             this.owner.HeaderText = "Vlasnik";
+            this.owner.MinimumWidth = 6;
             this.owner.Name = "owner";
             this.owner.Width = 150;
             // 
             // dateLastCtrl
             // 
             this.dateLastCtrl.HeaderText = "Datum poslednje kontrole";
+            this.dateLastCtrl.MinimumWidth = 6;
             this.dateLastCtrl.Name = "dateLastCtrl";
             this.dateLastCtrl.Width = 200;
             // 
             // inspector
             // 
             this.inspector.HeaderText = "Inspektor";
+            this.inspector.MinimumWidth = 6;
             this.inspector.Name = "inspector";
             this.inspector.Width = 150;
             // 
@@ -115,6 +121,7 @@
             this.Name = "Subjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Subjekti";
+            this.Load += new System.EventHandler(this.Subjects_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
