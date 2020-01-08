@@ -121,7 +121,7 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Image = global::eInspektor.Properties.Resources.customer__2_;
+            this.button1.Image = global::eInspektor.Properties.Resources.customer;
             this.button1.Location = new System.Drawing.Point(269, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(260, 205);
