@@ -73,16 +73,6 @@ namespace eInspektor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap automobile__1_1 {
-            get {
-                object obj = ResourceManager.GetObject("automobile (1)1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap calendar {
             get {
                 object obj = ResourceManager.GetObject("calendar", resourceCulture);
@@ -96,16 +86,6 @@ namespace eInspektor.Properties {
         internal static System.Drawing.Bitmap calendar__1_ {
             get {
                 object obj = ResourceManager.GetObject("calendar (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap calendar__1_1 {
-            get {
-                object obj = ResourceManager.GetObject("calendar (1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,39 +113,9 @@ namespace eInspektor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap customer__2_1 {
-            get {
-                object obj = ResourceManager.GetObject("customer (2)1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap network__1_ {
             get {
                 object obj = ResourceManager.GetObject("network (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap network__2_ {
-            get {
-                object obj = ResourceManager.GetObject("network (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap network__2_1 {
-            get {
-                object obj = ResourceManager.GetObject("network (2)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,16 +156,6 @@ namespace eInspektor.Properties {
         internal static System.Drawing.Bitmap store__1_ {
             get {
                 object obj = ResourceManager.GetObject("store (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap store__1_1 {
-            get {
-                object obj = ResourceManager.GetObject("store (1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
