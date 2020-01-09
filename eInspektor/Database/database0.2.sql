@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`COMPANY` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `jib` INT(13) NOT NULL,
   `name` VARCHAR(255) NOT NULL,
-  `location` JSON NULL,
+  `location` VARCHAR(1000) NOT NULL,
   `owner` VARCHAR(255) NOT NULL,
   `bookkeeper` VARCHAR(255) NULL,
   `last_control` DATE NULL,
@@ -41,7 +41,8 @@ DROP TABLE IF EXISTS `is-proj`.`INSPECTOR` ;
 
 CREATE TABLE IF NOT EXISTS `is-proj`.`INSPECTOR` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
+  `first_name` VARCHAR(255) NOT NULL,
+  `last_name` VARCHAR(255) NOT NULL,
   `department` VARCHAR(255) NOT NULL,
   `unavailable` INT NOT NULL DEFAULT 0,
   `shift` INT NOT NULL,
@@ -102,6 +103,8 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`CONTROL` (
   `finish_date` DATE NULL,
   `is_finished` TINYINT NOT NULL DEFAULT 0,
   `is_regular` TINYINT NOT NULL,
+  `report_content` TEXT NULL,
+  `control_justified` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_COMPANY_has_INSPECTOR_COMPANY1_idx` (`company_id` ASC) VISIBLE,
   CONSTRAINT `fk_COMPANY_has_INSPECTOR_COMPANY1`
@@ -138,25 +141,6 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`VEHICLE_RESPONSIBILITY` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_VEHICLE_RESPONSIBILITY_CONTROL1`
-    FOREIGN KEY (`control_id`)
-    REFERENCES `is-proj`.`CONTROL` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `is-proj`.`REPORT`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `is-proj`.`REPORT` ;
-
-CREATE TABLE IF NOT EXISTS `is-proj`.`REPORT` (
-  `control_id` INT NOT NULL,
-  `date` DATE NOT NULL,
-  `content` TEXT NOT NULL,
-  `control_justified` TINYINT NOT NULL,
-  PRIMARY KEY (`control_id`),
-  CONSTRAINT `fk_REPORT_CONTROL1`
     FOREIGN KEY (`control_id`)
     REFERENCES `is-proj`.`CONTROL` (`id`)
     ON DELETE NO ACTION

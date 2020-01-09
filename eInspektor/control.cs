@@ -32,12 +32,17 @@ namespace eInspektor
 
         public sbyte is_regular { get; set; }
 
+        public sbyte control_justified { get; set; }
+
+        [Column(TypeName = "text")]
+        [Required]
+        [StringLength(65535)]
+        public string report_content { get; set; }
+
         public virtual company company { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<complaint> complaints { get; set; }
-
-        public virtual report report { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vehicle_responsibility> vehicle_responsibility { get; set; }

@@ -22,7 +22,11 @@ namespace eInspektor
 
         [Required]
         [StringLength(255)]
-        public string name { get; set; }
+        public string first_name { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        public string last_name { get; set; }
 
         [Required]
         [StringLength(255)]

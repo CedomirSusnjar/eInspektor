@@ -1,4 +1,6 @@
-﻿namespace eInspektor
+﻿using System.Drawing;
+
+namespace eInspektor
 {
     partial class StartForm
     {
@@ -19,6 +21,13 @@
             }
             base.Dispose(disposing);
         }
+
+        protected Image button1Image;
+        protected Image button2Image;
+        protected Image button3Image;
+        protected Image button4Image;
+        protected Image button5Image;
+        protected Image button6Image;
 
         #region Windows Form Designer generated code
 
@@ -65,6 +74,7 @@
             // button6
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.Image = global::eInspektor.Properties.Resources.store;
             this.button6.Location = new System.Drawing.Point(535, 214);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(262, 205);
@@ -72,11 +82,12 @@
             this.button6.Text = "Subjekti";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            button6Image = button6.Image;
             // 
             // button5
             // 
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Image = global::eInspektor.Properties.Resources.calendar;
+            this.button5.Image = global::eInspektor.Properties.Resources.stats;
             this.button5.Location = new System.Drawing.Point(269, 214);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(260, 205);
@@ -84,10 +95,12 @@
             this.button5.Text = "Izvještaji";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            button5Image = button5.Image;
             // 
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Image = global::eInspektor.Properties.Resources.customer;
             this.button4.Location = new System.Drawing.Point(3, 214);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(260, 205);
@@ -95,6 +108,7 @@
             this.button4.Text = "Reklamacije";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            button4Image = button4.Image;
             // 
             // button3
             // 
@@ -106,10 +120,12 @@
             this.button3.Text = "Inspektori";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3Image = button3.Image;
             // 
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Image = global::eInspektor.Properties.Resources.calendar;
             this.button2.Location = new System.Drawing.Point(3, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(260, 205);
@@ -117,11 +133,12 @@
             this.button2.Text = "Sedmični plan";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2Image = button2.Image;
             // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Image = global::eInspektor.Properties.Resources.customer;
+            this.button1.Image = global::eInspektor.Properties.Resources.automobile;
             this.button1.Location = new System.Drawing.Point(269, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(260, 205);
@@ -129,6 +146,7 @@
             this.button1.Text = "Vozila";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1Image = button1.Image;
             // 
             // menuStrip1
             // 
@@ -161,6 +179,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Koordinator";
             this.Load += new System.EventHandler(this.StartForm_Load);
+            this.Resize += new System.EventHandler(this.StartForm_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

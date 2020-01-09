@@ -19,7 +19,6 @@ namespace eInspektor
         public virtual DbSet<department> departments { get; set; }
         public virtual DbSet<inspector> inspectors { get; set; }
         public virtual DbSet<lab_sample> lab_sample { get; set; }
-        public virtual DbSet<report> reports { get; set; }
         public virtual DbSet<vehicle> vehicles { get; set; }
         public virtual DbSet<vehicle_responsibility> vehicle_responsibility { get; set; }
 
@@ -77,10 +76,6 @@ namespace eInspektor
                 .HasForeignKey(e => e.control_id);
 
             modelBuilder.Entity<control>()
-                .HasOptional(e => e.report)
-                .WithRequired(e => e.control);
-
-            modelBuilder.Entity<control>()
                 .HasMany(e => e.vehicle_responsibility)
                 .WithOptional(e => e.control)
                 .HasForeignKey(e => e.control_id);
@@ -95,7 +90,11 @@ namespace eInspektor
                 .IsUnicode(false);
 
             modelBuilder.Entity<inspector>()
-                .Property(e => e.name)
+                .Property(e => e.first_name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<inspector>()
+                .Property(e => e.last_name)
                 .IsUnicode(false);
 
             modelBuilder.Entity<inspector>()
@@ -134,10 +133,6 @@ namespace eInspektor
 
             modelBuilder.Entity<lab_sample>()
                 .Property(e => e.description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<report>()
-                .Property(e => e.content)
                 .IsUnicode(false);
 
             modelBuilder.Entity<vehicle>()

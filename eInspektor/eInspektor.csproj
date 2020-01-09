@@ -75,6 +75,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseModel.cs" />
     <Compile Include="department.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -90,7 +91,6 @@
       <DependentUpon>InspectorView.cs</DependentUpon>
     </Compile>
     <Compile Include="lab_sample.cs" />
-    <Compile Include="DatabaseModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -104,7 +104,6 @@
     <Compile Include="Reclamation.Designer.cs">
       <DependentUpon>Reclamation.cs</DependentUpon>
     </Compile>
-    <Compile Include="report.cs" />
     <Compile Include="Reports.cs">
       <SubType>Form</SubType>
     </Compile>

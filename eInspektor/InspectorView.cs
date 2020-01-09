@@ -23,7 +23,7 @@ namespace eInspektor
 
                 foreach (var inspector in allInspectors)
                 {
-                    dataGridView1.Rows.Add(inspector.name, "surname placeholder", inspector.shift);
+                    dataGridView1.Rows.Add(inspector.first_name, inspector.last_name, inspector.shift);
                 }
             }
 
