@@ -12,21 +12,11 @@ namespace eInspektor
 {
     public partial class InspectorView : Form
     {
+        private DatabaseModel db;
         public StartForm startForm { get; set; }
         public InspectorView()
         {
             InitializeComponent();
-
-            using(DatabaseModel db = new DatabaseModel())
-            {
-                var allInspectors = (from i in db.inspectors select i).ToList();
-
-                foreach (var inspector in allInspectors)
-                {
-                    dataGridView1.Rows.Add(inspector.first_name, inspector.last_name, inspector.shift);
-                }
-            }
-
         }
         
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,7 +27,9 @@ namespace eInspektor
 
         private void InspectorView_Load(object sender, EventArgs e)
         {
-
+            db = new DatabaseModel();
+            var allInspectors = (from i in db.inspectors select i).ToList();
+            dataGridView1.DataSource = allInspectors;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -45,6 +37,57 @@ namespace eInspektor
             base.OnFormClosing(e);
             if (e.CloseReason == CloseReason.UserClosing)
                 startForm.Show();
+        }
+
+        private void sačuvajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            db.SaveChanges();
+        }
+
+        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            inspector i = new inspector();
+            i.first_name = "New";
+            i.last_name = "New";
+            i.salt = "salt";
+            i.password_hash = "123";
+            i.shift = 0;
+            i.unavailable = 0;
+
+            Random r = new Random();
+            i.username = "New" + r.Next(0,100);
+            i.is_coordinator = 0;
+            i.department = "Inspektori";
+            // TODO: Password hash
+
+            db.inspectors.Add(i);
+            db.SaveChanges();
+            InspectorView_Load(sender, e);
+        }
+
+        private void obrišiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var cell in dataGridView1.SelectedCells)
+            {
+                int id = 0;
+                try
+                {
+                    id = (int)dataGridView1.CurrentCell.OwningRow.Cells[0].Value;
+                }
+                catch (NullReferenceException)
+                {
+                    continue;
+                }
+
+                inspector i = db.inspectors.Find(id);
+                if (i == null)
+                {
+                    continue;
+                }
+                db.inspectors.Remove(i);
+            }
+            db.SaveChanges();
+            InspectorView_Load(sender, e);
         }
     }
 }

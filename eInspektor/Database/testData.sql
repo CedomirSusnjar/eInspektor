@@ -1,4 +1,4 @@
-
+USE `is-proj` ;
 
 insert into inspector values (null, 'Marko', 'Markovic', 'Poreska', 0, 1, 1, 'marko', 'salt', '2908D2C28DFC047741FC590A026FFADE237AB2BA7E1266F010FE49BDE548B5987A534A86655A0D17F336588E540CD66F67234B152BBB645B4BB85758A1325D64');
 insert into inspector values (null, 'Ivan', 'Ivanovic', 'Poreska', 0, 1, 0, 'ivan', 'salt', '2908D2C28DFC047741FC590A026FFADE237AB2BA7E1266F010FE49BDE548B5987A534A86655A0D17F336588E540CD66F67234B152BBB645B4BB85758A1325D64');
@@ -11,6 +11,7 @@ insert into company values (null, '333333', 'Vodovod', 'Patre 6', 'Arhimed', 'De
 insert into vehicle values (null, '111-k-111', 6, 001);
 insert into vehicle values (null, '222-k-222', 2, 002);
 insert into vehicle values (null, '3-k-3', 4, 003);
+
 
 
 
