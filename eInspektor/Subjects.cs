@@ -21,8 +21,13 @@ namespace eInspektor
 
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
-            startForm.Show();
+            DialogResult result = MessageBox.Show("Izmjene nisu sačuvane. Želite li ih sačuvati prije nego što napustite rad sa subjektima?", "Subjekti", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK) {
+                //sacuvaj
+                Close();
+                startForm.Show();
+            }
+          
         }
 
         private void Subjects_Load(object sender, EventArgs e)
@@ -45,27 +50,32 @@ namespace eInspektor
 
         private void ukloniToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var cell in dataGridView1.SelectedCells)
-            {
-                int id = 0;
-                try
-                {
-                    id = (int)dataGridView1.CurrentCell.OwningRow.Cells[0].Value;
-                }
-                catch (NullReferenceException)
-                {
-                    continue;
-                }
+            DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabranog subjekta?", "Brisanje subjekta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-                company c = db.companies.Find(id);
-                if (c == null)
+            if (result == DialogResult.OK) {
+                foreach (var cell in dataGridView1.SelectedCells)
                 {
-                    continue;
+                    int id = 0;
+                    try
+                    {
+                        id = (int)dataGridView1.CurrentCell.OwningRow.Cells[0].Value;
+                    }
+                    catch (NullReferenceException)
+                    {
+                        continue;
+                    }
+
+                    company c = db.companies.Find(id);
+                    if (c == null)
+                    {
+                        continue;
+                    }
+                    db.companies.Remove(c);
                 }
-                db.companies.Remove(c);
+                db.SaveChanges();
+                Subjects_Load(sender, e);
             }
-            db.SaveChanges();
-            Subjects_Load(sender, e);
+           
         }
 
         private void sačuvajToolStripMenuItem_Click(object sender, EventArgs e)

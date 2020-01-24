@@ -24,8 +24,13 @@ namespace eInspektor
 
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();            
-            startForm.Show();
+            DialogResult result = MessageBox.Show("Izmjene nisu sačuvane. Želite li ih sačuvati prije nego što napustite rad sa vozilima?", "Vozila", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK) {
+                //sacuvaj
+                this.Close();
+                startForm.Show();
+            }
+           
         }
 
         private void CarsView_Load(object sender, EventArgs e)
@@ -67,27 +72,31 @@ namespace eInspektor
 
         private void obrišiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var cell in dataGridView1.SelectedCells)
-            {
-                int id = 0;
-                try
+            DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabrano vozilo?", "Brisanje vozila", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK) {
+                foreach (var cell in dataGridView1.SelectedCells)
                 {
-                    id = (int)dataGridView1.CurrentCell.OwningRow.Cells[0].Value;
-                }
-                catch (NullReferenceException) 
-                {
-                    continue;
-                }
+                    int id = 0;
+                    try
+                    {
+                        id = (int)dataGridView1.CurrentCell.OwningRow.Cells[0].Value;
+                    }
+                    catch (NullReferenceException)
+                    {
+                        continue;
+                    }
 
-                vehicle v = db.vehicles.Find(id);
-                if (v == null) 
-                {
-                    continue;
+                    vehicle v = db.vehicles.Find(id);
+                    if (v == null)
+                    {
+                        continue;
+                    }
+                    db.vehicles.Remove(v);
                 }
-                db.vehicles.Remove(v);
+                db.SaveChanges();
+                CarsView_Load(sender, e);
             }
-            db.SaveChanges();
-            CarsView_Load(sender, e);
+           
         }
     }
 }
