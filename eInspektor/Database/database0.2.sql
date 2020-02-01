@@ -97,7 +97,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `is-proj`.`CONTROL` ;
 
 CREATE TABLE IF NOT EXISTS `is-proj`.`CONTROL` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL auto_increment,
   `company_id` INT NOT NULL,
   `start_date` DATE NOT NULL,
   `finish_date` DATE NULL,

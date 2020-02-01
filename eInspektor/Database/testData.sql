@@ -12,7 +12,9 @@ insert into vehicle values (null, '111-k-111', 6, 001);
 insert into vehicle values (null, '222-k-222', 2, 002);
 insert into vehicle values (null, '3-k-3', 4, 003);
 
-
+insert into control values (null, 1, '2020-1-15', '2020-1-15', 1, 1, 'Nema neregularnosti.', 0);
+insert into control values (null, 1, '2020-1-15', null, 0, 1, null, null);
+insert into control values (null, 2, '2020-1-15', null, 0, 1, null, null);
 
 
 
