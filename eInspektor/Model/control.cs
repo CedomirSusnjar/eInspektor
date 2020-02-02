@@ -1,4 +1,4 @@
-namespace eInspektor
+namespace eInspektor.Model
 {
     using System;
     using System.Collections.Generic;
@@ -17,7 +17,6 @@ namespace eInspektor
             inspectors = new HashSet<inspector>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
         public int company_id { get; set; }
@@ -32,12 +31,13 @@ namespace eInspektor
 
         public sbyte is_regular { get; set; }
 
-        public sbyte control_justified { get; set; }
-
         [Column(TypeName = "text")]
-        [Required]
         [StringLength(65535)]
         public string report_content { get; set; }
+
+        public sbyte? control_justified { get; set; }
+
+        public sbyte isActive { get; set; }
 
         public virtual company company { get; set; }
 

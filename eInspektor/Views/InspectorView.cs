@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using eInspektor.Model;
 
 namespace eInspektor
 {
@@ -32,6 +33,10 @@ namespace eInspektor
 
         private void InspectorView_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSources.inspector' table. You can move, or remove it, as needed.
+            this.inspectorTableAdapter.Fill(this.dataSources.inspector);
+            // TODO: This line of code loads data into the 'dataSources.joint_control' table. You can move, or remove it, as needed.
+            this.joint_controlTableAdapter.Fill(this.dataSources.joint_control);
             db = new DatabaseModel();
             var allInspectors = (from i in db.inspectors select i).ToList();
             dataGridView1.DataSource = allInspectors;

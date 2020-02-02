@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Configuration;
+using eInspektor.Model;
 
 namespace eInspektor
 {
@@ -35,6 +36,8 @@ namespace eInspektor
 
         private void CarsView_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_is_projDataSet.vehicle' table. You can move, or remove it, as needed.
+            this.vehicleTableAdapter.Fill(this.dataSources.vehicle);
             db = new DatabaseModel();
             var allVehicles = (from v in db.vehicles select v).ToList();
             dataGridView1.DataSource = allVehicles;
@@ -44,7 +47,6 @@ namespace eInspektor
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            db.Dispose();
             if (e.CloseReason == CloseReason.UserClosing)
                 startForm.Show();
         }
@@ -97,6 +99,14 @@ namespace eInspektor
                 CarsView_Load(sender, e);
             }
            
+        }
+
+        private void CarsView_Load_1(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dataSources2.vehicle' table. You can move, or remove it, as needed.
+            this.vehicleTableAdapter2.Fill(this.dataSources2.vehicle);
+            
+
         }
     }
 }

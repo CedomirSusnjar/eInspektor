@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using eInspektor.Model;
 
 namespace eInspektor
 {
@@ -27,6 +28,9 @@ namespace eInspektor
 
         private void Reclamation_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSources1.complaint' table. You can move, or remove it, as needed.
+            this.complaintTableAdapter1.Fill(this.dataSources1.complaint);
+            
             db = new DatabaseModel();
             var allComplaints = (from c in db.complaints select c).ToList();
             dataGridView1.DataSource = allComplaints;

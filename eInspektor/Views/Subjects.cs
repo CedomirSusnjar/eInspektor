@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using eInspektor.Model;
 
 namespace eInspektor
 {
@@ -32,6 +33,9 @@ namespace eInspektor
 
         private void Subjects_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSources1.company' table. You can move, or remove it, as needed.
+            this.companyTableAdapter1.Fill(this.dataSources1.company);
+       
             db = new DatabaseModel();
             var allCompanies = (from c in db.companies select c).ToList();
             dataGridView1.DataSource = allCompanies;
@@ -90,10 +94,24 @@ namespace eInspektor
             c.jib = 0;
             c.name = "New";
             c.owner = "New";
+            c.isActive = 1;
+            c.location = "New";
         
             db.companies.Add(c);
             db.SaveChanges();
             Subjects_Load(sender, e);
+        }
+
+        private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            e.Row.Cells["Naziv"].Value = "Naziv";
+            e.Row.Cells["jib"].Value = "0000";
+            e.Row.Cells["Adresa"].Value = "Adresa";
+            e.Row.Cells["Vlasnik"].Value = "Vlasnik";
+            e.Row.Cells["Knjigovođa"].Value = "Knjigovođa";
+
+
+
         }
     }
 }

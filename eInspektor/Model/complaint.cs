@@ -1,4 +1,4 @@
-namespace eInspektor
+namespace eInspektor.Model
 {
     using System;
     using System.Collections.Generic;
@@ -29,6 +29,8 @@ namespace eInspektor
         public int? control_id { get; set; }
 
         public sbyte? is_resolved { get; set; }
+
+        public sbyte isActive { get; set; }
 
         public virtual company company { get; set; }
 

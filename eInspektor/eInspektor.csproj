@@ -60,38 +60,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="absence.cs" />
-    <Compile Include="CarsView.cs">
+    <Compile Include="DataSources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSources.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Model\absence.cs" />
+    <Compile Include="Model\company.cs" />
+    <Compile Include="Model\complaint.cs" />
+    <Compile Include="Model\control.cs" />
+    <Compile Include="Model\DatabaseModel.cs" />
+    <Compile Include="Model\department.cs" />
+    <Compile Include="Model\inspector.cs" />
+    <Compile Include="Model\lab_sample.cs" />
+    <Compile Include="Model\vehicle.cs" />
+    <Compile Include="Model\vehicle_responsibility.cs" />
+    <Compile Include="Views\CarsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CarsView.Designer.cs">
+    <Compile Include="Views\CarsView.Designer.cs">
       <DependentUpon>CarsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="company.cs" />
-    <Compile Include="complaint.cs" />
-    <Compile Include="control.cs" />
-    <Compile Include="Dashboard.cs">
+    <Compile Include="Views\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
+    <Compile Include="Views\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel.cs" />
-    <Compile Include="department.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Views\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="inspector.cs" />
-    <Compile Include="InspectorView.cs">
+    <Compile Include="Views\InspectorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InspectorView.Designer.cs">
+    <Compile Include="Views\InspectorView.Designer.cs">
       <DependentUpon>InspectorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="lab_sample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -99,42 +106,40 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Reclamation.cs">
+    <Compile Include="Views\Reclamation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reclamation.Designer.cs">
+    <Compile Include="Views\Reclamation.Designer.cs">
       <DependentUpon>Reclamation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports.cs">
+    <Compile Include="Views\Reports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports.Designer.cs">
+    <Compile Include="Views\Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
-    <Compile Include="StartForm.cs">
+    <Compile Include="Views\StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartForm.Designer.cs">
+    <Compile Include="Views\StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Subjects.cs">
+    <Compile Include="Views\Subjects.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Subjects.Designer.cs">
+    <Compile Include="Views\Subjects.Designer.cs">
       <DependentUpon>Subjects.cs</DependentUpon>
     </Compile>
-    <Compile Include="vehicle.cs" />
-    <Compile Include="vehicle_responsibility.cs" />
-    <EmbeddedResource Include="CarsView.resx">
+    <EmbeddedResource Include="Views\CarsView.resx">
       <DependentUpon>CarsView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
+    <EmbeddedResource Include="Views\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InspectorView.resx">
+    <EmbeddedResource Include="Views\InspectorView.resx">
       <DependentUpon>InspectorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -142,24 +147,30 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reclamation.resx">
+    <EmbeddedResource Include="Views\Reclamation.resx">
       <DependentUpon>Reclamation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports.resx">
+    <EmbeddedResource Include="Views\Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StartForm.resx">
+    <EmbeddedResource Include="Views\StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Subjects.resx">
+    <EmbeddedResource Include="Views\Subjects.resx">
       <DependentUpon>Subjects.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSources.xsc">
+      <DependentUpon>DataSources.xsd</DependentUpon>
+    </None>
+    <None Include="DataSources.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSources.xss">
+      <DependentUpon>DataSources.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\company.datasource" />
-    <None Include="Properties\DataSources\complaint.datasource" />
-    <None Include="Properties\DataSources\DatabaseModel.datasource" />
-    <None Include="Properties\DataSources\inspector.datasource" />
-    <None Include="Properties\DataSources\vehicle.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -175,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

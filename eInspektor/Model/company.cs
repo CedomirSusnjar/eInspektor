@@ -1,4 +1,4 @@
-namespace eInspektor
+namespace eInspektor.Model
 {
     using System;
     using System.Collections.Generic;
@@ -26,6 +26,10 @@ namespace eInspektor
         public string name { get; set; }
 
         [Required]
+        [StringLength(1000)]
+        public string location { get; set; }
+
+        [Required]
         [StringLength(255)]
         public string owner { get; set; }
 
@@ -37,6 +41,8 @@ namespace eInspektor
 
         [StringLength(255)]
         public string last_control_type { get; set; }
+
+        public sbyte isActive { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<control> controls { get; set; }
