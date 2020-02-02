@@ -37,10 +37,10 @@ namespace eInspektor
         private void CarsView_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the '_is_projDataSet.vehicle' table. You can move, or remove it, as needed.
-            this.vehicleTableAdapter.Fill(this.dataSources.vehicle);
+            //this.vehicleTableAdapter2.Fill(this.dataSources2.vehicle);
             db = new DatabaseModel();
             var allVehicles = (from v in db.vehicles select v).ToList();
-            dataGridView1.DataSource = allVehicles;
+            dataGridView2.DataSource = allVehicles;
         }
 
 
@@ -65,8 +65,10 @@ namespace eInspektor
         {
             vehicle v = new vehicle();
             v.max_capacity = 0;
-            v.registration_num = "temp";
-            v.tag = "t";
+            v.registration_num = "-";
+            v.tag = "-";
+            v.isActive = 1;
+            v.name = "-";
             db.vehicles.Add(v);
             db.SaveChanges();
             CarsView_Load(sender, e);
@@ -76,12 +78,14 @@ namespace eInspektor
         {
             DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabrano vozilo?", "Brisanje vozila", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK) {
-                foreach (var cell in dataGridView1.SelectedCells)
+                int selIndex = 0;
+                foreach (var cell in dataGridView2.SelectedCells)
                 {
                     int id = 0;
                     try
                     {
-                        id = (int)dataGridView1.CurrentCell.OwningRow.Cells[0].Value;
+                        id = (int)dataGridView2.CurrentCell.OwningRow.Cells[0].Value;
+                        selIndex = (int)dataGridView2.CurrentCell.OwningRow.Index;
                     }
                     catch (NullReferenceException)
                     {
@@ -97,6 +101,10 @@ namespace eInspektor
                 }
                 db.SaveChanges();
                 CarsView_Load(sender, e);
+                if(selIndex != 0)
+                {
+                    dataGridView2.Rows[selIndex - 1].Selected = true;
+                }
             }
            
         }
@@ -107,6 +115,11 @@ namespace eInspektor
             this.vehicleTableAdapter2.Fill(this.dataSources2.vehicle);
             
 
+        }
+
+        private void dataGridView2_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            e.Row.Cells["isActive"].Value = 1;
         }
     }
 }
