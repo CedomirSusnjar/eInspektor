@@ -17,109 +17,111 @@ namespace eInspektor
     public partial class CarsView : Form
     {
         private DatabaseModel db;
+        private bool hasChanges;
         public StartForm startForm { get; set; }
         public CarsView()
         {
             InitializeComponent();
+            hasChanges = false;
         }
 
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Izmjene nisu sačuvane. Želite li ih sačuvati prije nego što napustite rad sa vozilima?", "Vozila", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK) {
-                //sacuvaj
-                this.Close();
-                startForm.Show();
-            }
-           
+            this.Close();
         }
 
         private void CarsView_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the '_is_projDataSet.vehicle' table. You can move, or remove it, as needed.
-            //this.vehicleTableAdapter2.Fill(this.dataSources2.vehicle);
+            this.vehicleTableAdapter2.Fill(this.dataSources.vehicle);
+            vehicleGridView.DataSource = this.dataSources.vehicle;
             db = new DatabaseModel();
-            var allVehicles = (from v in db.vehicles select v).ToList();
-            dataGridView2.DataSource = allVehicles;
         }
 
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        protected override async void OnFormClosing(FormClosingEventArgs e)
         {
-            base.OnFormClosing(e);
             if (e.CloseReason == CloseReason.UserClosing)
-                startForm.Show();
+            {
+                if (this.hasChanges)
+                {
+                    DialogResult result = MessageBox.Show("Izmjene nisu sačuvane. Želite li ih sačuvati prije nego što napustite rad sa vozilima?", "Vozila", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes || result == DialogResult.No)
+                    {
+                        if (result == DialogResult.Yes)
+                        {
+                            //Save changes
+                            sačuvajToolStripMenuItem_Click(null, e);
+                        }
+                        await Task.Delay(100);      //Doesn't work othervise
+                        base.OnFormClosing(e);
+                        this.Close();
+                        startForm.Show();
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+                else{
+                    //There has been no modifications to table
+                    base.OnFormClosing(e);
+                    startForm.Show();
+                }
+            }            
         }
 
         private void sačuvajToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            db.SaveChanges();
+            this.vehicleTableAdapter2.Update(this.dataSources.vehicle);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            vehicle v = new vehicle();
-            v.max_capacity = 0;
-            v.registration_num = "-";
-            v.tag = "-";
-            v.isActive = 1;
-            v.name = "-";
-            db.vehicles.Add(v);
-            db.SaveChanges();
-            CarsView_Load(sender, e);
-        }
 
         private void obrišiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabrano vozilo?", "Brisanje vozila", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK) {
-                int selIndex = 0;
-                foreach (var cell in dataGridView2.SelectedCells)
+            if(vehicleGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Niste odabrali nijedno vozilo.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabrana vozila?", "Brisanje vozila", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes) {
+                int selIndex = vehicleGridView.SelectedRows[0].Index;
+                for (int i = 0; i < vehicleGridView.SelectedRows.Count; i++) 
                 {
                     int id = 0;
                     try
                     {
-                        id = (int)dataGridView2.CurrentCell.OwningRow.Cells[0].Value;
-                        selIndex = (int)dataGridView2.CurrentCell.OwningRow.Index;
+                        id = (int)vehicleGridView.SelectedRows[i].Cells[0].Value;
                     }
                     catch (NullReferenceException)
                     {
+                        //the row is already deleted
                         continue;
                     }
 
                     vehicle v = db.vehicles.Find(id);
-                    if (v == null)
+                    if (v != null)
                     {
-                        continue;
-                    }
-                    db.vehicles.Remove(v);
-                }
+                        db.vehicles.Remove(v);
+                    }                }
                 db.SaveChanges();
                 CarsView_Load(sender, e);
-                if(selIndex != 0)
+                if(selIndex != 0 && selIndex < vehicleGridView.Rows.Count)
                 {
-                    dataGridView2.Rows[selIndex - 1].Selected = true;
+                    vehicleGridView.Rows[selIndex - 1].Selected = true;
                 }
             }
            
         }
 
-        private void CarsView_Load_1(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dataSources2.vehicle' table. You can move, or remove it, as needed.
-            this.vehicleTableAdapter2.Fill(this.dataSources2.vehicle);
-            
-
-        }
-
         private void dataGridView2_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            e.Row.Cells["isActive"].Value = 1;
+            e.Row.Cells["isActive1"].Value = 1;
+        }
+
+        private void vehicleGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            this.hasChanges = true;
         }
     }
 }
