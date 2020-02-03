@@ -33,7 +33,6 @@
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.štampajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.inspectorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -42,17 +41,17 @@
             this.jointcontrolBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.joint_controlTableAdapter = new eInspektor.DataSourcesTableAdapters.joint_controlTableAdapter();
             this.inspectorTableAdapter = new eInspektor.DataSourcesTableAdapters.inspectorTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordhashDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_coordinator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unavailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password_hash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource1)).BeginInit();
@@ -68,7 +67,6 @@
             this.nazadToolStripMenuItem,
             this.štampajToolStripMenuItem,
             this.sačuvajToolStripMenuItem,
-            this.dodajToolStripMenuItem,
             this.obrišiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -79,34 +77,27 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // štampajToolStripMenuItem
             // 
             this.štampajToolStripMenuItem.Name = "štampajToolStripMenuItem";
-            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
             this.štampajToolStripMenuItem.Text = "Štampaj";
             // 
             // sačuvajToolStripMenuItem
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
-            // 
-            // dodajToolStripMenuItem
-            // 
-            this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.dodajToolStripMenuItem.Text = "Dodaj";
-            this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
             // 
             // obrišiToolStripMenuItem
             // 
             this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
-            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
@@ -115,17 +106,17 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
+            this.id,
             this.name,
             this.lastname,
             this.shift,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn2,
-            this.saltDataGridViewTextBoxColumn,
-            this.passwordhashDataGridViewTextBoxColumn,
-            this.isActiveDataGridViewTextBoxColumn});
+            this.is_coordinator,
+            this.username,
+            this.unavailable,
+            this.department,
+            this.salt,
+            this.password_hash,
+            this.is_active});
             this.dataGridView1.DataSource = this.inspectorBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
@@ -134,6 +125,8 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(970, 422);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehicleGridView_CellValueChanged);
+            this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
             // 
             // inspectorBindingSource1
             // 
@@ -158,14 +151,14 @@
             // 
             this.inspectorTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // id
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            this.dataGridViewTextBoxColumn1.Width = 125;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 125;
             // 
             // name
             // 
@@ -191,65 +184,65 @@
             this.shift.Name = "shift";
             this.shift.Width = 125;
             // 
-            // dataGridViewTextBoxColumn4
+            // is_coordinator
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "is_coordinator";
-            this.dataGridViewTextBoxColumn4.HeaderText = "is_coordinator";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Visible = false;
-            this.dataGridViewTextBoxColumn4.Width = 125;
+            this.is_coordinator.DataPropertyName = "is_coordinator";
+            this.is_coordinator.HeaderText = "is_coordinator";
+            this.is_coordinator.MinimumWidth = 6;
+            this.is_coordinator.Name = "is_coordinator";
+            this.is_coordinator.Visible = false;
+            this.is_coordinator.Width = 125;
             // 
-            // dataGridViewTextBoxColumn5
+            // username
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "username";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Korisničko ime";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
+            this.username.DataPropertyName = "username";
+            this.username.HeaderText = "Korisničko ime";
+            this.username.MinimumWidth = 6;
+            this.username.Name = "username";
+            this.username.Width = 125;
             // 
-            // dataGridViewTextBoxColumn3
+            // unavailable
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "unavailable";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Razlog nedostupnosti";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
+            this.unavailable.DataPropertyName = "unavailable";
+            this.unavailable.HeaderText = "Razlog nedostupnosti";
+            this.unavailable.MinimumWidth = 6;
+            this.unavailable.Name = "unavailable";
+            this.unavailable.Width = 125;
             // 
-            // dataGridViewTextBoxColumn2
+            // department
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "department";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Odjeljenje";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
+            this.department.DataPropertyName = "department";
+            this.department.HeaderText = "Odjeljenje";
+            this.department.MinimumWidth = 6;
+            this.department.Name = "department";
+            this.department.Width = 125;
             // 
-            // saltDataGridViewTextBoxColumn
+            // salt
             // 
-            this.saltDataGridViewTextBoxColumn.DataPropertyName = "salt";
-            this.saltDataGridViewTextBoxColumn.HeaderText = "salt";
-            this.saltDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.saltDataGridViewTextBoxColumn.Name = "saltDataGridViewTextBoxColumn";
-            this.saltDataGridViewTextBoxColumn.Visible = false;
-            this.saltDataGridViewTextBoxColumn.Width = 125;
+            this.salt.DataPropertyName = "salt";
+            this.salt.HeaderText = "salt";
+            this.salt.MinimumWidth = 6;
+            this.salt.Name = "salt";
+            this.salt.Visible = false;
+            this.salt.Width = 125;
             // 
-            // passwordhashDataGridViewTextBoxColumn
+            // password_hash
             // 
-            this.passwordhashDataGridViewTextBoxColumn.DataPropertyName = "password_hash";
-            this.passwordhashDataGridViewTextBoxColumn.HeaderText = "password_hash";
-            this.passwordhashDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.passwordhashDataGridViewTextBoxColumn.Name = "passwordhashDataGridViewTextBoxColumn";
-            this.passwordhashDataGridViewTextBoxColumn.Visible = false;
-            this.passwordhashDataGridViewTextBoxColumn.Width = 125;
+            this.password_hash.DataPropertyName = "password_hash";
+            this.password_hash.HeaderText = "password_hash";
+            this.password_hash.MinimumWidth = 6;
+            this.password_hash.Name = "password_hash";
+            this.password_hash.Visible = false;
+            this.password_hash.Width = 125;
             // 
-            // isActiveDataGridViewTextBoxColumn
+            // is_active
             // 
-            this.isActiveDataGridViewTextBoxColumn.DataPropertyName = "isActive";
-            this.isActiveDataGridViewTextBoxColumn.HeaderText = "isActive";
-            this.isActiveDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.isActiveDataGridViewTextBoxColumn.Name = "isActiveDataGridViewTextBoxColumn";
-            this.isActiveDataGridViewTextBoxColumn.Visible = false;
-            this.isActiveDataGridViewTextBoxColumn.Width = 125;
+            this.is_active.DataPropertyName = "isActive";
+            this.is_active.HeaderText = "isActive";
+            this.is_active.MinimumWidth = 6;
+            this.is_active.Name = "is_active";
+            this.is_active.Visible = false;
+            this.is_active.Width = 125;
             // 
             // InspectorView
             // 
@@ -282,7 +275,6 @@
         private System.Windows.Forms.ToolStripMenuItem štampajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sačuvajToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem obrišiToolStripMenuItem;
         private System.Windows.Forms.BindingSource inspectorBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
@@ -295,16 +287,16 @@
         private DataSourcesTableAdapters.joint_controlTableAdapter joint_controlTableAdapter;
         private System.Windows.Forms.BindingSource inspectorBindingSource1;
         private DataSourcesTableAdapters.inspectorTableAdapter inspectorTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastname;
         private System.Windows.Forms.DataGridViewTextBoxColumn shift;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn saltDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordhashDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_coordinator;
+        private System.Windows.Forms.DataGridViewTextBoxColumn username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unavailable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn department;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn password_hash;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
     }
 }

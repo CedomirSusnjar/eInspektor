@@ -14,37 +14,56 @@ namespace eInspektor
     public partial class Subjects : Form
     {
         private DatabaseModel db;
+        private bool hasChanges;
         public StartForm startForm { get; set; }
         public Subjects()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            hasChanges = false;
         }
 
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Izmjene nisu sačuvane. Želite li ih sačuvati prije nego što napustite rad sa subjektima?", "Subjekti", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK) {
-                //sacuvaj
-                Close();
-                startForm.Show();
-            }
-          
+            this.Close();
         }
 
         private void Subjects_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSources1.company' table. You can move, or remove it, as needed.
             this.companyTableAdapter1.Fill(this.dataSources1.company);
-       
+            dataGridView1.DataSource = this.dataSources1.company;
             db = new DatabaseModel();
-            var allCompanies = (from c in db.companies select c).ToList();
-            dataGridView1.DataSource = allCompanies;
         }
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        protected override async void OnFormClosing(FormClosingEventArgs e)
         {
-            base.OnFormClosing(e);
             if (e.CloseReason == CloseReason.UserClosing)
-                startForm.Show();
+            {
+                if (this.hasChanges)
+                {
+                    DialogResult result = MessageBox.Show("Izmjene nisu sačuvane. Želite li ih sačuvati prije nego što napustite rad sa firmama?", "Firme", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes || result == DialogResult.No)
+                    {
+                        if (result == DialogResult.Yes)
+                        {
+                            //Save changes
+                            sačuvajToolStripMenuItem_Click(null, e);
+                        }
+                        await Task.Delay(100);      //Doesn't work othervise
+                        base.OnFormClosing(e);
+                        this.Close();
+                        startForm.Show();
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    //There has been no modifications to table
+                    base.OnFormClosing(e);
+                    startForm.Show();
+                }
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -54,64 +73,59 @@ namespace eInspektor
 
         private void ukloniToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabranog subjekta?", "Brisanje subjekta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Niste odabrali nijednu firmu.");
+                return;
+            }
 
-            if (result == DialogResult.OK) {
-                foreach (var cell in dataGridView1.SelectedCells)
+            DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabrane firme?", "Brisanje firmi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int selIndex = dataGridView1.SelectedRows[0].Index;
+                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
                 {
                     int id = 0;
                     try
                     {
-                        id = (int)dataGridView1.CurrentCell.OwningRow.Cells[0].Value;
+                        id = (int)dataGridView1.SelectedRows[i].Cells[0].Value;
                     }
                     catch (NullReferenceException)
                     {
+                        //the row is already deleted
                         continue;
                     }
 
-                    company c = db.companies.Find(id);
-                    if (c == null)
+                    company v = db.companies.Find(id);
+                    if (v != null)
                     {
-                        continue;
+                        db.companies.Remove(v);
                     }
-                    db.companies.Remove(c);
                 }
                 db.SaveChanges();
                 Subjects_Load(sender, e);
+                if (selIndex != 0 && selIndex < dataGridView1.Rows.Count)
+                {
+                    dataGridView1.Rows[selIndex - 1].Selected = true;
+                }
             }
-           
         }
 
         private void sačuvajToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            db.SaveChanges();
-        }
-
-        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            company c = new company();
-            c.bookkeeper = "New";
-            c.jib = 0;
-            c.name = "New";
-            c.owner = "New";
-            c.isActive = 1;
-            c.location = "New";
-        
-            db.companies.Add(c);
-            db.SaveChanges();
-            Subjects_Load(sender, e);
+            this.companyTableAdapter1.Update(this.dataSources1.company);
+            this.hasChanges = false;
         }
 
         private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            e.Row.Cells["Naziv"].Value = "Naziv";
-            e.Row.Cells["jib"].Value = "0000";
-            e.Row.Cells["Adresa"].Value = "Adresa";
-            e.Row.Cells["Vlasnik"].Value = "Vlasnik";
-            e.Row.Cells["Knjigovođa"].Value = "Knjigovođa";
-
-
-
+            e.Row.Cells["is_active"].Value = 1;
         }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            this.hasChanges = true;
+        }
+
     }
 }

@@ -72,6 +72,7 @@ namespace eInspektor
         private void sačuvajToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.vehicleTableAdapter2.Update(this.dataSources.vehicle);
+            this.hasChanges = false;
         }
 
 

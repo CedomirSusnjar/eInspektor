@@ -14,94 +14,118 @@ namespace eInspektor
     public partial class InspectorView : Form
     {
         private DatabaseModel db;
+        private bool hasChanges;
         public StartForm startForm { get; set; }
         public InspectorView()
         {
             InitializeComponent();
+            hasChanges = false;
         }
         
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Izmjene nisu sačuvane. Želite li ih sačuvati prije nego što napustite rad sa inspektorima?","Inspektori", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK) {
-                //sacuvaj
-                this.Close();
-                startForm.Show();
-            }
-           
+            this.Close();
         }
 
         private void InspectorView_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSources.inspector' table. You can move, or remove it, as needed.
             this.inspectorTableAdapter.Fill(this.dataSources.inspector);
-            // TODO: This line of code loads data into the 'dataSources.joint_control' table. You can move, or remove it, as needed.
-            this.joint_controlTableAdapter.Fill(this.dataSources.joint_control);
+            this.dataGridView1.DataSource = this.dataSources.inspector;
             db = new DatabaseModel();
-            var allInspectors = (from i in db.inspectors select i).ToList();
-            dataGridView1.DataSource = allInspectors;
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        protected override async void OnFormClosing(FormClosingEventArgs e)
         {
-            base.OnFormClosing(e);
             if (e.CloseReason == CloseReason.UserClosing)
-                startForm.Show();
+            {
+                if (this.hasChanges)
+                {
+                    DialogResult result = MessageBox.Show("Izmjene nisu sačuvane. Želite li ih sačuvati prije nego što napustite rad sa nalozima?", "Nalozi", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes || result == DialogResult.No)
+                    {
+                        if (result == DialogResult.Yes)
+                        {
+                            //Save changes
+                            sačuvajToolStripMenuItem_Click(null, e);
+                        }
+                        await Task.Delay(100);      //Doesn't work othervise
+                        base.OnFormClosing(e);
+                        this.Close();
+                        startForm.Show();
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    //There has been no modifications to table
+                    base.OnFormClosing(e);
+                    startForm.Show();
+                }
+            }
         }
 
         private void sačuvajToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            db.SaveChanges();
-        }
-
-        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            inspector i = new inspector();
-            i.first_name = "New";
-            i.last_name = "New";
-            i.salt = "salt";
-            i.password_hash = "123";
-            i.shift = 0;
-            i.unavailable = 0;
-
-            Random r = new Random();
-            i.username = "New" + r.Next(0,100);
-            i.is_coordinator = 0;
-            i.department = "Inspektori";
-            // TODO: Password hash
-
-            db.inspectors.Add(i);
-            db.SaveChanges();
-            InspectorView_Load(sender, e);
+            this.inspectorTableAdapter.Update(this.dataSources.inspector);
+            this.hasChanges = false;
         }
 
         private void obrišiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Da li ste sigurni da zelite obrisati odabranog inspektora?", "Brisanje inspektora", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK) {
-                foreach (var cell in dataGridView1.SelectedCells)
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Niste odabrali nijedan nalog.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabrane naloge?", "Brisanje naloga", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int selIndex = dataGridView1.SelectedRows[0].Index;
+                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
                 {
                     int id = 0;
                     try
                     {
-                        id = (int)dataGridView1.CurrentCell.OwningRow.Cells[0].Value;
+                        id = (int)dataGridView1.SelectedRows[i].Cells[0].Value;
                     }
                     catch (NullReferenceException)
                     {
+                        //the row is already deleted
                         continue;
                     }
 
-                    inspector i = db.inspectors.Find(id);
-                    if (i == null)
+                    inspector ins = db.inspectors.Find(id);
+                    if (ins != null)
                     {
-                        continue;
+                        db.inspectors.Remove(ins);
                     }
-                    db.inspectors.Remove(i);
                 }
                 db.SaveChanges();
                 InspectorView_Load(sender, e);
+                if (selIndex != 0 && selIndex < dataGridView1.Rows.Count)
+                {
+                    dataGridView1.Rows[selIndex - 1].Selected = true;
+                }
             }
-           
+
+        }
+
+        private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            e.Row.Cells["is_active"].Value = 1;
+            e.Row.Cells["is_coordinator"].Value = 1;
+            e.Row.Cells["salt"].Value = "salt";         //TODO make this random
+            e.Row.Cells["password_hash"].Value = "123"; //TODO make this meaningful
+
+        }
+
+        private void vehicleGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            this.hasChanges = true;
         }
     }
 }

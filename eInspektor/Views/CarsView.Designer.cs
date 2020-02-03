@@ -149,27 +149,27 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(66, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(66, 26);
             this.toolStripMenuItem1.Text = "Nazad";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(78, 24);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(78, 26);
             this.toolStripMenuItem2.Text = "Štampaj";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(73, 24);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(73, 26);
             this.toolStripMenuItem3.Text = "Sačuvaj";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(62, 24);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(62, 26);
             this.toolStripMenuItem5.Text = "Obriši";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
