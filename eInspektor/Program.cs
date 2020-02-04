@@ -8,7 +8,8 @@ namespace eInspektor
 {
     static class Program
     {
-      
+
+        [STAThread]
         static void Main()
         {
             Application.SetCompatibleTextRenderingDefault(false);

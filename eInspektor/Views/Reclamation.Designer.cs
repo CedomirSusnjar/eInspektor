@@ -35,24 +35,28 @@
             this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSources1 = new eInspektor.DataSources();
             this.complaintBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSources1 = new eInspektor.DataSources();
+            this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.complaintTableAdapter1 = new eInspektor.DataSourcesTableAdapters.complaintTableAdapter();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issuer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_justified = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.control_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_resolved = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company_name_column = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSources1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSources1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -65,7 +69,7 @@
             this.obrišiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(930, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -99,125 +103,148 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17});
+            this.id,
+            this.company_id,
+            this.text,
+            this.issuer,
+            this.is_justified,
+            this.date,
+            this.control_id,
+            this.is_resolved,
+            this.is_active,
+            this.company_name_column});
             this.dataGridView1.DataSource = this.complaintBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(0, 31);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 416);
+            this.dataGridView1.Size = new System.Drawing.Size(930, 416);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // complaintBindingSource1
-            // 
-            this.complaintBindingSource1.DataMember = "complaint";
-            // 
-            // dataSources1
-            // 
-            this.dataSources1.DataSetName = "DataSources";
-            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
             // 
             // complaintBindingSource
             // 
             this.complaintBindingSource.DataMember = "complaint";
             this.complaintBindingSource.DataSource = this.dataSources1;
             // 
+            // dataSources1
+            // 
+            this.dataSources1.DataSetName = "DataSources";
+            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // complaintBindingSource1
+            // 
+            this.complaintBindingSource1.DataMember = "complaint";
+            // 
             // complaintTableAdapter1
             // 
             this.complaintTableAdapter1.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn9
+            // companyBindingSource
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn9.HeaderText = "id";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Visible = false;
-            this.dataGridViewTextBoxColumn9.Width = 125;
+            this.companyBindingSource.DataMember = "company";
+            this.companyBindingSource.DataSource = this.dataSources1;
             // 
-            // dataGridViewTextBoxColumn10
+            // companyTableAdapter
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "company_id";
-            this.dataGridViewTextBoxColumn10.HeaderText = "company_id";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 125;
+            this.companyTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn11
+            // id
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "text";
-            this.dataGridViewTextBoxColumn11.HeaderText = "text";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 125;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 125;
             // 
-            // dataGridViewTextBoxColumn12
+            // company_id
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "issuer";
-            this.dataGridViewTextBoxColumn12.HeaderText = "issuer";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 125;
+            this.company_id.DataPropertyName = "company_id";
+            this.company_id.HeaderText = "company_id";
+            this.company_id.MinimumWidth = 6;
+            this.company_id.Name = "company_id";
+            this.company_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.company_id.Width = 125;
             // 
-            // dataGridViewTextBoxColumn13
+            // text
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "is_justified";
-            this.dataGridViewTextBoxColumn13.HeaderText = "is_justified";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 125;
+            this.text.DataPropertyName = "text";
+            this.text.HeaderText = "Sadržaj";
+            this.text.MinimumWidth = 6;
+            this.text.Name = "text";
+            this.text.Width = 125;
             // 
-            // dataGridViewTextBoxColumn14
+            // issuer
             // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "date";
-            this.dataGridViewTextBoxColumn14.HeaderText = "date";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 125;
+            this.issuer.DataPropertyName = "issuer";
+            this.issuer.HeaderText = "Podnosilac";
+            this.issuer.MinimumWidth = 6;
+            this.issuer.Name = "issuer";
+            this.issuer.Width = 125;
             // 
-            // dataGridViewTextBoxColumn15
+            // is_justified
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "control_id";
-            this.dataGridViewTextBoxColumn15.HeaderText = "control_id";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.Width = 125;
+            this.is_justified.DataPropertyName = "is_justified";
+            this.is_justified.HeaderText = "Opravdana";
+            this.is_justified.MinimumWidth = 6;
+            this.is_justified.Name = "is_justified";
+            this.is_justified.Width = 125;
             // 
-            // dataGridViewTextBoxColumn16
+            // date
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "is_resolved";
-            this.dataGridViewTextBoxColumn16.HeaderText = "is_resolved";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Width = 125;
+            this.date.DataPropertyName = "date";
+            this.date.HeaderText = "Datum";
+            this.date.MinimumWidth = 6;
+            this.date.Name = "date";
+            this.date.Width = 125;
             // 
-            // dataGridViewTextBoxColumn17
+            // control_id
             // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "isActive";
-            this.dataGridViewTextBoxColumn17.HeaderText = "isActive";
-            this.dataGridViewTextBoxColumn17.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.Width = 125;
+            this.control_id.DataPropertyName = "control_id";
+            this.control_id.HeaderText = "control_id";
+            this.control_id.MinimumWidth = 6;
+            this.control_id.Name = "control_id";
+            this.control_id.Visible = false;
+            this.control_id.Width = 125;
+            // 
+            // is_resolved
+            // 
+            this.is_resolved.DataPropertyName = "is_resolved";
+            this.is_resolved.HeaderText = "Riješena";
+            this.is_resolved.MinimumWidth = 6;
+            this.is_resolved.Name = "is_resolved";
+            this.is_resolved.Width = 125;
+            // 
+            // is_active
+            // 
+            this.is_active.DataPropertyName = "isActive";
+            this.is_active.HeaderText = "isActive";
+            this.is_active.MinimumWidth = 6;
+            this.is_active.Name = "is_active";
+            this.is_active.Visible = false;
+            this.is_active.Width = 125;
+            // 
+            // company_name_column
+            // 
+            this.company_name_column.HeaderText = "Ime firme";
+            this.company_name_column.MinimumWidth = 6;
+            this.company_name_column.Name = "company_name_column";
+            this.company_name_column.Width = 125;
             // 
             // Reclamation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(930, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -228,9 +255,10 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSources1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSources1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,37 +272,21 @@
         private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem obrišiToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn companyidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn textDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn issuerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isjustifiedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn controlidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isresolvedDataGridViewTextBoxColumn;
-        private DataSources dataSources;
         private System.Windows.Forms.BindingSource complaintBindingSource1;
-        private DataSourcesTableAdapters.complaintTableAdapter complaintTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn;
         private DataSources dataSources1;
         private System.Windows.Forms.BindingSource complaintBindingSource;
         private DataSourcesTableAdapters.complaintTableAdapter complaintTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.BindingSource companyBindingSource;
+        private DataSourcesTableAdapters.companyTableAdapter companyTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn company_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn text;
+        private System.Windows.Forms.DataGridViewTextBoxColumn issuer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_justified;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn control_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_resolved;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
+        private System.Windows.Forms.DataGridViewComboBoxColumn company_name_column;
     }
 }
