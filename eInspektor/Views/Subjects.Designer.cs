@@ -33,19 +33,25 @@
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataSources1 = new eInspektor.DataSources();
+            this.companyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.companyTableAdapter1 = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jibDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jib = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookkeeperDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateLastCtrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookkeeper = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_control_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ukloniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSources1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -53,7 +59,6 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nazadToolStripMenuItem,
-            this.dodajToolStripMenuItem,
             this.sačuvajToolStripMenuItem,
             this.ukloniToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -74,13 +79,15 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
+            this.id,
             this.name,
-            this.jibDataGridViewTextBoxColumn,
             this.address,
+            this.jib,
             this.owner,
-            this.bookkeeperDataGridViewTextBoxColumn,
-            this.dateLastCtrl});
+            this.dateLastCtrl,
+            this.bookkeeper,
+            this.last_control_type,
+            this.is_active});
             this.dataGridView1.DataSource = this.companyBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
@@ -90,19 +97,35 @@
             this.dataGridView1.Size = new System.Drawing.Size(1117, 422);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
             // 
             // companyBindingSource
             // 
-            this.companyBindingSource.DataSource = typeof(eInspektor.company);
+            this.companyBindingSource.DataMember = "company";
+            this.companyBindingSource.DataSource = this.dataSources1;
             // 
-            // idDataGridViewTextBoxColumn
+            // dataSources1
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 125;
+            this.dataSources1.DataSetName = "DataSources";
+            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // companyBindingSource1
+            // 
+            this.companyBindingSource1.DataMember = "company";
+            // 
+            // companyTableAdapter1
+            // 
+            this.companyTableAdapter1.ClearBeforeFill = true;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 125;
             // 
             // name
             // 
@@ -112,20 +135,21 @@
             this.name.Name = "name";
             this.name.Width = 150;
             // 
-            // jibDataGridViewTextBoxColumn
-            // 
-            this.jibDataGridViewTextBoxColumn.DataPropertyName = "jib";
-            this.jibDataGridViewTextBoxColumn.HeaderText = "jib";
-            this.jibDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.jibDataGridViewTextBoxColumn.Name = "jibDataGridViewTextBoxColumn";
-            this.jibDataGridViewTextBoxColumn.Width = 125;
-            // 
             // address
             // 
+            this.address.DataPropertyName = "location";
             this.address.HeaderText = "Adresa";
             this.address.MinimumWidth = 6;
             this.address.Name = "address";
             this.address.Width = 150;
+            // 
+            // jib
+            // 
+            this.jib.DataPropertyName = "jib";
+            this.jib.HeaderText = "JIB";
+            this.jib.MinimumWidth = 6;
+            this.jib.Name = "jib";
+            this.jib.Width = 125;
             // 
             // owner
             // 
@@ -135,14 +159,6 @@
             this.owner.Name = "owner";
             this.owner.Width = 150;
             // 
-            // bookkeeperDataGridViewTextBoxColumn
-            // 
-            this.bookkeeperDataGridViewTextBoxColumn.DataPropertyName = "bookkeeper";
-            this.bookkeeperDataGridViewTextBoxColumn.HeaderText = "Knjigovođa";
-            this.bookkeeperDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.bookkeeperDataGridViewTextBoxColumn.Name = "bookkeeperDataGridViewTextBoxColumn";
-            this.bookkeeperDataGridViewTextBoxColumn.Width = 125;
-            // 
             // dateLastCtrl
             // 
             this.dateLastCtrl.DataPropertyName = "last_control";
@@ -150,6 +166,32 @@
             this.dateLastCtrl.MinimumWidth = 6;
             this.dateLastCtrl.Name = "dateLastCtrl";
             this.dateLastCtrl.Width = 200;
+            // 
+            // bookkeeper
+            // 
+            this.bookkeeper.DataPropertyName = "bookkeeper";
+            this.bookkeeper.HeaderText = "Knjigovođa";
+            this.bookkeeper.MinimumWidth = 6;
+            this.bookkeeper.Name = "bookkeeper";
+            this.bookkeeper.Width = 125;
+            // 
+            // last_control_type
+            // 
+            this.last_control_type.DataPropertyName = "last_control_type";
+            this.last_control_type.HeaderText = "last_control_type";
+            this.last_control_type.MinimumWidth = 6;
+            this.last_control_type.Name = "last_control_type";
+            this.last_control_type.Visible = false;
+            this.last_control_type.Width = 125;
+            // 
+            // is_active
+            // 
+            this.is_active.DataPropertyName = "isActive";
+            this.is_active.HeaderText = "isActive";
+            this.is_active.MinimumWidth = 6;
+            this.is_active.Name = "is_active";
+            this.is_active.Visible = false;
+            this.is_active.Width = 125;
             // 
             // sačuvajToolStripMenuItem
             // 
@@ -164,13 +206,6 @@
             this.ukloniToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.ukloniToolStripMenuItem.Text = "Obriši";
             this.ukloniToolStripMenuItem.Click += new System.EventHandler(this.ukloniToolStripMenuItem_Click);
-            // 
-            // dodajToolStripMenuItem
-            // 
-            this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.dodajToolStripMenuItem.Text = "Dodaj";
-            this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
             // 
             // Subjects
             // 
@@ -188,6 +223,8 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSources1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,16 +235,20 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem nazadToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource companyBindingSource1;
+        private DataSources dataSources1;
         private System.Windows.Forms.BindingSource companyBindingSource;
+        private DataSourcesTableAdapters.companyTableAdapter companyTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jib;
+        private System.Windows.Forms.DataGridViewTextBoxColumn owner;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateLastCtrl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookkeeper;
+        private System.Windows.Forms.DataGridViewTextBoxColumn last_control_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
         private System.Windows.Forms.ToolStripMenuItem sačuvajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ukloniToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jibDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn owner;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookkeeperDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateLastCtrl;
-        private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
     }
 }

@@ -1,4 +1,4 @@
-namespace eInspektor
+namespace eInspektor.Model
 {
     using System;
     using System.Data.Entity;
@@ -8,7 +8,7 @@ namespace eInspektor
     public partial class DatabaseModel : DbContext
     {
         public DatabaseModel()
-            : base("name=Model1")
+            : base("name=DatabaseModel1")
         {
         }
 
@@ -30,6 +30,10 @@ namespace eInspektor
 
             modelBuilder.Entity<company>()
                 .Property(e => e.name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<company>()
+                .Property(e => e.location)
                 .IsUnicode(false);
 
             modelBuilder.Entity<company>()
@@ -68,6 +72,10 @@ namespace eInspektor
 
             modelBuilder.Entity<complaint>()
                 .Property(e => e.issuer)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<control>()
+                .Property(e => e.report_content)
                 .IsUnicode(false);
 
             modelBuilder.Entity<control>()
@@ -141,6 +149,10 @@ namespace eInspektor
 
             modelBuilder.Entity<vehicle>()
                 .Property(e => e.tag)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<vehicle>()
+                .Property(e => e.name)
                 .IsUnicode(false);
 
             modelBuilder.Entity<vehicle>()

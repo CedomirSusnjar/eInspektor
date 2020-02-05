@@ -261,3 +261,5 @@ paket-files/
 __pycache__/
 *.pyc
 eInspektor/eInspektor.csproj
+eInspektor/Database/is-proj-0.2.mwb.bak
+eInspektor/Database/is-proj-0.3.mwb.bak

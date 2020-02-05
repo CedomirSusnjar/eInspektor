@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`COMPANY` (
   `bookkeeper` VARCHAR(255) NULL,
   `last_control` DATE NULL,
   `last_control_type` VARCHAR(255) NULL,
+  `isActive` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `idCOMPANY_UNIQUE` (`id` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -50,6 +51,7 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`INSPECTOR` (
   `username` VARCHAR(45) NOT NULL,
   `salt` VARCHAR(45) NOT NULL,
   `password_hash` VARCHAR(255) NOT NULL,
+  `isActive` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -65,6 +67,8 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`VEHICLE` (
   `registration_num` VARCHAR(45) NOT NULL,
   `max_capacity` INT NOT NULL DEFAULT 99,
   `tag` VARCHAR(45) NULL,
+  `isActive` TINYINT NOT NULL DEFAULT 1,
+  `name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -97,7 +101,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `is-proj`.`CONTROL` ;
 
 CREATE TABLE IF NOT EXISTS `is-proj`.`CONTROL` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `company_id` INT NOT NULL,
   `start_date` DATE NOT NULL,
   `finish_date` DATE NULL,
@@ -105,6 +109,7 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`CONTROL` (
   `is_regular` TINYINT NOT NULL,
   `report_content` TEXT NULL,
   `control_justified` TINYINT NULL,
+  `isActive` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_COMPANY_has_INSPECTOR_COMPANY1_idx` (`company_id` ASC) VISIBLE,
   CONSTRAINT `fk_COMPANY_has_INSPECTOR_COMPANY1`
@@ -159,6 +164,7 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`LAB_SAMPLE` (
   `inspector_id` INT NOT NULL,
   `date` DATE NOT NULL,
   `description` TEXT NOT NULL,
+  `isActive` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_LAB_SAMPLE_COMPANY1_idx` (`company_id` ASC) VISIBLE,
   INDEX `fk_LAB_SAMPLE_INSPECTOR1_idx` (`inspector_id` ASC) VISIBLE,
@@ -189,6 +195,7 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`COMPLAINT` (
   `date` DATE NOT NULL,
   `control_id` INT NULL,
   `is_resolved` TINYINT NULL,
+  `isActive` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_COMPLAINT_COMPANY1_idx` (`company_id` ASC) VISIBLE,
   INDEX `fk_COMPLAINT_CONTROL1_idx` (`control_id` ASC) VISIBLE,

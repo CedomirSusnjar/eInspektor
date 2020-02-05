@@ -1,4 +1,4 @@
-namespace eInspektor
+namespace eInspektor.Model
 {
     using System;
     using System.Collections.Generic;
@@ -6,22 +6,33 @@ namespace eInspektor
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("is-proj.department")]
-    public partial class department
+    [Table("is-proj.vehicle")]
+    public partial class vehicle
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public department()
+        public vehicle()
         {
-            controls = new HashSet<control>();
+            vehicle_responsibility = new HashSet<vehicle_responsibility>();
         }
 
         public int id { get; set; }
+
+        [Required]
+        [StringLength(45)]
+        public string registration_num { get; set; }
+
+        public int max_capacity { get; set; }
+
+        [StringLength(45)]
+        public string tag { get; set; }
+
+        public sbyte isActive { get; set; }
 
         [Required]
         [StringLength(255)]
         public string name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<control> controls { get; set; }
+        public virtual ICollection<vehicle_responsibility> vehicle_responsibility { get; set; }
     }
 }

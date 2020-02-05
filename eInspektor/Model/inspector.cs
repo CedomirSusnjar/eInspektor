@@ -1,4 +1,4 @@
-namespace eInspektor
+namespace eInspektor.Model
 {
     using System;
     using System.Collections.Generic;
@@ -49,6 +49,8 @@ namespace eInspektor
         [Required]
         [StringLength(255)]
         public string password_hash { get; set; }
+
+        public sbyte isActive { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<absence> absences { get; set; }
