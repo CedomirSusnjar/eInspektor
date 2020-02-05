@@ -566,9 +566,9 @@ namespace eInspektor
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-for(int j=0;j<15;j++){
+            for(int j=0;j<15;j++){
 
-            for(int i=0;i<5;i++){
+                for(int i=0;i<5;i++){
                 
              // 
             // textBox4
