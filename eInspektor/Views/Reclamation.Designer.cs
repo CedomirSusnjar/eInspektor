@@ -45,10 +45,10 @@
             this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issuer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_justified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_justified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.is_resolved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.control_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_resolved = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -74,21 +74,21 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // sačuvajToolStripMenuItem
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
             // 
             // obrišiToolStripMenuItem
             // 
             this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
-            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
@@ -105,10 +105,10 @@
             this.company_id,
             this.text,
             this.issuer,
-            this.is_justified,
             this.date,
-            this.control_id,
+            this.is_justified,
             this.is_resolved,
+            this.control_id,
             this.is_active});
             this.dataGridView1.DataSource = this.complaintBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(0, 31);
@@ -170,6 +170,7 @@
             this.company_id.MinimumWidth = 6;
             this.company_id.Name = "company_id";
             this.company_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.company_id.Visible = false;
             this.company_id.Width = 125;
             // 
             // text
@@ -188,14 +189,6 @@
             this.issuer.Name = "issuer";
             this.issuer.Width = 125;
             // 
-            // is_justified
-            // 
-            this.is_justified.DataPropertyName = "is_justified";
-            this.is_justified.HeaderText = "Opravdana";
-            this.is_justified.MinimumWidth = 6;
-            this.is_justified.Name = "is_justified";
-            this.is_justified.Width = 125;
-            // 
             // date
             // 
             this.date.DataPropertyName = "date";
@@ -203,6 +196,26 @@
             this.date.MinimumWidth = 6;
             this.date.Name = "date";
             this.date.Width = 125;
+            // 
+            // is_justified
+            // 
+            this.is_justified.DataPropertyName = "is_justified";
+            this.is_justified.HeaderText = "Opravdana";
+            this.is_justified.MinimumWidth = 6;
+            this.is_justified.Name = "is_justified";
+            this.is_justified.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.is_justified.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.is_justified.Width = 85;
+            // 
+            // is_resolved
+            // 
+            this.is_resolved.DataPropertyName = "is_resolved";
+            this.is_resolved.HeaderText = "Riješena";
+            this.is_resolved.MinimumWidth = 6;
+            this.is_resolved.Name = "is_resolved";
+            this.is_resolved.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.is_resolved.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.is_resolved.Width = 75;
             // 
             // control_id
             // 
@@ -212,14 +225,6 @@
             this.control_id.Name = "control_id";
             this.control_id.Visible = false;
             this.control_id.Width = 125;
-            // 
-            // is_resolved
-            // 
-            this.is_resolved.DataPropertyName = "is_resolved";
-            this.is_resolved.HeaderText = "Riješena";
-            this.is_resolved.MinimumWidth = 6;
-            this.is_resolved.Name = "is_resolved";
-            this.is_resolved.Width = 125;
             // 
             // is_active
             // 
@@ -272,10 +277,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn company_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn text;
         private System.Windows.Forms.DataGridViewTextBoxColumn issuer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn is_justified;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn is_justified;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn is_resolved;
         private System.Windows.Forms.DataGridViewTextBoxColumn control_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn is_resolved;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
     }
 }

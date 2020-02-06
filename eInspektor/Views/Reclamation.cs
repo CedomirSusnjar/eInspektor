@@ -103,7 +103,6 @@ namespace eInspektor
             for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)      //It doesn't need to fill new row
             {
                 string compName = (string)dataGridView1.Rows[i].Cells["company_name_column"].Value;
-                Console.WriteLine(compName);
                 dataGridView1.Rows[i].Cells["company_id"].Value = companyNamesId[compName];
             }
 
