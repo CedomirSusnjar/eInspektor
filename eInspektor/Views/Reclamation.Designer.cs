@@ -32,7 +32,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.complaintBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -42,15 +41,15 @@
             this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company_name_column = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issuer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_justified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_justified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.is_resolved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.control_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_resolved = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company_name_column = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).BeginInit();
@@ -65,7 +64,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nazadToolStripMenuItem,
             this.sačuvajToolStripMenuItem,
-            this.dodajToolStripMenuItem,
             this.obrišiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -87,13 +85,6 @@
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
             // 
-            // dodajToolStripMenuItem
-            // 
-            this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.dodajToolStripMenuItem.Text = "Dodaj";
-            this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
-            // 
             // obrišiToolStripMenuItem
             // 
             this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
@@ -103,7 +94,6 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -111,15 +101,15 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.company_name_column,
             this.company_id,
             this.text,
             this.issuer,
-            this.is_justified,
             this.date,
-            this.control_id,
+            this.is_justified,
             this.is_resolved,
-            this.is_active,
-            this.company_name_column});
+            this.control_id,
+            this.is_active});
             this.dataGridView1.DataSource = this.complaintBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(0, 31);
             this.dataGridView1.Name = "dataGridView1";
@@ -166,6 +156,13 @@
             this.id.Visible = false;
             this.id.Width = 125;
             // 
+            // company_name_column
+            // 
+            this.company_name_column.HeaderText = "Ime firme";
+            this.company_name_column.MinimumWidth = 6;
+            this.company_name_column.Name = "company_name_column";
+            this.company_name_column.Width = 125;
+            // 
             // company_id
             // 
             this.company_id.DataPropertyName = "company_id";
@@ -173,6 +170,7 @@
             this.company_id.MinimumWidth = 6;
             this.company_id.Name = "company_id";
             this.company_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.company_id.Visible = false;
             this.company_id.Width = 125;
             // 
             // text
@@ -191,14 +189,6 @@
             this.issuer.Name = "issuer";
             this.issuer.Width = 125;
             // 
-            // is_justified
-            // 
-            this.is_justified.DataPropertyName = "is_justified";
-            this.is_justified.HeaderText = "Opravdana";
-            this.is_justified.MinimumWidth = 6;
-            this.is_justified.Name = "is_justified";
-            this.is_justified.Width = 125;
-            // 
             // date
             // 
             this.date.DataPropertyName = "date";
@@ -206,6 +196,26 @@
             this.date.MinimumWidth = 6;
             this.date.Name = "date";
             this.date.Width = 125;
+            // 
+            // is_justified
+            // 
+            this.is_justified.DataPropertyName = "is_justified";
+            this.is_justified.HeaderText = "Opravdana";
+            this.is_justified.MinimumWidth = 6;
+            this.is_justified.Name = "is_justified";
+            this.is_justified.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.is_justified.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.is_justified.Width = 85;
+            // 
+            // is_resolved
+            // 
+            this.is_resolved.DataPropertyName = "is_resolved";
+            this.is_resolved.HeaderText = "Riješena";
+            this.is_resolved.MinimumWidth = 6;
+            this.is_resolved.Name = "is_resolved";
+            this.is_resolved.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.is_resolved.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.is_resolved.Width = 75;
             // 
             // control_id
             // 
@@ -216,14 +226,6 @@
             this.control_id.Visible = false;
             this.control_id.Width = 125;
             // 
-            // is_resolved
-            // 
-            this.is_resolved.DataPropertyName = "is_resolved";
-            this.is_resolved.HeaderText = "Riješena";
-            this.is_resolved.MinimumWidth = 6;
-            this.is_resolved.Name = "is_resolved";
-            this.is_resolved.Width = 125;
-            // 
             // is_active
             // 
             this.is_active.DataPropertyName = "isActive";
@@ -232,13 +234,6 @@
             this.is_active.Name = "is_active";
             this.is_active.Visible = false;
             this.is_active.Width = 125;
-            // 
-            // company_name_column
-            // 
-            this.company_name_column.HeaderText = "Ime firme";
-            this.company_name_column.MinimumWidth = 6;
-            this.company_name_column.Name = "company_name_column";
-            this.company_name_column.Width = 125;
             // 
             // Reclamation
             // 
@@ -269,7 +264,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem nazadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sačuvajToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem obrišiToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource complaintBindingSource1;
@@ -279,14 +273,14 @@
         private System.Windows.Forms.BindingSource companyBindingSource;
         private DataSourcesTableAdapters.companyTableAdapter companyTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewComboBoxColumn company_name_column;
         private System.Windows.Forms.DataGridViewTextBoxColumn company_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn text;
         private System.Windows.Forms.DataGridViewTextBoxColumn issuer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn is_justified;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn is_justified;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn is_resolved;
         private System.Windows.Forms.DataGridViewTextBoxColumn control_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn is_resolved;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
-        private System.Windows.Forms.DataGridViewComboBoxColumn company_name_column;
     }
 }

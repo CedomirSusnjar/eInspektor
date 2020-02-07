@@ -16,7 +16,7 @@ insert into control values (null, 1, '2020-1-15', '2020-1-15', 1, 1, 'Nema nereg
 insert into control values (null, 1, '2020-1-15', null, 0, 1, null, null, 1);
 insert into control values (null, 2, '2020-1-15', null, 0, 1, null, null, 1);
 
-
-
+insert into control values (null, 2, '2020-1-15', '2020-1-15', 1, 1, 'Nema vecih neregularnosti.', 0, 1);
+insert into control values (null, 1, '2020-1-15', '2020-1-15', 1, 1, 'Nema nikakvih neregularnosti.', 0, 1);
 
 

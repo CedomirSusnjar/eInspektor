@@ -15,6 +15,9 @@ namespace eInspektor
     {
         private DatabaseModel db;
         private bool hasChanges;
+        private Dictionary<int, string> companyIdNames;
+        private List<string> companyNames;
+        private Dictionary<string, int> companyNamesId;    
         public StartForm startForm { get; set; }
         public Reclamation()
         {
@@ -42,19 +45,18 @@ namespace eInspektor
                             name = com.name
                         };
 
-            var companyIdNames = new Dictionary<int, string>();
-            var companyNames = new List<string>();
-            foreach(dynamic item in query)
+            companyIdNames = new Dictionary<int, string>();
+            companyNames = new List<string>();
+            companyNamesId = new Dictionary<string, int>();
+            foreach (dynamic item in query)
             {
                 companyIdNames.Add(item.id, item.name);
-            }
-            foreach (var item in companyIdNames)
-            {
-                companyNames.Add(item.Value);
+                companyNamesId.Add(item.name, item.id);
+                companyNames.Add(item.name);
             }
             this.company_name_column.DataSource = companyNames;
 
-            for(int i = 0; i < dataGridView1.Rows.Count; i++)
+            for(int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
                 int compId = (int)dataGridView1.Rows[i].Cells["company_id"].Value;
                 dataGridView1.Rows[i].Cells["company_name_column"].Value = companyIdNames[compId];
@@ -96,24 +98,16 @@ namespace eInspektor
 
         private void sačuvajToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO check if company exists or disable changes on that column
+            // update subjects name column
+            //TODO company name should be unique (in database)
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)      //It doesn't need to fill new row
+            {
+                string compName = (string)dataGridView1.Rows[i].Cells["company_name_column"].Value;
+                dataGridView1.Rows[i].Cells["company_id"].Value = companyNamesId[compName];
+            }
+
             this.complaintTableAdapter1.Update(this.dataSources1.complaint);
             this.hasChanges = false;
-        }
-
-        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //TODO open new window with apropriate input form
-            complaint c = new complaint();
-            c.date = DateTime.Now;
-            c.text = "Nova žalba";
-            c.company_id = 1;
-            c.is_resolved = 0;
-            //TODO company id set 
-
-            db.complaints.Add(c);
-            db.SaveChanges();
-            Reclamation_Load(sender, e);
         }
 
         private void obrišiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -158,8 +152,10 @@ namespace eInspektor
 
         private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
+            e.Row.Cells["company_name_column"].Value = companyIdNames[1];
             e.Row.Cells["is_active"].Value = 1;
             e.Row.Cells["date"].Value = DateTime.Now;
+            e.Row.Cells["company_id"].Value = 1;
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
