@@ -106,6 +106,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Plan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Plan.resx">
       <DependentUpon>Plan.cs</DependentUpon>
