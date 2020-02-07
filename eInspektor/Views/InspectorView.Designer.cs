@@ -35,12 +35,6 @@
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.inspectorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSources = new eInspektor.DataSources();
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jointcontrolBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.joint_controlTableAdapter = new eInspektor.DataSourcesTableAdapters.joint_controlTableAdapter();
-            this.inspectorTableAdapter = new eInspektor.DataSourcesTableAdapters.inspectorTableAdapter();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +46,12 @@
             this.salt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.password_hash = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inspectorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSources = new eInspektor.DataSources();
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jointcontrolBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.joint_controlTableAdapter = new eInspektor.DataSourcesTableAdapters.joint_controlTableAdapter();
+            this.inspectorTableAdapter = new eInspektor.DataSourcesTableAdapters.inspectorTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource1)).BeginInit();
@@ -77,27 +77,27 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // štampajToolStripMenuItem
             // 
             this.štampajToolStripMenuItem.Name = "štampajToolStripMenuItem";
-            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
+            this.štampajToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.štampajToolStripMenuItem.Text = "Štampaj";
             // 
             // sačuvajToolStripMenuItem
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
             // 
             // obrišiToolStripMenuItem
             // 
             this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
-            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
@@ -127,29 +127,6 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehicleGridView_CellValueChanged);
             this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
-            // 
-            // inspectorBindingSource1
-            // 
-            this.inspectorBindingSource1.DataMember = "inspector";
-            this.inspectorBindingSource1.DataSource = this.dataSources;
-            // 
-            // dataSources
-            // 
-            this.dataSources.DataSetName = "DataSources";
-            this.dataSources.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // jointcontrolBindingSource
-            // 
-            this.jointcontrolBindingSource.DataMember = "joint_control";
-            this.jointcontrolBindingSource.DataSource = this.dataSources;
-            // 
-            // joint_controlTableAdapter
-            // 
-            this.joint_controlTableAdapter.ClearBeforeFill = true;
-            // 
-            // inspectorTableAdapter
-            // 
-            this.inspectorTableAdapter.ClearBeforeFill = true;
             // 
             // id
             // 
@@ -243,6 +220,29 @@
             this.is_active.Name = "is_active";
             this.is_active.Visible = false;
             this.is_active.Width = 125;
+            // 
+            // inspectorBindingSource1
+            // 
+            this.inspectorBindingSource1.DataMember = "inspector";
+            this.inspectorBindingSource1.DataSource = this.dataSources;
+            // 
+            // dataSources
+            // 
+            this.dataSources.DataSetName = "DataSources";
+            this.dataSources.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // jointcontrolBindingSource
+            // 
+            this.jointcontrolBindingSource.DataMember = "joint_control";
+            this.jointcontrolBindingSource.DataSource = this.dataSources;
+            // 
+            // joint_controlTableAdapter
+            // 
+            this.joint_controlTableAdapter.ClearBeforeFill = true;
+            // 
+            // inspectorTableAdapter
+            // 
+            this.inspectorTableAdapter.ClearBeforeFill = true;
             // 
             // InspectorView
             // 

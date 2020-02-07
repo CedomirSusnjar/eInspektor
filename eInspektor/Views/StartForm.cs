@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eInspektor.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace eInspektor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Dashboard d = new Dashboard();
+            Plan d = new Plan();
             d.startForm = this;
             d.Show();
             Hide();
@@ -103,6 +104,11 @@ namespace eInspektor
         private void StartForm_Resize(object sender, EventArgs e)
         {
             resizeImages();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

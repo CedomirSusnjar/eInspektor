@@ -106,6 +106,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Plan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Plan.Designer.cs">
+      <DependentUpon>Plan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Reclamation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Plan.resx">
+      <DependentUpon>Plan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Reclamation.resx">
       <DependentUpon>Reclamation.cs</DependentUpon>
