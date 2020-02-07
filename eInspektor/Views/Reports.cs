@@ -1,4 +1,5 @@
 ﻿using eInspektor.Model;
+using eInspektor.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,8 +31,7 @@ namespace eInspektor
 
         private void Reports_Load(object sender, EventArgs e)
         {
-            this.controlTableAdapter.FillByActiveAndFinished(this.dataSources.control);
-            //reportsGridView.DataSource = this.dataSources.control;
+            this.controlTableAdapter.FillByActiveFinishedSort(this.dataSources.control);
             db = new DatabaseModel();
 
             var query = from com in db.companies
@@ -49,12 +49,16 @@ namespace eInspektor
                 companyNamesId.Add(item.name, item.id);
             }
 
+            fillCompanyNamesIntoTable();
+        }
+
+        private void fillCompanyNamesIntoTable()
+        {
             for (int i = 0; i < reportsGridView.Rows.Count; i++)
             {
                 int compId = (int)reportsGridView.Rows[i].Cells["company_id"].Value;
                 reportsGridView.Rows[i].Cells["companyColumn"].Value = companyIdNames[compId];
             }
-
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -66,15 +70,42 @@ namespace eInspektor
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = reportsGridView.DataSource;
-            //bs.Filter = reportsGridView.Columns["companyColumn"].HeaderText.ToString() + " LIKE '%" + searchTextBox.Text + "%'";
-            //bs.Filter = "companyColumn LIKE '%" + searchTextBox.Text + "%'";           
+            if ("".Equals(searchTextBox.Text.Trim()))
+            {
+                Reports_Load(sender, e);
+                return;
+            }
+            try
+            {
+                //% is for regex
+                this.controlTableAdapter.FillByActiveFinishedFilter(this.dataSources.control, "%" + searchTextBox.Text + "%");      
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+            fillCompanyNamesIntoTable();
+        }
 
+        private void detaljiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(reportsGridView.SelectedRows.Count != 1)
+            {
+                //Msg to select a row
+                var popup = new MessageForm();
+                popup.Text = "Greška";
+                popup.textLabel.Text = "Izaerite jedan red!";
+                popup.ShowDialog(this);
+                return;
+            }
 
+            string companyName = (string)reportsGridView.SelectedRows[0].Cells["companyColumn"].Value;
+            string content = (string)reportsGridView.SelectedRows[0].Cells["report_content"].Value;
 
-
-            reportsGridView.DataSource = bs;
+            var detailsWindow = new MessageForm();
+            detailsWindow.Text = companyName;
+            detailsWindow.textLabel.Text = content;
+            detailsWindow.ShowDialog(this);
         }
     }
 }

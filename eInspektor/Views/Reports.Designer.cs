@@ -41,14 +41,14 @@
             this.dataSources = new eInspektor.DataSources();
             this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finishdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isfinishedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isregularDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.controljustifiedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.reportcontentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.report_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGridView)).BeginInit();
@@ -65,27 +65,28 @@
             this.statistikaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(813, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(813, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // detaljiToolStripMenuItem
             // 
             this.detaljiToolStripMenuItem.Name = "detaljiToolStripMenuItem";
-            this.detaljiToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
-            this.detaljiToolStripMenuItem.Text = "Detalji...";
+            this.detaljiToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
+            this.detaljiToolStripMenuItem.Text = "Izvještaj...";
+            this.detaljiToolStripMenuItem.Click += new System.EventHandler(this.detaljiToolStripMenuItem_Click);
             // 
             // statistikaToolStripMenuItem
             // 
             this.statistikaToolStripMenuItem.Name = "statistikaToolStripMenuItem";
-            this.statistikaToolStripMenuItem.Size = new System.Drawing.Size(92, 26);
+            this.statistikaToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
             this.statistikaToolStripMenuItem.Text = "Statistika...";
             // 
             // searchLabel
@@ -121,23 +122,23 @@
             this.reportsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reportsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.companyColumn,
             this.company_id,
             this.startdateDataGridViewTextBoxColumn,
             this.finishdateDataGridViewTextBoxColumn,
             this.isfinishedDataGridViewTextBoxColumn,
             this.isregularDataGridViewCheckBoxColumn,
             this.controljustifiedDataGridViewCheckBoxColumn,
-            this.reportcontentDataGridViewTextBoxColumn,
-            this.isActiveDataGridViewTextBoxColumn,
-            this.companyColumn});
+            this.report_content,
+            this.isActiveDataGridViewTextBoxColumn});
             this.reportsGridView.DataSource = this.controlBindingSource;
             this.reportsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportsGridView.Location = new System.Drawing.Point(0, 28);
+            this.reportsGridView.Location = new System.Drawing.Point(0, 30);
             this.reportsGridView.Name = "reportsGridView";
             this.reportsGridView.ReadOnly = true;
             this.reportsGridView.RowHeadersWidth = 51;
             this.reportsGridView.RowTemplate.Height = 24;
-            this.reportsGridView.Size = new System.Drawing.Size(813, 422);
+            this.reportsGridView.Size = new System.Drawing.Size(813, 420);
             this.reportsGridView.TabIndex = 4;
             // 
             // controlBindingSource
@@ -164,6 +165,14 @@
             this.id.Visible = false;
             this.id.Width = 150;
             // 
+            // companyColumn
+            // 
+            this.companyColumn.HeaderText = "Firma";
+            this.companyColumn.MinimumWidth = 6;
+            this.companyColumn.Name = "companyColumn";
+            this.companyColumn.ReadOnly = true;
+            this.companyColumn.Width = 150;
+            // 
             // company_id
             // 
             this.company_id.DataPropertyName = "company_id";
@@ -174,14 +183,6 @@
             this.company_id.Visible = false;
             this.company_id.Width = 125;
             // 
-            // companyColumn
-            // 
-            this.companyColumn.HeaderText = "Firma";
-            this.companyColumn.MinimumWidth = 6;
-            this.companyColumn.Name = "companyColumn";
-            this.companyColumn.ReadOnly = true;
-            this.companyColumn.Width = 150;
-            // 
             // startdateDataGridViewTextBoxColumn
             // 
             this.startdateDataGridViewTextBoxColumn.DataPropertyName = "start_date";
@@ -189,7 +190,7 @@
             this.startdateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.startdateDataGridViewTextBoxColumn.Name = "startdateDataGridViewTextBoxColumn";
             this.startdateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.startdateDataGridViewTextBoxColumn.Width = 85;
+            this.startdateDataGridViewTextBoxColumn.Width = 60;
             // 
             // finishdateDataGridViewTextBoxColumn
             // 
@@ -198,7 +199,7 @@
             this.finishdateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.finishdateDataGridViewTextBoxColumn.Name = "finishdateDataGridViewTextBoxColumn";
             this.finishdateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.finishdateDataGridViewTextBoxColumn.Width = 85;
+            this.finishdateDataGridViewTextBoxColumn.Width = 60;
             // 
             // isfinishedDataGridViewTextBoxColumn
             // 
@@ -219,7 +220,7 @@
             this.isregularDataGridViewCheckBoxColumn.ReadOnly = true;
             this.isregularDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.isregularDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.isregularDataGridViewCheckBoxColumn.Width = 85;
+            this.isregularDataGridViewCheckBoxColumn.Width = 65;
             // 
             // controljustifiedDataGridViewCheckBoxColumn
             // 
@@ -230,16 +231,16 @@
             this.controljustifiedDataGridViewCheckBoxColumn.ReadOnly = true;
             this.controljustifiedDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.controljustifiedDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.controljustifiedDataGridViewCheckBoxColumn.Width = 85;
+            this.controljustifiedDataGridViewCheckBoxColumn.Width = 80;
             // 
-            // reportcontentDataGridViewTextBoxColumn
+            // report_content
             // 
-            this.reportcontentDataGridViewTextBoxColumn.DataPropertyName = "report_content";
-            this.reportcontentDataGridViewTextBoxColumn.HeaderText = "Sadržaj";
-            this.reportcontentDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.reportcontentDataGridViewTextBoxColumn.Name = "reportcontentDataGridViewTextBoxColumn";
-            this.reportcontentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.reportcontentDataGridViewTextBoxColumn.Width = 250;
+            this.report_content.DataPropertyName = "report_content";
+            this.report_content.HeaderText = "Sadržaj";
+            this.report_content.MinimumWidth = 6;
+            this.report_content.Name = "report_content";
+            this.report_content.ReadOnly = true;
+            this.report_content.Width = 250;
             // 
             // isActiveDataGridViewTextBoxColumn
             // 
@@ -290,14 +291,14 @@
         private System.Windows.Forms.BindingSource controlBindingSource;
         private DataSourcesTableAdapters.controlTableAdapter controlTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn company_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn companyColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn company_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn startdateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn finishdateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn isfinishedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isregularDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn controljustifiedDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reportcontentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn report_content;
         private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn;
     }
 }
