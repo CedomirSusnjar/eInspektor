@@ -19,4 +19,10 @@ insert into control values (null, 2, '2020-1-15', null, 0, 1, null, null, 1);
 insert into control values (null, 2, '2020-1-15', '2020-1-15', 1, 1, 'Nema vecih neregularnosti.', 0, 1);
 insert into control values (null, 1, '2020-1-15', '2020-1-15', 1, 1, 'Nema nikakvih neregularnosti.', 0, 1);
 
+insert into control_has_inspector values(1, 1);
+insert into control_has_inspector values(1, 2);
+insert into control_has_inspector values(1, 3);
+insert into control_has_inspector values(2, 3);
+insert into control_has_inspector values(3, 1);
+
 

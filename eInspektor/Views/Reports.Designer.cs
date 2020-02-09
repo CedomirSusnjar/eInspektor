@@ -37,9 +37,6 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.reportsGridView = new System.Windows.Forms.DataGridView();
-            this.controlBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSources = new eInspektor.DataSources();
-            this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +47,9 @@
             this.controljustifiedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.report_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.controlBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSources = new eInspektor.DataSources();
+            this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlBindingSource)).BeginInit();
@@ -72,7 +72,7 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
@@ -86,7 +86,7 @@
             // statistikaToolStripMenuItem
             // 
             this.statistikaToolStripMenuItem.Name = "statistikaToolStripMenuItem";
-            this.statistikaToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.statistikaToolStripMenuItem.Size = new System.Drawing.Size(92, 26);
             this.statistikaToolStripMenuItem.Text = "Statistika...";
             // 
             // searchLabel
@@ -140,20 +140,6 @@
             this.reportsGridView.RowTemplate.Height = 24;
             this.reportsGridView.Size = new System.Drawing.Size(813, 420);
             this.reportsGridView.TabIndex = 4;
-            // 
-            // controlBindingSource
-            // 
-            this.controlBindingSource.DataMember = "control";
-            this.controlBindingSource.DataSource = this.dataSources;
-            // 
-            // dataSources
-            // 
-            this.dataSources.DataSetName = "DataSources";
-            this.dataSources.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // controlTableAdapter
-            // 
-            this.controlTableAdapter.ClearBeforeFill = true;
             // 
             // id
             // 
@@ -251,6 +237,20 @@
             this.isActiveDataGridViewTextBoxColumn.ReadOnly = true;
             this.isActiveDataGridViewTextBoxColumn.Visible = false;
             this.isActiveDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // controlBindingSource
+            // 
+            this.controlBindingSource.DataMember = "control";
+            this.controlBindingSource.DataSource = this.dataSources;
+            // 
+            // dataSources
+            // 
+            this.dataSources.DataSetName = "DataSources";
+            this.dataSources.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // controlTableAdapter
+            // 
+            this.controlTableAdapter.ClearBeforeFill = true;
             // 
             // Reports
             // 
