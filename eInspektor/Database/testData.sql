@@ -8,9 +8,9 @@ insert into company values (null, '111111', 'mTel', 'Kralja Alfonsa XIII 15', 'K
 insert into company values (null, '222222', 'Toplana', 'Kralja Petra I K.', 'Nikola Tesla', 'Tomas Edison', null, null, 1);
 insert into company values (null, '333333', 'Vodovod', 'Patre 6', 'Arhimed', 'Dekart', null, null, 1);
 
-insert into vehicle values (null, '111-k-111', 6, 001, 1, 'Golf 6');
-insert into vehicle values (null, '222-k-222', 2, 002, 1, 'Pezo 307');
-insert into vehicle values (null, '3-k-3', 4, 003, 1, 'Skoda');
+insert into vehicle values (1, '111-k-111', 6, 001, 1, 'Golf 6');
+insert into vehicle values (2, '222-k-222', 2, 002, 1, 'Pezo 307');
+insert into vehicle values (3, '3-k-3', 4, 003, 1, 'Skoda');
 
 insert into control values (null, 1, '2020-1-15', '2020-1-15', 1, 1, 'Nema neregularnosti.', 0, 1);
 insert into control values (null, 1, '2020-1-15', null, 0, 1, null, null, 1);
@@ -25,4 +25,7 @@ insert into control_has_inspector values(1, 3);
 insert into control_has_inspector values(2, 3);
 insert into control_has_inspector values(3, 1);
 
+insert into vehicle_responsibility values (null, 1, 1, 1, '2020.1.15.');
+insert into vehicle_responsibility values (null, 2, 2, 1, '2020.1.15.');
+insert into vehicle_responsibility values (null, 3, 3, 2, '2020.1.15.');
 

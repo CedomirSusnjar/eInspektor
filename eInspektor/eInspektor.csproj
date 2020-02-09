@@ -68,10 +68,13 @@
     <Compile Include="Model\absence.cs" />
     <Compile Include="Model\company.cs" />
     <Compile Include="Model\complaint.cs" />
+    <Compile Include="Model\ControlInspector.cs" />
     <Compile Include="Model\control.cs" />
+    <Compile Include="Model\control_has_inspector.cs" />
     <Compile Include="Model\DatabaseModel.cs" />
     <Compile Include="Model\department.cs" />
     <Compile Include="Model\inspector.cs" />
+    <Compile Include="Model\joint_control.cs" />
     <Compile Include="Model\lab_sample.cs" />
     <Compile Include="Model\vehicle.cs" />
     <Compile Include="Model\vehicle_responsibility.cs" />
@@ -111,6 +114,12 @@
     </Compile>
     <Compile Include="Views\MessageForm.Designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewControlsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewControlsView.Designer.cs">
+      <DependentUpon>NewControlsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Plan.cs">
       <SubType>Form</SubType>
@@ -161,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewControlsView.resx">
+      <DependentUpon>NewControlsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Plan.resx">
       <DependentUpon>Plan.cs</DependentUpon>

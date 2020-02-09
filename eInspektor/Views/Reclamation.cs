@@ -61,6 +61,7 @@ namespace eInspektor
                 int compId = (int)dataGridView1.Rows[i].Cells["company_id"].Value;
                 dataGridView1.Rows[i].Cells["company_name_column"].Value = companyIdNames[compId];
             }
+            this.hasChanges = false;
 
         }
         protected override async void OnFormClosing(FormClosingEventArgs e)

@@ -12,10 +12,10 @@
     <Shape ID="DesignTable:control" ZOrder="21" X="70" Y="70" Height="388" Width="286" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
     <Shape ID="DesignTable:control_has_inspector" ZOrder="20" X="357" Y="802" Height="135" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
     <Shape ID="DesignTable:department" ZOrder="19" X="684" Y="1511" Height="135" Width="251" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
-    <Shape ID="DesignTable:inspector" ZOrder="18" X="727" Y="802" Height="342" Width="233" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="283" />
+    <Shape ID="DesignTable:inspector" ZOrder="18" X="727" Y="802" Height="365" Width="233" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="283" />
     <Shape ID="DesignTable:joint_control" ZOrder="17" X="357" Y="1511" Height="135" Width="257" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
     <Shape ID="DesignTable:lab_sample" ZOrder="16" X="659" Y="436" Height="227" Width="245" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
-    <Shape ID="DesignTable:vehicle" ZOrder="15" X="727" Y="1214" Height="227" Width="216" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
+    <Shape ID="DesignTable:vehicle" ZOrder="15" X="727" Y="1214" Height="250" Width="216" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
     <Shape ID="DesignTable:vehicle_responsibility" ZOrder="14" X="357" Y="1214" Height="204" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
   </Shapes>
   <Connectors>
@@ -183,7 +183,7 @@
       <RoutePoints>
         <Point>
           <X>744</X>
-          <Y>1144</Y>
+          <Y>1167</Y>
         </Point>
         <Point>
           <X>744</X>

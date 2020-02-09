@@ -15,10 +15,8 @@ namespace eInspektor.Views
     {
         public StartForm startForm { get; set; }
         private DatabaseModel db;
+        private ControlInspector ci;
         private Dictionary<int, Tuple<string, string>> companyIdNamesAddress;
-        //private Dictionary<string, int> companyNamesId;
-        private Dictionary<int, string> inspectorIdNames;
-        //private Dictionary<string, int> inspectorNamesId;
         private bool hasChanges;
         public Plan()
         {
@@ -39,6 +37,9 @@ namespace eInspektor.Views
 
             db = new DatabaseModel();
             fillCompanyNamesIntoTable();
+            fillInspectorNames();
+            fillVehicles();
+            this.hasChanges = false;   
         }
 
         protected override async void OnFormClosing(FormClosingEventArgs e)
@@ -89,31 +90,6 @@ namespace eInspektor.Views
 
         }
 
-        private void fillByIsActiveToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.companyTableAdapter.FillByIsActive(this.dataSources.company);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillByIsActiveToolStripButton_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                this.controlTableAdapter.FillByIsActive(this.dataSources.control);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
 
         private void fillCompanyNamesIntoTable()
         {
@@ -141,16 +117,67 @@ namespace eInspektor.Views
 
         private void fillInspectorNames()
         {
-            inspectorIdNames = new Dictionary<int, string>();
+            ci = new ControlInspector();
 
             for (int i = 0; i < controlsGridView.Rows.Count; i++)
             {
-                var query = from ins in db.inspectors where ins.id == (int)controlsGridView.Rows[i].Cells["id"].Value select ins;
-
-                //var controlInspectorQuery = from ci in db.
-
+                int controlId = (int)controlsGridView.Rows[i].Cells["id"].Value;
+                var controlInspectorQuery = from coin in ci.control_has_inspector 
+                                            where coin.control_id == controlId
+                                            select coin.inspector_id;
+                string inspectorNames = "";
+                foreach (var item in controlInspectorQuery.ToList())
+                {
+                    if ("".Equals(inspectorNames) == false)
+                    {
+                        inspectorNames += ", ";
+                    }
+                    var inspector = from ins in db.inspectors where ins.id == item select ins;
+                    inspectorNames += inspector.First().first_name + " " + inspector.First().last_name;
+                }
+                controlsGridView.Rows[i].Cells["inspector"].Value = inspectorNames;
             }
 
+        }
+
+        private void fillVehicles()
+        {
+            for (int i = 0; i < controlsGridView.Rows.Count; i++)
+            {               
+                int controlId = (int)controlsGridView.Rows[i].Cells["id"].Value;
+                var controlVehicleQuery = from v in db.vehicle_responsibility
+                                            where v.control_id == controlId
+                                            select v.vehicle_id;
+                string vehicleNames = "";
+                foreach (var item in controlVehicleQuery.ToList())
+                {
+                    if ("".Equals(vehicleNames) == false)
+                    {
+                        vehicleNames += ", ";
+                    }
+                    var veh = from v in db.vehicles where v.id == item select v;
+                    vehicleNames += veh.First().name;
+                }
+                controlsGridView.Rows[i].Cells["vehicles_column"].Value = vehicleNames;
+            }
+
+        }
+
+        /**<summary>
+         * Opens form for adding new controls
+         * </summary>
+         */
+        private void ručnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(companiesGridView.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Odaberite jedan subjekt!");
+                return;
+            }
+            NewControlsView d = new NewControlsView((int)companiesGridView.SelectedRows[0].Cells["id_subject"].Value);
+            d.plan = this;
+            d.Show();
+            this.Hide();
         }
 
     }
