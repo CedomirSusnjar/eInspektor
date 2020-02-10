@@ -19,6 +19,7 @@ namespace eInspektor.Views
         private List<inspector> selectedInspectors;
         private List<string> inspectorNames;
         private Dictionary<string, int> inspectorNamesId;
+        private bool noVehicles = false;
         public NewControlsView(int companyId)
         {
             InitializeComponent();
@@ -68,13 +69,80 @@ namespace eInspektor.Views
                 DialogResult result = MessageBox.Show("Jeste li sigurni da ne želite dodati vozilo?", "Potvrda", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {
+                    noVehicles = false;
                     return;
                 }
+                else
+                {
+                    noVehicles = true;
+                }
             }
-            //TODO add all to database
+            else
+            {
+                noVehicles = false;
+            }
+            //Check if user refreshed responsibilities table
+            if (vehiclesGridView.SelectedRows.Count != responsibilitiesGridView.Rows.Count)
+            {
+                MessageBox.Show("Osvježite tabelu!");
+                return;
+            }
 
+            if (noVehicles == false)
+            {
+                //check if all vehicles have responsible inspector
+                for (int i = 0; i < responsibilitiesGridView.RowCount; i++)
+                {
+                    if ((int?)responsibilitiesGridView.Rows[i].Cells["inspector_id_column"].Value == null)
+                    {
+                        //No responsibility for this vehicle
+                        MessageBox.Show("Sva odabrana vozila moraju imati odgovornog inspektora!");
+                        return;
+                    }
+                }
+            }
 
+            DatabaseModel db = new DatabaseModel();
+            var ci = new ControlInspector();
 
+            //Insert this control to database
+            control c = new control
+            {
+                company_id = this.companyId,
+                start_date = controlDatePicker.Value,
+                is_finished = 0,
+                isActive = 1,
+                is_regular = regularControl.Checked ? (sbyte)1 : (sbyte)0
+            };
+            db.controls.Add(c);
+            db.SaveChanges();   //Must  be saved to get the auto generated id
+            //Insert inspectors to control_has_inspectors table
+            for (int i = 0; i < inspectorsGridView.SelectedRows.Count; i++)
+            {
+                var chi = new control_has_inspector()
+                {
+                    control_id = c.id,      //c.id already contains id because it is auto increment
+                    inspector_id = (int)inspectorsGridView.SelectedRows[i].Cells["id"].Value
+                };
+                ci.control_has_inspector.Add(chi);
+            }
+            //Insert vehicle responsibilities
+            if(this.noVehicles == false)
+            {
+                for (int i = 0; i < responsibilitiesGridView.Rows.Count; i++)
+                {
+                    var vr = new vehicle_responsibility()
+                    {
+                        control_id = c.id,      
+                        inspector_id = (int)responsibilitiesGridView.Rows[i].Cells["inspector_id_column"].Value,
+                        date = controlDatePicker.Value,
+                        vehicle_id = (int)responsibilitiesGridView.Rows[i].Cells["vehicle_id_column"].Value
+                    };
+                    db.vehicle_responsibility.Add(vr);
+                }
+            }
+            db.SaveChanges();
+            ci.SaveChanges();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -132,6 +200,13 @@ namespace eInspektor.Views
                 }
             }
         }
+
+        public void setTitleLabel(string text)
+        {
+            this.titleLabel.Text = text;
+        }
+
+
     }
 }
 

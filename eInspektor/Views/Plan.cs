@@ -176,6 +176,7 @@ namespace eInspektor.Views
             }
             NewControlsView d = new NewControlsView((int)companiesGridView.SelectedRows[0].Cells["id_subject"].Value);
             d.plan = this;
+            d.setTitleLabel((string)companiesGridView.SelectedRows[0].Cells["nameColumn"].Value);
             d.Show();
             this.Hide();
         }
