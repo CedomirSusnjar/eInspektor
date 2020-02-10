@@ -68,13 +68,10 @@
     <Compile Include="Model\absence.cs" />
     <Compile Include="Model\company.cs" />
     <Compile Include="Model\complaint.cs" />
-    <Compile Include="Model\ControlInspector.cs" />
     <Compile Include="Model\control.cs" />
-    <Compile Include="Model\control_has_inspector.cs" />
     <Compile Include="Model\DatabaseModel.cs" />
     <Compile Include="Model\department.cs" />
     <Compile Include="Model\inspector.cs" />
-    <Compile Include="Model\joint_control.cs" />
     <Compile Include="Model\lab_sample.cs" />
     <Compile Include="Model\vehicle.cs" />
     <Compile Include="Model\vehicle_responsibility.cs" />

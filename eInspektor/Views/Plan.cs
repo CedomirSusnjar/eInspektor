@@ -15,7 +15,6 @@ namespace eInspektor.Views
     {
         public StartForm startForm { get; set; }
         private DatabaseModel db;
-        private ControlInspector ci;
         private Dictionary<int, Tuple<string, string>> companyIdNamesAddress;
         private bool hasChanges;
         public Plan()
@@ -117,27 +116,21 @@ namespace eInspektor.Views
 
         private void fillInspectorNames()
         {
-            ci = new ControlInspector();
-
             for (int i = 0; i < controlsGridView.Rows.Count; i++)
             {
                 int controlId = (int)controlsGridView.Rows[i].Cells["id"].Value;
-                var controlInspectorQuery = from coin in ci.control_has_inspector 
-                                            where coin.control_id == controlId
-                                            select coin.inspector_id;
+
                 string inspectorNames = "";
-                foreach (var item in controlInspectorQuery.ToList())
+                foreach (var item in db.controls.Find(controlId).inspectors)
                 {
                     if ("".Equals(inspectorNames) == false)
                     {
                         inspectorNames += ", ";
                     }
-                    var inspector = from ins in db.inspectors where ins.id == item select ins;
-                    inspectorNames += inspector.First().first_name + " " + inspector.First().last_name;
+                    inspectorNames += item.first_name + " " + item.last_name;
                 }
                 controlsGridView.Rows[i].Cells["inspector"].Value = inspectorNames;
             }
-
         }
 
         private void fillVehicles()

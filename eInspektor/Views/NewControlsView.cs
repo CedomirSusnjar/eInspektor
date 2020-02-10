@@ -37,18 +37,15 @@ namespace eInspektor.Views
             this.Close();
         }
 
-        protected override async void OnFormClosing(FormClosingEventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                DialogResult result = MessageBox.Show("Želite li odustati od dodavanja?", "Potvrda", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Želite li napustiti izmjene?", "Potvrda", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    await Task.Delay(100);      //Doesn't work othervise
-                    base.OnFormClosing(e);
-                    this.Close();
-                    plan.Show();
+                    goBackScene(e);
                 }
                 else
                 {
@@ -100,10 +97,8 @@ namespace eInspektor.Views
                         return;
                     }
                 }
-            }
-
+            }            
             DatabaseModel db = new DatabaseModel();
-            var ci = new ControlInspector();
 
             //Insert this control to database
             control c = new control
@@ -116,33 +111,30 @@ namespace eInspektor.Views
             };
             db.controls.Add(c);
             db.SaveChanges();   //Must  be saved to get the auto generated id
+
             //Insert inspectors to control_has_inspectors table
             for (int i = 0; i < inspectorsGridView.SelectedRows.Count; i++)
             {
-                var chi = new control_has_inspector()
-                {
-                    control_id = c.id,      //c.id already contains id because it is auto increment
-                    inspector_id = (int)inspectorsGridView.SelectedRows[i].Cells["id"].Value
-                };
-                ci.control_has_inspector.Add(chi);
+                c.inspectors.Add(db.inspectors.Find((int)inspectorsGridView.SelectedRows[i].Cells["id"].Value));
             }
             //Insert vehicle responsibilities
             if(this.noVehicles == false)
             {
                 for (int i = 0; i < responsibilitiesGridView.Rows.Count; i++)
                 {
-                    var vr = new vehicle_responsibility()
-                    {
-                        control_id = c.id,      
-                        inspector_id = (int)responsibilitiesGridView.Rows[i].Cells["inspector_id_column"].Value,
-                        date = controlDatePicker.Value,
-                        vehicle_id = (int)responsibilitiesGridView.Rows[i].Cells["vehicle_id_column"].Value
-                    };
+                    var vr = new vehicle_responsibility();
+
+                    vr.control_id = c.id;
+                    vr.inspector_id = (int)responsibilitiesGridView.Rows[i].Cells["inspector_id_column"].Value;
+                    vr.date = controlDatePicker.Value;
+                    string vehId = (string)responsibilitiesGridView.Rows[i].Cells["vehicle_id_column"].Value;
+                    vr.vehicle_id = Int32.Parse(vehId);                    
                     db.vehicle_responsibility.Add(vr);
                 }
             }
             db.SaveChanges();
-            ci.SaveChanges();
+            MessageBox.Show("Kontrola je uspješno dodata.");
+            this.Close();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -206,6 +198,13 @@ namespace eInspektor.Views
             this.titleLabel.Text = text;
         }
 
+        private async void goBackScene(FormClosingEventArgs e)
+        {
+            await Task.Delay(100);      //Doesn't work othervise
+            base.OnFormClosing(e);
+            this.Close();
+            plan.Show();
+        }
 
     }
 }

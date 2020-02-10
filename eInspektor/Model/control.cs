@@ -50,6 +50,6 @@ namespace eInspektor.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<inspector> inspectors { get; set; }
 
-        public virtual department department { get; set; }
+ //       public virtual department department { get; set; }
     }
 }

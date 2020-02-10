@@ -8,7 +8,7 @@ namespace eInspektor.Model
     public partial class DatabaseModel : DbContext
     {
         public DatabaseModel()
-            : base("name=DatabaseModel1")
+            : base("name=DatabaseModel2")
         {
         }
 

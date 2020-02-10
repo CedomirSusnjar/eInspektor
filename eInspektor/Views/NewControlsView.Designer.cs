@@ -57,16 +57,16 @@
             this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.refreshButton = new System.Windows.Forms.Button();
             this.responsibilitiesGridView = new System.Windows.Forms.DataGridView();
-            this.vehicleNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inspectorResponsibilityColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.inspector_id_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicle_id_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateLabel = new System.Windows.Forms.Label();
             this.controlDatePicker = new System.Windows.Forms.DateTimePicker();
             this.regularControl = new System.Windows.Forms.CheckBox();
             this.inspectorTableAdapter = new eInspektor.DataSourcesTableAdapters.inspectorTableAdapter();
             this.vehicleTableAdapter = new eInspektor.DataSourcesTableAdapters.vehicleTableAdapter();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.vehicleNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inspectorResponsibilityColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.inspector_id_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicle_id_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -386,35 +386,6 @@
             this.responsibilitiesGridView.TabIndex = 3;
             this.responsibilitiesGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.responsibilitiesGridView_CellValueChanged);
             // 
-            // vehicleNameColumn
-            // 
-            this.vehicleNameColumn.HeaderText = "Vozilo";
-            this.vehicleNameColumn.MinimumWidth = 6;
-            this.vehicleNameColumn.Name = "vehicleNameColumn";
-            this.vehicleNameColumn.Width = 125;
-            // 
-            // inspectorResponsibilityColumn
-            // 
-            this.inspectorResponsibilityColumn.HeaderText = "Inspektor";
-            this.inspectorResponsibilityColumn.MinimumWidth = 6;
-            this.inspectorResponsibilityColumn.Name = "inspectorResponsibilityColumn";
-            this.inspectorResponsibilityColumn.Width = 125;
-            // 
-            // inspector_id_column
-            // 
-            this.inspector_id_column.HeaderText = "insp id";
-            this.inspector_id_column.MinimumWidth = 6;
-            this.inspector_id_column.Name = "inspector_id_column";
-            this.inspector_id_column.Width = 125;
-            // 
-            // vehicle_id_column
-            // 
-            this.vehicle_id_column.HeaderText = "Column1";
-            this.vehicle_id_column.MinimumWidth = 6;
-            this.vehicle_id_column.Name = "vehicle_id_column";
-            this.vehicle_id_column.Visible = false;
-            this.vehicle_id_column.Width = 125;
-            // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
@@ -460,6 +431,36 @@
             this.titleLabel.Size = new System.Drawing.Size(46, 17);
             this.titleLabel.TabIndex = 5;
             this.titleLabel.Text = "label1";
+            // 
+            // vehicleNameColumn
+            // 
+            this.vehicleNameColumn.HeaderText = "Vozilo";
+            this.vehicleNameColumn.MinimumWidth = 6;
+            this.vehicleNameColumn.Name = "vehicleNameColumn";
+            this.vehicleNameColumn.Width = 125;
+            // 
+            // inspectorResponsibilityColumn
+            // 
+            this.inspectorResponsibilityColumn.HeaderText = "Inspektor";
+            this.inspectorResponsibilityColumn.MinimumWidth = 6;
+            this.inspectorResponsibilityColumn.Name = "inspectorResponsibilityColumn";
+            this.inspectorResponsibilityColumn.Width = 125;
+            // 
+            // inspector_id_column
+            // 
+            this.inspector_id_column.HeaderText = "insp id";
+            this.inspector_id_column.MinimumWidth = 6;
+            this.inspector_id_column.Name = "inspector_id_column";
+            this.inspector_id_column.Visible = false;
+            this.inspector_id_column.Width = 125;
+            // 
+            // vehicle_id_column
+            // 
+            this.vehicle_id_column.HeaderText = "Column1";
+            this.vehicle_id_column.MinimumWidth = 6;
+            this.vehicle_id_column.Name = "vehicle_id_column";
+            this.vehicle_id_column.Visible = false;
+            this.vehicle_id_column.Width = 125;
             // 
             // NewControlsView
             // 
@@ -525,10 +526,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn saltDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordhashDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleNameColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn inspectorResponsibilityColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn inspector_id_column;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicle_id_column;
-        private System.Windows.Forms.Label titleLabel;
     }
 }

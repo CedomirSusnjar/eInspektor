@@ -12,7 +12,7 @@ namespace eInspektor.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public department()
         {
-            controls = new HashSet<control>();
+            //controls = new HashSet<control>();
         }
 
         public int id { get; set; }
@@ -21,7 +21,7 @@ namespace eInspektor.Model
         [StringLength(255)]
         public string name { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<control> controls { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<control> controls { get; set; }
     }
 }
