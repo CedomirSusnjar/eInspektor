@@ -4,6 +4,8 @@ insert into inspector values (null, 'Marko', 'Markovic', 'Poreska', 0, 1, 1, 'ma
 insert into inspector values (null, 'Ivan', 'Ivanovic', 'Poreska', 0, 1, 0, 'ivan', 'salt', '2908D2C28DFC047741FC590A026FFADE237AB2BA7E1266F010FE49BDE548B5987A534A86655A0D17F336588E540CD66F67234B152BBB645B4BB85758A1325D64', 1);
 insert into inspector values (null, 'Petar', 'Petrovic', 'Poreska', 1, 1, 0, 'petar', 'salt', '2908D2C28DFC047741FC590A026FFADE237AB2BA7E1266F010FE49BDE548B5987A534A86655A0D17F336588E540CD66F67234B152BBB645B4BB85758A1325D64', 1);
 
+insert into admin values (null, 'admin', 'salt', '2908D2C28DFC047741FC590A026FFADE237AB2BA7E1266F010FE49BDE548B5987A534A86655A0D17F336588E540CD66F67234B152BBB645B4BB85758A1325D64', 1);
+
 insert into company values (null, '111111', 'mTel', 'Kralja Alfonsa XIII 15', 'Kum Mile', 'Mile Kitic', null, null, 1);
 insert into company values (null, '222222', 'Toplana', 'Kralja Petra I K.', 'Nikola Tesla', 'Tomas Edison', null, null, 1);
 insert into company values (null, '333333', 'Vodovod', 'Patre 6', 'Arhimed', 'Dekart', null, null, 1);
