@@ -67,7 +67,7 @@
             this.vehicleGridView.Name = "vehicleGridView";
             this.vehicleGridView.RowHeadersWidth = 51;
             this.vehicleGridView.RowTemplate.Height = 24;
-            this.vehicleGridView.Size = new System.Drawing.Size(782, 525);
+            this.vehicleGridView.Size = new System.Drawing.Size(553, 352);
             this.vehicleGridView.TabIndex = 0;
             this.vehicleGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehicleGridView_CellValueChanged);
             this.vehicleGridView.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView2_DefaultValuesNeeded);
@@ -142,34 +142,34 @@
             this.toolStripMenuItem5});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(782, 28);
+            this.menuStrip.Size = new System.Drawing.Size(553, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip2";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(66, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(64, 24);
             this.toolStripMenuItem1.Text = "Nazad";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(78, 26);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(76, 24);
             this.toolStripMenuItem2.Text = "Štampaj";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(73, 26);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(71, 24);
             this.toolStripMenuItem3.Text = "Sačuvaj";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(62, 26);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(60, 24);
             this.toolStripMenuItem5.Text = "Obriši";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
@@ -179,11 +179,13 @@
             // 
             // CarsView
             // 
-            this.ClientSize = new System.Drawing.Size(782, 553);
+            this.ClientSize = new System.Drawing.Size(553, 380);
             this.Controls.Add(this.vehicleGridView);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "CarsView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Vozila";
             this.Load += new System.EventHandler(this.CarsView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vehicleGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();

@@ -31,11 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ukloniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSources1 = new eInspektor.DataSources();
-            this.companyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.companyTableAdapter1 = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +43,10 @@
             this.bookkeeper = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.last_control_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ukloniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSources1 = new eInspektor.DataSources();
+            this.companyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.companyTableAdapter1 = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
@@ -63,16 +63,30 @@
             this.ukloniToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1117, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(953, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
+            // 
+            // sačuvajToolStripMenuItem
+            // 
+            this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
+            this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
+            // 
+            // ukloniToolStripMenuItem
+            // 
+            this.ukloniToolStripMenuItem.Name = "ukloniToolStripMenuItem";
+            this.ukloniToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.ukloniToolStripMenuItem.Text = "Obriši";
+            this.ukloniToolStripMenuItem.Click += new System.EventHandler(this.ukloniToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -94,29 +108,11 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1117, 422);
+            this.dataGridView1.Size = new System.Drawing.Size(953, 422);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
-            // 
-            // companyBindingSource
-            // 
-            this.companyBindingSource.DataMember = "company";
-            this.companyBindingSource.DataSource = this.dataSources1;
-            // 
-            // dataSources1
-            // 
-            this.dataSources1.DataSetName = "DataSources";
-            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // companyBindingSource1
-            // 
-            this.companyBindingSource1.DataMember = "company";
-            // 
-            // companyTableAdapter1
-            // 
-            this.companyTableAdapter1.ClearBeforeFill = true;
             // 
             // id
             // 
@@ -193,30 +189,34 @@
             this.is_active.Visible = false;
             this.is_active.Width = 125;
             // 
-            // sačuvajToolStripMenuItem
+            // companyBindingSource
             // 
-            this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
-            this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
-            this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
+            this.companyBindingSource.DataMember = "company";
+            this.companyBindingSource.DataSource = this.dataSources1;
             // 
-            // ukloniToolStripMenuItem
+            // dataSources1
             // 
-            this.ukloniToolStripMenuItem.Name = "ukloniToolStripMenuItem";
-            this.ukloniToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
-            this.ukloniToolStripMenuItem.Text = "Obriši";
-            this.ukloniToolStripMenuItem.Click += new System.EventHandler(this.ukloniToolStripMenuItem_Click);
+            this.dataSources1.DataSetName = "DataSources";
+            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // companyBindingSource1
+            // 
+            this.companyBindingSource1.DataMember = "company";
+            // 
+            // companyTableAdapter1
+            // 
+            this.companyTableAdapter1.ClearBeforeFill = true;
             // 
             // Subjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1117, 450);
+            this.ClientSize = new System.Drawing.Size(953, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Subjects";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Subjekti";
             this.Load += new System.EventHandler(this.Subjects_Load);
             this.menuStrip1.ResumeLayout(false);

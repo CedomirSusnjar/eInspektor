@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.tbPin = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.passwordTb = new System.Windows.Forms.RichTextBox();
+            this.usernameTb = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -47,25 +47,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tbPin
+            // passwordTb
             // 
-            this.tbPin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPin.Location = new System.Drawing.Point(231, 115);
-            this.tbPin.Name = "tbPin";
-            this.tbPin.Size = new System.Drawing.Size(173, 29);
-            this.tbPin.TabIndex = 4;
-            this.tbPin.Text = "";
+            this.passwordTb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.passwordTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTb.Location = new System.Drawing.Point(231, 115);
+            this.passwordTb.Multiline = false;
+            this.passwordTb.Name = "passwordTb";
+            this.passwordTb.Size = new System.Drawing.Size(173, 29);
+            this.passwordTb.TabIndex = 4;
+            this.passwordTb.Text = "";
             // 
-            // richTextBox1
+            // usernameTb
             // 
-            this.richTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(231, 68);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(173, 30);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
+            this.usernameTb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.usernameTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTb.Location = new System.Drawing.Point(231, 68);
+            this.usernameTb.Multiline = false;
+            this.usernameTb.Name = "usernameTb";
+            this.usernameTb.Size = new System.Drawing.Size(173, 30);
+            this.usernameTb.TabIndex = 5;
+            this.usernameTb.Text = "";
             // 
             // label1
             // 
@@ -93,8 +95,8 @@
             this.ClientSize = new System.Drawing.Size(531, 262);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.tbPin);
+            this.Controls.Add(this.usernameTb);
+            this.Controls.Add(this.passwordTb);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -111,8 +113,8 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox tbPin;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox passwordTb;
+        private System.Windows.Forms.RichTextBox usernameTb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
