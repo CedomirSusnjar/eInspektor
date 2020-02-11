@@ -38,6 +38,7 @@ namespace eInspektor
                         where v.username == username
                         select new
                         {
+                            id = v.id,
                             salt = v.salt,
                             password_hash = v.password_hash,
                             username = v.username,
@@ -65,12 +66,14 @@ namespace eInspektor
                     sbyte is_coordinator = query.ToList().First().is_coordinator;
                     string firstName = query.ToList().First().first_name;
                     string lastName = query.ToList().First().last_name;
-                    new StartForm(is_coordinator, firstName, lastName).Show();
+                    int id = query.ToList().First().id;
+                    new StartForm(id,is_coordinator, firstName, lastName).Show();
                     Hide();
                 }
                 else {
                     usernameTb.Text = "";
                     passwordTb.Text = "";
+                    progressBar1.Value = 0;
                 }
             }
 

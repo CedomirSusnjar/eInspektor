@@ -47,6 +47,7 @@ namespace eInspektor
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.odjavaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loggedUsername = new System.Windows.Forms.Label();
+            this.promjenaLozinkeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -148,7 +149,8 @@ namespace eInspektor
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.odjavaToolStripMenuItem});
+            this.odjavaToolStripMenuItem,
+            this.promjenaLozinkeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -171,6 +173,13 @@ namespace eInspektor
             this.loggedUsername.Name = "loggedUsername";
             this.loggedUsername.Size = new System.Drawing.Size(0, 18);
             this.loggedUsername.TabIndex = 2;
+            // 
+            // promjenaLozinkeToolStripMenuItem
+            // 
+            this.promjenaLozinkeToolStripMenuItem.Name = "promjenaLozinkeToolStripMenuItem";
+            this.promjenaLozinkeToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
+            this.promjenaLozinkeToolStripMenuItem.Text = "Promjena lozinke";
+            this.promjenaLozinkeToolStripMenuItem.Click += new System.EventHandler(this.promjenaLozinkeToolStripMenuItem_Click);
             // 
             // StartForm
             // 
@@ -206,5 +215,6 @@ namespace eInspektor
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label loggedUsername;
+        private System.Windows.Forms.ToolStripMenuItem promjenaLozinkeToolStripMenuItem;
     }
 }

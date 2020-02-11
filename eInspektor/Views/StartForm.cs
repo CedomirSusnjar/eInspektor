@@ -15,9 +15,11 @@ namespace eInspektor
     {
         sbyte is_coordinator;
         string firstName, lastName;
-        public StartForm(sbyte is_coordinator,string firstName,string lastName)
+        int id;
+        public StartForm(int id, sbyte is_coordinator,string firstName,string lastName)
         {
             InitializeComponent();
+            this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
             this.is_coordinator = is_coordinator;
@@ -110,6 +112,11 @@ namespace eInspektor
         private void StartForm_Resize(object sender, EventArgs e)
         {
             resizeImages();
+        }
+
+        private void promjenaLozinkeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ChangePswd(id).Show();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
