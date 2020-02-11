@@ -33,6 +33,7 @@
             this.usernameTb = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // button1
@@ -52,7 +53,6 @@
             this.passwordTb.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTb.Location = new System.Drawing.Point(231, 115);
-            this.passwordTb.Multiline = false;
             this.passwordTb.Name = "passwordTb";
             this.passwordTb.Size = new System.Drawing.Size(173, 29);
             this.passwordTb.TabIndex = 4;
@@ -88,11 +88,20 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Lozinka:";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(121, 207);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(283, 23);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 262);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.usernameTb);
@@ -117,6 +126,7 @@
         private System.Windows.Forms.RichTextBox usernameTb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

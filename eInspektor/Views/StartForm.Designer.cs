@@ -46,6 +46,7 @@ namespace eInspektor
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.odjavaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loggedUsername = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +83,6 @@ namespace eInspektor
             this.button6.Text = "Subjekti";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            button6Image = button6.Image;
             // 
             // button5
             // 
@@ -95,7 +95,6 @@ namespace eInspektor
             this.button5.Text = "Izvještaji";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            button5Image = button5.Image;
             // 
             // button4
             // 
@@ -108,7 +107,6 @@ namespace eInspektor
             this.button4.Text = "Reklamacije";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            button4Image = button4.Image;
             // 
             // button3
             // 
@@ -118,9 +116,9 @@ namespace eInspektor
             this.button3.Size = new System.Drawing.Size(262, 205);
             this.button3.TabIndex = 2;
             this.button3.Text = "Inspektori";
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            button3Image = button3.Image;
             // 
             // button2
             // 
@@ -133,7 +131,6 @@ namespace eInspektor
             this.button2.Text = "Sedmični plan";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            button2Image = button2.Image;
             // 
             // button1
             // 
@@ -146,7 +143,6 @@ namespace eInspektor
             this.button1.Text = "Vozila";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            button1Image = button1.Image;
             // 
             // menuStrip1
             // 
@@ -163,15 +159,25 @@ namespace eInspektor
             // odjavaToolStripMenuItem
             // 
             this.odjavaToolStripMenuItem.Name = "odjavaToolStripMenuItem";
-            this.odjavaToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.odjavaToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.odjavaToolStripMenuItem.Text = "Odjava";
             this.odjavaToolStripMenuItem.Click += new System.EventHandler(this.odjavaToolStripMenuItem_Click);
+            // 
+            // loggedUsername
+            // 
+            this.loggedUsername.AutoSize = true;
+            this.loggedUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loggedUsername.Location = new System.Drawing.Point(12, 8);
+            this.loggedUsername.Name = "loggedUsername";
+            this.loggedUsername.Size = new System.Drawing.Size(0, 18);
+            this.loggedUsername.TabIndex = 2;
             // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.loggedUsername);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -199,5 +205,6 @@ namespace eInspektor
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label loggedUsername;
     }
 }

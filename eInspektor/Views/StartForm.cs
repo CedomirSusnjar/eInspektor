@@ -13,9 +13,15 @@ namespace eInspektor
 {
     public partial class StartForm : Form
     {
-        public StartForm()
+        sbyte is_coordinator;
+        string firstName, lastName;
+        public StartForm(sbyte is_coordinator,string firstName,string lastName)
         {
             InitializeComponent();
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.is_coordinator = is_coordinator;
+            loggedUsername.Text = firstName + " " + lastName + ", " + (is_coordinator == 1? "koordinator":"");
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -23,25 +23,59 @@ namespace eInspektor
             db = new DatabaseModel();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             string username = usernameTb.Text;
             string password = passwordTb.Text;
-            string hash;
-
-            byte[] passwordByte = Convert.FromBase64String("password");
-            byte[] saltByte = Convert.FromBase64String("salt");
-
-            byte[] hashByte = GenerateSaltedHash(passwordByte, saltByte);
-
-            string hashString = Convert.ToBase64String(hashByte);
-            usernameTb.Text = hashString;
- 
-            if (true)
+            for (int i = 0; i < 2; i++)
             {
-                new StartForm().Show();
-                Hide();
+                progressBar1.PerformStep();
+                await Task.Delay(200);
             }
+            //TODO SQL injection
+
+            var query = from v in db.inspectors
+                        where v.username == username
+                        select new
+                        {
+                            salt = v.salt,
+                            password_hash = v.password_hash,
+                            username = v.username,
+                            is_coordinator = v.is_coordinator,
+                            first_name = v.first_name,
+                            last_name = v.last_name
+                        };
+
+
+            string passwordhash = query.ToList().First().password_hash;
+            string salt = query.ToList().First().salt;
+
+            using (SHA512 sha512Hash = SHA512.Create())
+            {               
+                byte[] sourceBytes = Encoding.UTF8.GetBytes(salt + password);
+                byte[] hashBytes = sha512Hash.ComputeHash(sourceBytes);
+                string hash = BitConverter.ToString(hashBytes).Replace("-", String.Empty);
+
+                if (hash == passwordhash)
+                {
+                    for (int i = 0; i<8; i++) {
+                        progressBar1.PerformStep();
+                        await Task.Delay(200);
+                    }
+                    sbyte is_coordinator = query.ToList().First().is_coordinator;
+                    string firstName = query.ToList().First().first_name;
+                    string lastName = query.ToList().First().last_name;
+                    new StartForm(is_coordinator, firstName, lastName).Show();
+                    Hide();
+                }
+                else {
+                    usernameTb.Text = "";
+                    passwordTb.Text = "";
+                }
+            }
+
+
+
         }
 
         static byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
