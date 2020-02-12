@@ -31,7 +31,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.passwordTb = new System.Windows.Forms.TextBox();
             this.usernameTb = new System.Windows.Forms.TextBox();
             this.failedLoginLbl = new System.Windows.Forms.Label();
@@ -40,14 +39,16 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(192, 153);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 40);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Prijavi se";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
             // 
             // label1
             // 
@@ -65,17 +66,8 @@
             this.label2.Location = new System.Drawing.Point(118, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 17);
-            this.label2.TabIndex = 7;
+            this.label2.TabIndex = 3;
             this.label2.Text = "Lozinka:";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 227);
-            this.progressBar1.Maximum = 120;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(502, 23);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 8;
             // 
             // passwordTb
             // 
@@ -83,23 +75,23 @@
             this.passwordTb.Name = "passwordTb";
             this.passwordTb.PasswordChar = '*';
             this.passwordTb.Size = new System.Drawing.Size(173, 22);
-            this.passwordTb.TabIndex = 9;
+            this.passwordTb.TabIndex = 1;
             // 
             // usernameTb
             // 
             this.usernameTb.Location = new System.Drawing.Point(231, 74);
             this.usernameTb.Name = "usernameTb";
             this.usernameTb.Size = new System.Drawing.Size(173, 22);
-            this.usernameTb.TabIndex = 10;
+            this.usernameTb.TabIndex = 0;
             // 
             // failedLoginLbl
             // 
             this.failedLoginLbl.AutoSize = true;
             this.failedLoginLbl.ForeColor = System.Drawing.Color.Red;
-            this.failedLoginLbl.Location = new System.Drawing.Point(205, 196);
+            this.failedLoginLbl.Location = new System.Drawing.Point(206, 205);
             this.failedLoginLbl.Name = "failedLoginLbl";
             this.failedLoginLbl.Size = new System.Drawing.Size(133, 17);
-            this.failedLoginLbl.TabIndex = 11;
+            this.failedLoginLbl.TabIndex = 1;
             this.failedLoginLbl.Text = "Neuspješna prijava.";
             this.failedLoginLbl.Visible = false;
             // 
@@ -111,7 +103,6 @@
             this.Controls.Add(this.failedLoginLbl);
             this.Controls.Add(this.usernameTb);
             this.Controls.Add(this.passwordTb);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -132,7 +123,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox passwordTb;
         private System.Windows.Forms.TextBox usernameTb;
         private System.Windows.Forms.Label failedLoginLbl;

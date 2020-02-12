@@ -12,9 +12,14 @@ namespace eInspektor.Views
 {
     public partial class AdminView : Form
     {
-        public AdminView()
+        int id;
+        string username;
+
+        public AdminView(int id, string username)
         {
             InitializeComponent();
+            this.id = id;
+            this.username = username;
         }
 
         private void AdminView_Load(object sender, EventArgs e)
@@ -23,6 +28,26 @@ namespace eInspektor.Views
             this.inspectorTableAdapter.Fill(this.dataSources.inspector);
             // TODO: This line of code loads data into the '_is_projDataSet.admin' table. You can move, or remove it, as needed.
             this.adminTableAdapter.Fill(this._is_projDataSet.admin);
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void odjavaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void odjavaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
 
         }
     }

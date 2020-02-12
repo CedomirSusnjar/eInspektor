@@ -46,8 +46,8 @@ namespace eInspektor
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.odjavaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loggedUsername = new System.Windows.Forms.Label();
             this.promjenaLozinkeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loggedUsername = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -128,7 +128,7 @@ namespace eInspektor
             this.button2.Location = new System.Drawing.Point(3, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(260, 205);
-            this.button2.TabIndex = 1;
+            this.button2.TabIndex = 0;
             this.button2.Text = "Sedmični plan";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -140,7 +140,7 @@ namespace eInspektor
             this.button1.Location = new System.Drawing.Point(269, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(260, 205);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Vozila";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -165,6 +165,13 @@ namespace eInspektor
             this.odjavaToolStripMenuItem.Text = "Odjava";
             this.odjavaToolStripMenuItem.Click += new System.EventHandler(this.odjavaToolStripMenuItem_Click);
             // 
+            // promjenaLozinkeToolStripMenuItem
+            // 
+            this.promjenaLozinkeToolStripMenuItem.Name = "promjenaLozinkeToolStripMenuItem";
+            this.promjenaLozinkeToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
+            this.promjenaLozinkeToolStripMenuItem.Text = "Promjena lozinke";
+            this.promjenaLozinkeToolStripMenuItem.Click += new System.EventHandler(this.promjenaLozinkeToolStripMenuItem_Click);
+            // 
             // loggedUsername
             // 
             this.loggedUsername.AutoSize = true;
@@ -173,13 +180,6 @@ namespace eInspektor
             this.loggedUsername.Name = "loggedUsername";
             this.loggedUsername.Size = new System.Drawing.Size(0, 18);
             this.loggedUsername.TabIndex = 2;
-            // 
-            // promjenaLozinkeToolStripMenuItem
-            // 
-            this.promjenaLozinkeToolStripMenuItem.Name = "promjenaLozinkeToolStripMenuItem";
-            this.promjenaLozinkeToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
-            this.promjenaLozinkeToolStripMenuItem.Text = "Promjena lozinke";
-            this.promjenaLozinkeToolStripMenuItem.Click += new System.EventHandler(this.promjenaLozinkeToolStripMenuItem_Click);
             // 
             // StartForm
             // 
