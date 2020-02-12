@@ -32,7 +32,6 @@ namespace eInspektor.Views
         {
             this.companyTableAdapter.FillByIsActive(this.dataSources.company);
             this.controlTableAdapter.FillByIsActive(this.dataSources.control);
-            //controlsGridView.DataSource = this.dataSources.vehicle;
 
             db = new DatabaseModel();
             fillCompanyNamesIntoTable();
@@ -86,9 +85,43 @@ namespace eInspektor.Views
 
         private void obrišiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (controlsGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Niste odabrali nijednu kontrolu.");
+                return;
+            }
 
+            DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabrane kontrole?", "Brisanje kontrola", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int selIndex = controlsGridView.SelectedRows[0].Index;
+                for (int i = 0; i < controlsGridView.SelectedRows.Count; i++)
+                {
+                    int id = 0;
+                    try
+                    {
+                        id = (int)controlsGridView.SelectedRows[i].Cells["id"].Value;
+                    }
+                    catch (NullReferenceException)
+                    {
+                        //the row is already deleted
+                        continue;
+                    }
+
+                    control v = db.controls.Find(id);
+                    if (v != null)
+                    {
+                        v.isActive = 0;
+                    }
+                }
+                db.SaveChanges();
+                Plan_Load(sender, e);
+                if (selIndex != 0 && selIndex < controlsGridView.Rows.Count)
+                {
+                    controlsGridView.Rows[selIndex - 1].Selected = true;
+                }
+            }
         }
-
 
         private void fillCompanyNamesIntoTable()
         {

@@ -35,14 +35,15 @@ namespace eInspektor
             this.companyTableAdapter.Fill(this.dataSources1.company);
             db = new DatabaseModel();
 
-            this.complaintTableAdapter1.Fill(this.dataSources1.complaint);
+            this.complaintTableAdapter1.FillByIsActive(this.dataSources1.complaint);
             dataGridView1.DataSource = this.dataSources1.complaint;
 
             var query = from com in db.companies
                         select new
                         {
                             id = com.id,
-                            name = com.name
+                            name = com.name,
+                            isActive = com.isActive
                         };
 
             companyIdNames = new Dictionary<int, string>();
@@ -52,17 +53,19 @@ namespace eInspektor
             {
                 companyIdNames.Add(item.id, item.name);
                 companyNamesId.Add(item.name, item.id);
-                companyNames.Add(item.name);
+               // if (item.isActive != 0)                   //Constant errors with this check if reclamation on deleted subject exists
+                {
+                    companyNames.Add(item.name);
+                }
             }
             this.company_name_column.DataSource = companyNames;
 
             for(int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-            {
+            {                
                 int compId = (int)dataGridView1.Rows[i].Cells["company_id"].Value;
                 dataGridView1.Rows[i].Cells["company_name_column"].Value = companyIdNames[compId];
             }
             this.hasChanges = false;
-
         }
         protected override async void OnFormClosing(FormClosingEventArgs e)
         {
@@ -139,7 +142,7 @@ namespace eInspektor
                     complaint v = db.complaints.Find(id);
                     if (v != null)
                     {
-                        db.complaints.Remove(v);
+                        v.isActive = 0;
                     }
                 }
                 db.SaveChanges();
@@ -153,15 +156,16 @@ namespace eInspektor
 
         private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            e.Row.Cells["company_name_column"].Value = companyIdNames[1];
+            e.Row.Cells["company_name_column"].Value = companyNames[0];
             e.Row.Cells["is_active"].Value = 1;
             e.Row.Cells["date"].Value = DateTime.Now;
-            e.Row.Cells["company_id"].Value = 1;
+            e.Row.Cells["company_id"].Value = companyNamesId[companyNames[0]];
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             this.hasChanges = true;
         }
+
     }
 }

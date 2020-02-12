@@ -29,7 +29,7 @@ namespace eInspektor
 
         private void InspectorView_Load(object sender, EventArgs e)
         {
-            this.inspectorTableAdapter.Fill(this.dataSources.inspector);
+            this.inspectorTableAdapter.FillByIsActive(this.dataSources.inspector);
             this.dataGridView1.DataSource = this.dataSources.inspector;
             db = new DatabaseModel();
         }
@@ -99,9 +99,16 @@ namespace eInspektor
                     }
 
                     inspector ins = db.inspectors.Find(id);
+                    //check if user is deleting himself
+                    if(ins.id == startForm.id)
+                    {
+                        MessageBox.Show("Ne možete obrisati trenutno aktivan nalog.");
+                        return;
+                    }
+
                     if (ins != null)
                     {
-                        db.inspectors.Remove(ins);
+                        ins.isActive = 0;
                     }
                 }
                 db.SaveChanges();

@@ -34,12 +34,6 @@
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.complaintBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSources1 = new eInspektor.DataSources();
-            this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.complaintTableAdapter1 = new eInspektor.DataSourcesTableAdapters.complaintTableAdapter();
-            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.company_name_column = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +44,12 @@
             this.is_resolved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.control_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.complaintBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSources1 = new eInspektor.DataSources();
+            this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.complaintTableAdapter1 = new eInspektor.DataSourcesTableAdapters.complaintTableAdapter();
+            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).BeginInit();
@@ -67,7 +67,7 @@
             this.obrišiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(930, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(950, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,37 +115,10 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(930, 416);
+            this.dataGridView1.Size = new System.Drawing.Size(950, 433);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
-            // 
-            // complaintBindingSource
-            // 
-            this.complaintBindingSource.DataMember = "complaint";
-            this.complaintBindingSource.DataSource = this.dataSources1;
-            // 
-            // dataSources1
-            // 
-            this.dataSources1.DataSetName = "DataSources";
-            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // complaintBindingSource1
-            // 
-            this.complaintBindingSource1.DataMember = "complaint";
-            // 
-            // complaintTableAdapter1
-            // 
-            this.complaintTableAdapter1.ClearBeforeFill = true;
-            // 
-            // companyBindingSource
-            // 
-            this.companyBindingSource.DataMember = "company";
-            this.companyBindingSource.DataSource = this.dataSources1;
-            // 
-            // companyTableAdapter
-            // 
-            this.companyTableAdapter.ClearBeforeFill = true;
             // 
             // id
             // 
@@ -235,11 +208,38 @@
             this.is_active.Visible = false;
             this.is_active.Width = 125;
             // 
+            // complaintBindingSource
+            // 
+            this.complaintBindingSource.DataMember = "complaint";
+            this.complaintBindingSource.DataSource = this.dataSources1;
+            // 
+            // dataSources1
+            // 
+            this.dataSources1.DataSetName = "DataSources";
+            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // complaintBindingSource1
+            // 
+            this.complaintBindingSource1.DataMember = "complaint";
+            // 
+            // complaintTableAdapter1
+            // 
+            this.complaintTableAdapter1.ClearBeforeFill = true;
+            // 
+            // companyBindingSource
+            // 
+            this.companyBindingSource.DataMember = "company";
+            this.companyBindingSource.DataSource = this.dataSources1;
+            // 
+            // companyTableAdapter
+            // 
+            this.companyTableAdapter.ClearBeforeFill = true;
+            // 
             // Reclamation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 450);
+            this.ClientSize = new System.Drawing.Size(950, 467);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

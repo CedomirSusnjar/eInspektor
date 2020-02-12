@@ -32,9 +32,9 @@ namespace eInspektor
 
         private void CarsView_Load(object sender, EventArgs e)
         {
-            this.vehicleTableAdapter2.Fill(this.dataSources.vehicle);
-            vehicleGridView.DataSource = this.dataSources.vehicle;
+            this.vehicleTableAdapter2.FillByIsActive(this.dataSources.vehicle);
             db = new DatabaseModel();
+            this.hasChanges = false;
         }
 
         protected override async void OnFormClosing(FormClosingEventArgs e)
@@ -103,8 +103,9 @@ namespace eInspektor
                     vehicle v = db.vehicles.Find(id);
                     if (v != null)
                     {
-                        db.vehicles.Remove(v);
-                    }                }
+                        v.isActive = 0;
+                    }              
+                }
                 db.SaveChanges();
                 CarsView_Load(sender, e);
                 if(selIndex != 0 && selIndex < vehicleGridView.Rows.Count)
