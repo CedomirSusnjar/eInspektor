@@ -272,6 +272,22 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`JOINT_CONTROL` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `is-proj`.`ADMIN`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `is-proj`.`ADMIN` ;
+
+CREATE TABLE IF NOT EXISTS `is-proj`.`ADMIN` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(255) NOT NULL,
+  `salt` VARCHAR(45) NOT NULL,
+  `password_hash` VARCHAR(255) NOT NULL,
+  `isActive` TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

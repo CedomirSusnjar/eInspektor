@@ -8,11 +8,12 @@ namespace eInspektor.Model
     public partial class DatabaseModel : DbContext
     {
         public DatabaseModel()
-            : base("name=DatabaseModel2")
+            : base("name=DatabaseModel")
         {
         }
 
         public virtual DbSet<absence> absences { get; set; }
+        public virtual DbSet<admin> admins { get; set; }
         public virtual DbSet<company> companies { get; set; }
         public virtual DbSet<complaint> complaints { get; set; }
         public virtual DbSet<control> controls { get; set; }
@@ -26,6 +27,18 @@ namespace eInspektor.Model
         {
             modelBuilder.Entity<absence>()
                 .Property(e => e.absence_purpose)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<admin>()
+                .Property(e => e.username)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<admin>()
+                .Property(e => e.salt)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<admin>()
+                .Property(e => e.password_hash)
                 .IsUnicode(false);
 
             modelBuilder.Entity<company>()
