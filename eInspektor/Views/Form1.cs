@@ -23,15 +23,20 @@ namespace eInspektor
             db = new DatabaseModel();
         }
 
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            string username = usernameTb.Text;
-            string password = passwordTb.Text;
-            for (int i = 0; i < 2; i++)
+        async public Task<int> progressBarLoad() {
+            for (int i = 0; i < 12; i++)
             {
                 progressBar1.PerformStep();
                 await Task.Delay(200);
             }
+            return 1;
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            string username = usernameTb.Text;
+            string password = passwordTb.Text;
+            progressBarLoad();
             //TODO SQL injection
 
             var query = from v in db.inspectors
@@ -47,34 +52,46 @@ namespace eInspektor
                             last_name = v.last_name
                         };
 
+            if (query.ToList().Count()==0)
+            {
+                failedLoginLbl.Visible = true;
+                progressBar1.Value = 0;
+            }
+            else
+            {
+                failedLoginLbl.Visible = false;
+                string passwordhash = query.ToList().First().password_hash;
+                string salt = query.ToList().First().salt;
 
-            string passwordhash = query.ToList().First().password_hash;
-            string salt = query.ToList().First().salt;
-
-            using (SHA512 sha512Hash = SHA512.Create())
-            {               
-                byte[] sourceBytes = Encoding.UTF8.GetBytes(salt + password);
-                byte[] hashBytes = sha512Hash.ComputeHash(sourceBytes);
-                string hash = BitConverter.ToString(hashBytes).Replace("-", String.Empty);
-
-                if (hash == passwordhash)
+                using (SHA512 sha512Hash = SHA512.Create())
                 {
-                    for (int i = 0; i<8; i++) {
-                        progressBar1.PerformStep();
-                        await Task.Delay(200);
+                    byte[] sourceBytes = Encoding.UTF8.GetBytes(salt + password);
+                    byte[] hashBytes = sha512Hash.ComputeHash(sourceBytes);
+                    string hash = BitConverter.ToString(hashBytes).Replace("-", String.Empty);
+
+                    if (hash == passwordhash)
+                    {
+                        for (int i = 0; i < 8; i++)
+                        {
+                            progressBar1.PerformStep();
+                            await Task.Delay(200);
+                        }
+                        sbyte is_coordinator = query.ToList().First().is_coordinator;
+                        string firstName = query.ToList().First().first_name;
+                        string lastName = query.ToList().First().last_name;
+                        int id = query.ToList().First().id;
+                        new StartForm(id, is_coordinator, firstName, lastName).Show();
+                        Hide();
                     }
-                    sbyte is_coordinator = query.ToList().First().is_coordinator;
-                    string firstName = query.ToList().First().first_name;
-                    string lastName = query.ToList().First().last_name;
-                    int id = query.ToList().First().id;
-                    new StartForm(id,is_coordinator, firstName, lastName).Show();
-                    Hide();
+                    else
+                    {
+                        usernameTb.Text = "";
+                        passwordTb.Text = "";
+                        progressBar1.Value = 0;
+                    }
                 }
-                else {
-                    usernameTb.Text = "";
-                    passwordTb.Text = "";
-                    progressBar1.Value = 0;
-                }
+
+            
             }
 
 

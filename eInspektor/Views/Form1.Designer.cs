@@ -34,13 +34,14 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.passwordTb = new System.Windows.Forms.TextBox();
             this.usernameTb = new System.Windows.Forms.TextBox();
+            this.failedLoginLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(190, 162);
+            this.button1.Location = new System.Drawing.Point(192, 153);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 40);
             this.button1.TabIndex = 0;
@@ -70,6 +71,7 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 227);
+            this.progressBar1.Maximum = 120;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(502, 23);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -90,11 +92,23 @@
             this.usernameTb.Size = new System.Drawing.Size(173, 22);
             this.usernameTb.TabIndex = 10;
             // 
+            // failedLoginLbl
+            // 
+            this.failedLoginLbl.AutoSize = true;
+            this.failedLoginLbl.ForeColor = System.Drawing.Color.Red;
+            this.failedLoginLbl.Location = new System.Drawing.Point(205, 196);
+            this.failedLoginLbl.Name = "failedLoginLbl";
+            this.failedLoginLbl.Size = new System.Drawing.Size(133, 17);
+            this.failedLoginLbl.TabIndex = 11;
+            this.failedLoginLbl.Text = "Neuspješna prijava.";
+            this.failedLoginLbl.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 262);
+            this.Controls.Add(this.failedLoginLbl);
             this.Controls.Add(this.usernameTb);
             this.Controls.Add(this.passwordTb);
             this.Controls.Add(this.progressBar1);
@@ -121,6 +135,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox passwordTb;
         private System.Windows.Forms.TextBox usernameTb;
+        private System.Windows.Forms.Label failedLoginLbl;
     }
 }
 

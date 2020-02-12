@@ -33,6 +33,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.oldPswd = new System.Windows.Forms.TextBox();
             this.newPswd = new System.Windows.Forms.TextBox();
+            this.failedChangepswdLbl = new System.Windows.Forms.Label();
+            this.shortPswdLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -79,11 +81,35 @@
             this.newPswd.Size = new System.Drawing.Size(168, 22);
             this.newPswd.TabIndex = 7;
             // 
+            // failedChangepswdLbl
+            // 
+            this.failedChangepswdLbl.AutoSize = true;
+            this.failedChangepswdLbl.ForeColor = System.Drawing.Color.Red;
+            this.failedChangepswdLbl.Location = new System.Drawing.Point(33, 117);
+            this.failedChangepswdLbl.Name = "failedChangepswdLbl";
+            this.failedChangepswdLbl.Size = new System.Drawing.Size(198, 17);
+            this.failedChangepswdLbl.TabIndex = 8;
+            this.failedChangepswdLbl.Text = "Neuspješna promjena lozinke.";
+            this.failedChangepswdLbl.Visible = false;
+            // 
+            // shortPswdLbl
+            // 
+            this.shortPswdLbl.AutoSize = true;
+            this.shortPswdLbl.ForeColor = System.Drawing.Color.Red;
+            this.shortPswdLbl.Location = new System.Drawing.Point(36, 116);
+            this.shortPswdLbl.Name = "shortPswdLbl";
+            this.shortPswdLbl.Size = new System.Drawing.Size(231, 17);
+            this.shortPswdLbl.TabIndex = 9;
+            this.shortPswdLbl.Text = "Lozinka mora imati bar 9 karaktera.";
+            this.shortPswdLbl.Visible = false;
+            // 
             // ChangePswd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(367, 206);
+            this.Controls.Add(this.shortPswdLbl);
+            this.Controls.Add(this.failedChangepswdLbl);
             this.Controls.Add(this.newPswd);
             this.Controls.Add(this.oldPswd);
             this.Controls.Add(this.button1);
@@ -103,5 +129,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox oldPswd;
         private System.Windows.Forms.TextBox newPswd;
+        private System.Windows.Forms.Label failedChangepswdLbl;
+        private System.Windows.Forms.Label shortPswdLbl;
     }
 }

@@ -26,35 +26,49 @@ namespace eInspektor.Views
             string old = oldPswd.Text;
             string newPwd = newPswd.Text;
 
-            DatabaseModel db = new DatabaseModel();
-            var query = from v in db.inspectors
-                        where v.id == this.id
-                        select v.password_hash;
-
-            string passwordHash = query.ToList().First();
-
-            using (SHA512 sha512Hash = SHA512.Create())
+            if (newPwd.Length < 9)
             {
-                Console.WriteLine("ojsa");
-                byte[] sourceBytes = Encoding.UTF8.GetBytes("salt" + old);
-                byte[] hashBytes = sha512Hash.ComputeHash(sourceBytes);
-                string hash = BitConverter.ToString(hashBytes).Replace("-", String.Empty);
+                shortPswdLbl.Visible = true;
+            }
+            else
+            {
+                shortPswdLbl.Visible = false;
+                DatabaseModel db = new DatabaseModel();
+                var query = from v in db.inspectors
+                            where v.id == this.id
+                            select v.password_hash;
 
-                if (passwordHash == hash) {//if not equal, message
-                    Console.WriteLine("ojsa");
-                    var result = db.inspectors.SingleOrDefault(b => b.id == id);
-                    if (result != null)
+                string passwordHash = query.ToList().First();
+
+                using (SHA512 sha512Hash = SHA512.Create())
+                {
+                    failedChangepswdLbl.Visible = false;
+                    byte[] sourceBytes = Encoding.UTF8.GetBytes("salt" + old);
+                    byte[] hashBytes = sha512Hash.ComputeHash(sourceBytes);
+                    string hash = BitConverter.ToString(hashBytes).Replace("-", String.Empty);
+
+                    if (passwordHash == hash)
                     {
-                        Console.WriteLine("ojsa");
-                        byte[] sourceBytes1 = Encoding.UTF8.GetBytes("salt" + newPwd);
-                        byte[] hashBytes1 = sha512Hash.ComputeHash(sourceBytes1);
-                        string hash1 = BitConverter.ToString(hashBytes1).Replace("-", String.Empty);
-                        result.password_hash = hash1;
-                        db.SaveChanges();
-                        Close();
+
+                        var result = db.inspectors.SingleOrDefault(b => b.id == id);
+                        if (result != null)
+                        {
+                            byte[] sourceBytes1 = Encoding.UTF8.GetBytes("salt" + newPwd);
+                            byte[] hashBytes1 = sha512Hash.ComputeHash(sourceBytes1);
+                            string hash1 = BitConverter.ToString(hashBytes1).Replace("-", String.Empty);
+                            result.password_hash = hash1;
+                            db.SaveChanges();
+                            Close();
+                        }
+                    }
+                    else
+                    {
+                        failedChangepswdLbl.Visible = true;
                     }
                 }
             }
+
+          
 
             }
     }
