@@ -30,7 +30,7 @@ namespace eInspektor.Views
 
         private void Plan_Load(object sender, EventArgs e)
         {
-            this.companyTableAdapter.FillByIsActive(this.dataSources.company);
+            this.companyTableAdapter.FillByDateLC(this.dataSources.company, DateTime.Today.AddYears(-1));
             this.controlTableAdapter.FillByIsActive(this.dataSources.control);
 
             db = new DatabaseModel();
@@ -207,5 +207,188 @@ namespace eInspektor.Views
             this.Hide();
         }
 
+        private void subjekteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.companyTableAdapter.FillByDateLC(this.dataSources.company, DateTime.Today.AddYears(-1));
+        }
+
+        private void subjekteIInspektoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {          
+            DateTime dt = DateTime.Today;
+            var queryCompany = from v in db.companies
+                               where v.last_control < dt
+                               select new
+                               {
+                                   id = v.id,
+                                   name = v.name,
+                                   last_control = v.last_control,
+                                   location = v.location
+                               };
+
+            var queryInspectors = from v in db.inspectors
+                                  select new
+                                  {
+                                      id = v.id,
+                                      full_name = v.first_name + " " + v.last_name
+                                  };
+
+            var queryVehicles = from v in db.vehicles
+                                select new
+                                {
+                                    id = v.id,
+                                    registration_num = v.registration_num
+                                };
+
+            var limitedQuery = queryCompany.Take(queryInspectors.Count() * queryVehicles.Count());
+
+            Dictionary<string, Tuple<Tuple<string,string>, string>> triple = new Dictionary<string, Tuple<Tuple<string,string>, string>>();
+
+            for (int i = 0; i < limitedQuery.Count(); i++)//kontrola u bazu
+            {
+                control c = new control();
+                c.company_id = limitedQuery.ToList()[i].id;
+                c.start_date = DateTime.Now;//napraviti nekako po danima u sedmici               
+                db.controls.Add(c);
+            }
+            db.SaveChanges();
+
+            var queryControls = from v in db.controls
+                                let v1 = v.start_date == dt
+                                where v1
+                                select new
+                                {
+                                    id = v.id,
+                                    company_id = v.company_id
+                                };
+         
+            for (int i = 0; i < queryCompany.Count(); i++)//vehicle_respons u bazu
+            {
+                vehicle_responsibility vr = new vehicle_responsibility();
+                vr.vehicle_id = queryVehicles.ToList()[i % queryVehicles.Count()].id;
+                vr.inspector_id = queryInspectors.ToList()[i % queryInspectors.Count()].id;
+                vr.control_id = queryControls.ToList()[i].id;
+                vr.date = DateTime.Now;
+                triple.Add(queryCompany.ToList()[i].name, new Tuple<Tuple<string,string>, string>(new Tuple<string,string>(queryCompany.ToList()[i].location, queryInspectors.ToList()[i % queryInspectors.Count()].full_name), queryVehicles.ToList()[i % queryVehicles.Count()].registration_num));
+                db.vehicle_responsibility.Add(vr);             
+            }
+            db.SaveChanges();
+
+            controlsGridView.RowCount = triple.Count;
+            for (int i = 0; i < triple.Count; i++)
+            {               
+                controlsGridView.Rows[i].Cells["company"].Value = triple.ElementAt(i).Key;
+                controlsGridView.Rows[i].Cells["address"].Value = triple.ElementAt(i).Value.Item1.Item1;
+                controlsGridView.Rows[i].Cells["inspector"].Value = triple.ElementAt(i).Value.Item1.Item2;
+                controlsGridView.Rows[i].Cells["vehicles_column"].Value = triple.ElementAt(i).Value.Item2;
+            }
+        }
+
+        private void ponedjeljakToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dayMI.Text = "Dan - Ponedjeljak";
+            getControlsByDayInWeek(DayOfWeek.Monday);
+        }
+
+        private void utorakToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dayMI.Text = "Dan - Utorak";
+            getControlsByDayInWeek(DayOfWeek.Tuesday);
+        }
+
+        private void srijedaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dayMI.Text = "Dan - Srijeda";
+            getControlsByDayInWeek(DayOfWeek.Wednesday);
+        }
+
+        private void četvrtakToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dayMI.Text = "Dan - Četvrtak";
+            getControlsByDayInWeek(DayOfWeek.Thursday);        
+        }
+
+        private void getControlsByDayInWeek(DayOfWeek dayOfWeek)
+        {
+            var query = from v in db.vehicle_responsibility
+                        select new
+                        {
+                            inspector_id = v.inspector_id,
+                            vehicle_id = v.vehicle_id,
+                            control_id = v.control_id,
+                            date = v.date
+                        };
+
+            Dictionary<string, Tuple<Tuple<string, string>, string>> triple = new Dictionary<string, Tuple<Tuple<string, string>, string>>();
+            Dictionary<int, Tuple<Tuple<int, int>, DateTime>> controlGridViewTuple = new Dictionary<int, Tuple<Tuple<int, int>, DateTime>>();
+
+
+            foreach (dynamic item in query)
+            {
+                if (item.date.DayOfWeek == dayOfWeek)
+                    controlGridViewTuple.Add(item.control_id, new Tuple<Tuple<int, int>, DateTime>(new Tuple<int, int>(item.inspector_id, item.vehicle_id), item.date));
+            }
+
+            for (int i = 0; i < controlGridViewTuple.Count(); i++)
+            {
+                int ide = controlGridViewTuple[controlGridViewTuple.ElementAt(i).Key].Item1.Item1;
+                var insp = from v in db.inspectors
+                           where v.id == ide
+                           select new
+                           {
+                               full_name = v.first_name + " " + v.last_name
+                           };
+
+                int idd = controlGridViewTuple[controlGridViewTuple.ElementAt(i).Key].Item1.Item2;
+                var vehicle = from v in db.vehicles
+                              where v.id == idd
+                              select v.registration_num;
+
+                int idf = controlGridViewTuple.ElementAt(i).Key;
+
+                var control = from v in db.controls
+                              where v.id == idf
+                              select v.company_id;
+
+                int idg = control.ToList().First();
+
+
+                var company = from v in db.companies
+                              where v.id == idg
+                              select new
+                              {
+                                  name = v.name,
+                                  location = v.location
+                              };
+
+                string vehicle_reg_num = vehicle.ToList().First();
+                string company_name = company.ToList().First().name;
+                string location = company.ToList().First().location;
+                string insp_name = insp.ToList().First().full_name;
+
+
+                triple.Add(key: company_name, value: new Tuple<Tuple<string, string>, string>(new Tuple<string, string>(location, insp_name), vehicle_reg_num));
+
+            }
+            controlsGridView.RowCount = triple.Count;
+            for (int i = 0; i < triple.Count; i++)
+            {
+                controlsGridView.Rows[i].Cells["company"].Value = triple.ElementAt(i).Key;
+                controlsGridView.Rows[i].Cells["address"].Value = triple.ElementAt(i).Value.Item1.Item1;
+                controlsGridView.Rows[i].Cells["inspector"].Value = triple.ElementAt(i).Value.Item1.Item2;
+                controlsGridView.Rows[i].Cells["vehicles_column"].Value = triple.ElementAt(i).Value.Item2;
+            }
+        }
+
+        private void petakToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dayMI.Text = "Dan - Petak";
+            getControlsByDayInWeek(DayOfWeek.Friday);
+        }
+
+        private void subotaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dayMI.Text = "Dan - Subota";
+            getControlsByDayInWeek(DayOfWeek.Saturday);
+        }
     }
 }

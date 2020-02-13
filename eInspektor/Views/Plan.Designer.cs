@@ -34,9 +34,11 @@
             this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ručnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.automatskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subjekteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subjekteIInspektoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dayMI = new System.Windows.Forms.ToolStripMenuItem();
             this.ponedjeljakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utorakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.srijedaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,29 +47,19 @@
             this.subotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.companiesGridView = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastcontrolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSources = new eInspektor.DataSources();
             this.controlsGridView = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inspector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicles_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finishdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isfinishedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_regular = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.reportcontentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.controljustifiedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.controlBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
             this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
-            this.subjekteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.subjekteIInspektoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -88,7 +80,7 @@
             this.dodajToolStripMenuItem,
             this.bbToolStripMenuItem,
             this.obrišiToolStripMenuItem,
-            this.bToolStripMenuItem});
+            this.dayMI});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1249, 28);
@@ -114,7 +106,7 @@
             // ručnoToolStripMenuItem
             // 
             this.ručnoToolStripMenuItem.Name = "ručnoToolStripMenuItem";
-            this.ručnoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.ručnoToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.ručnoToolStripMenuItem.Text = "Ručno";
             this.ručnoToolStripMenuItem.Click += new System.EventHandler(this.ručnoToolStripMenuItem_Click);
             // 
@@ -124,9 +116,22 @@
             this.subjekteToolStripMenuItem,
             this.subjekteIInspektoreToolStripMenuItem});
             this.automatskiToolStripMenuItem.Name = "automatskiToolStripMenuItem";
-            this.automatskiToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.automatskiToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.automatskiToolStripMenuItem.Text = "Automatski";
-            this.automatskiToolStripMenuItem.Click += new System.EventHandler(this.automatskiToolStripMenuItem_Click);
+            // 
+            // subjekteToolStripMenuItem
+            // 
+            this.subjekteToolStripMenuItem.Name = "subjekteToolStripMenuItem";
+            this.subjekteToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.subjekteToolStripMenuItem.Text = "Subjekte";
+            this.subjekteToolStripMenuItem.Click += new System.EventHandler(this.subjekteToolStripMenuItem_Click);
+            // 
+            // subjekteIInspektoreToolStripMenuItem
+            // 
+            this.subjekteIInspektoreToolStripMenuItem.Name = "subjekteIInspektoreToolStripMenuItem";
+            this.subjekteIInspektoreToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.subjekteIInspektoreToolStripMenuItem.Text = "Subjekte i inspektore";
+            this.subjekteIInspektoreToolStripMenuItem.Click += new System.EventHandler(this.subjekteIInspektoreToolStripMenuItem_Click);
             // 
             // bbToolStripMenuItem
             // 
@@ -142,55 +147,61 @@
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
-            // bToolStripMenuItem
+            // dayMI
             // 
-            this.bToolStripMenuItem.CheckOnClick = true;
-            this.bToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dayMI.CheckOnClick = true;
+            this.dayMI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ponedjeljakToolStripMenuItem,
             this.utorakToolStripMenuItem,
             this.srijedaToolStripMenuItem,
             this.četvrtakToolStripMenuItem,
             this.petakToolStripMenuItem,
             this.subotaToolStripMenuItem});
-            this.bToolStripMenuItem.Name = "bToolStripMenuItem";
-            this.bToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
-            this.bToolStripMenuItem.Text = "Dan";
+            this.dayMI.Name = "dayMI";
+            this.dayMI.Size = new System.Drawing.Size(138, 24);
+            this.dayMI.Text = "Dan - Ponedjeljak";
             // 
             // ponedjeljakToolStripMenuItem
             // 
             this.ponedjeljakToolStripMenuItem.Name = "ponedjeljakToolStripMenuItem";
             this.ponedjeljakToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.ponedjeljakToolStripMenuItem.Text = "Ponedjeljak";
+            this.ponedjeljakToolStripMenuItem.Click += new System.EventHandler(this.ponedjeljakToolStripMenuItem_Click);
             // 
             // utorakToolStripMenuItem
             // 
             this.utorakToolStripMenuItem.Name = "utorakToolStripMenuItem";
             this.utorakToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.utorakToolStripMenuItem.Text = "Utorak";
+            this.utorakToolStripMenuItem.Click += new System.EventHandler(this.utorakToolStripMenuItem_Click);
             // 
             // srijedaToolStripMenuItem
             // 
             this.srijedaToolStripMenuItem.Name = "srijedaToolStripMenuItem";
             this.srijedaToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.srijedaToolStripMenuItem.Text = "Srijeda";
+            this.srijedaToolStripMenuItem.Click += new System.EventHandler(this.srijedaToolStripMenuItem_Click);
             // 
             // četvrtakToolStripMenuItem
             // 
             this.četvrtakToolStripMenuItem.Name = "četvrtakToolStripMenuItem";
             this.četvrtakToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.četvrtakToolStripMenuItem.Text = "Četvrtak";
+            this.četvrtakToolStripMenuItem.Click += new System.EventHandler(this.četvrtakToolStripMenuItem_Click);
             // 
             // petakToolStripMenuItem
             // 
             this.petakToolStripMenuItem.Name = "petakToolStripMenuItem";
             this.petakToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.petakToolStripMenuItem.Text = "Petak";
+            this.petakToolStripMenuItem.Click += new System.EventHandler(this.petakToolStripMenuItem_Click);
             // 
             // subotaToolStripMenuItem
             // 
             this.subotaToolStripMenuItem.Name = "subotaToolStripMenuItem";
             this.subotaToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.subotaToolStripMenuItem.Text = "Subota";
+            this.subotaToolStripMenuItem.Click += new System.EventHandler(this.subotaToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -214,7 +225,8 @@
             this.companiesGridView.AutoGenerateColumns = false;
             this.companiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.companiesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
+            this.name,
+            this.location,
             this.lastcontrolDataGridViewTextBoxColumn});
             this.companiesGridView.DataSource = this.companyBindingSource;
             this.companiesGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -225,12 +237,19 @@
             this.companiesGridView.Size = new System.Drawing.Size(313, 436);
             this.companiesGridView.TabIndex = 0;
             // 
-            // nameDataGridViewTextBoxColumn
+            // name
             // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Subjekt";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Subjekt";
+            this.name.Name = "name";
+            // 
+            // location
+            // 
+            this.location.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.location.DataPropertyName = "location";
+            this.location.HeaderText = "Lokacija";
+            this.location.Name = "location";
             // 
             // lastcontrolDataGridViewTextBoxColumn
             // 
@@ -254,43 +273,20 @@
             this.controlsGridView.AllowUserToAddRows = false;
             this.controlsGridView.AllowUserToDeleteRows = false;
             this.controlsGridView.AllowUserToResizeColumns = false;
-            this.controlsGridView.AutoGenerateColumns = false;
             this.controlsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.controlsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
             this.company,
             this.address,
             this.inspector,
-            this.vehicles_column,
-            this.company_id,
-            this.startdateDataGridViewTextBoxColumn,
-            this.finishdateDataGridViewTextBoxColumn,
-            this.isfinishedDataGridViewTextBoxColumn,
-            this.is_regular,
-            this.reportcontentDataGridViewTextBoxColumn,
-            this.controljustifiedDataGridViewTextBoxColumn,
-            this.isActiveDataGridViewTextBoxColumn});
-            this.controlsGridView.DataSource = this.controlBindingSource;
+            this.vehicles_column});
             this.controlsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.controlsGridView.Location = new System.Drawing.Point(0, 0);
             this.controlsGridView.Name = "controlsGridView";
-            this.controlsGridView.ReadOnly = true;
             this.controlsGridView.RowHeadersWidth = 51;
             this.controlsGridView.RowTemplate.Height = 24;
             this.controlsGridView.Size = new System.Drawing.Size(932, 436);
             this.controlsGridView.TabIndex = 0;
-            this.controlsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.controlsGridView_CellContentClick);
             this.controlsGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehicleGridView_CellValueChanged);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
             // 
             // company
             // 
@@ -298,7 +294,6 @@
             this.company.HeaderText = "Subjekt";
             this.company.MinimumWidth = 6;
             this.company.Name = "company";
-            this.company.ReadOnly = true;
             // 
             // address
             // 
@@ -306,7 +301,6 @@
             this.address.HeaderText = "Adresa";
             this.address.MinimumWidth = 6;
             this.address.Name = "address";
-            this.address.ReadOnly = true;
             // 
             // inspector
             // 
@@ -314,7 +308,6 @@
             this.inspector.HeaderText = "Inspektor";
             this.inspector.MinimumWidth = 6;
             this.inspector.Name = "inspector";
-            this.inspector.ReadOnly = true;
             this.inspector.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.inspector.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -324,88 +317,6 @@
             this.vehicles_column.HeaderText = "Vozila";
             this.vehicles_column.MinimumWidth = 6;
             this.vehicles_column.Name = "vehicles_column";
-            this.vehicles_column.ReadOnly = true;
-            // 
-            // company_id
-            // 
-            this.company_id.DataPropertyName = "company_id";
-            this.company_id.HeaderText = "company_id";
-            this.company_id.MinimumWidth = 6;
-            this.company_id.Name = "company_id";
-            this.company_id.ReadOnly = true;
-            this.company_id.Visible = false;
-            this.company_id.Width = 125;
-            // 
-            // startdateDataGridViewTextBoxColumn
-            // 
-            this.startdateDataGridViewTextBoxColumn.DataPropertyName = "start_date";
-            this.startdateDataGridViewTextBoxColumn.HeaderText = "start_date";
-            this.startdateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.startdateDataGridViewTextBoxColumn.Name = "startdateDataGridViewTextBoxColumn";
-            this.startdateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.startdateDataGridViewTextBoxColumn.Visible = false;
-            this.startdateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // finishdateDataGridViewTextBoxColumn
-            // 
-            this.finishdateDataGridViewTextBoxColumn.DataPropertyName = "finish_date";
-            this.finishdateDataGridViewTextBoxColumn.HeaderText = "finish_date";
-            this.finishdateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.finishdateDataGridViewTextBoxColumn.Name = "finishdateDataGridViewTextBoxColumn";
-            this.finishdateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.finishdateDataGridViewTextBoxColumn.Visible = false;
-            this.finishdateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // isfinishedDataGridViewTextBoxColumn
-            // 
-            this.isfinishedDataGridViewTextBoxColumn.DataPropertyName = "is_finished";
-            this.isfinishedDataGridViewTextBoxColumn.HeaderText = "is_finished";
-            this.isfinishedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.isfinishedDataGridViewTextBoxColumn.Name = "isfinishedDataGridViewTextBoxColumn";
-            this.isfinishedDataGridViewTextBoxColumn.ReadOnly = true;
-            this.isfinishedDataGridViewTextBoxColumn.Visible = false;
-            this.isfinishedDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // is_regular
-            // 
-            this.is_regular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.is_regular.DataPropertyName = "is_regular";
-            this.is_regular.HeaderText = "Redovna";
-            this.is_regular.MinimumWidth = 6;
-            this.is_regular.Name = "is_regular";
-            this.is_regular.ReadOnly = true;
-            this.is_regular.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.is_regular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // reportcontentDataGridViewTextBoxColumn
-            // 
-            this.reportcontentDataGridViewTextBoxColumn.DataPropertyName = "report_content";
-            this.reportcontentDataGridViewTextBoxColumn.HeaderText = "report_content";
-            this.reportcontentDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.reportcontentDataGridViewTextBoxColumn.Name = "reportcontentDataGridViewTextBoxColumn";
-            this.reportcontentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.reportcontentDataGridViewTextBoxColumn.Visible = false;
-            this.reportcontentDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // controljustifiedDataGridViewTextBoxColumn
-            // 
-            this.controljustifiedDataGridViewTextBoxColumn.DataPropertyName = "control_justified";
-            this.controljustifiedDataGridViewTextBoxColumn.HeaderText = "control_justified";
-            this.controljustifiedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.controljustifiedDataGridViewTextBoxColumn.Name = "controljustifiedDataGridViewTextBoxColumn";
-            this.controljustifiedDataGridViewTextBoxColumn.ReadOnly = true;
-            this.controljustifiedDataGridViewTextBoxColumn.Visible = false;
-            this.controljustifiedDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // isActiveDataGridViewTextBoxColumn
-            // 
-            this.isActiveDataGridViewTextBoxColumn.DataPropertyName = "isActive";
-            this.isActiveDataGridViewTextBoxColumn.HeaderText = "isActive";
-            this.isActiveDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.isActiveDataGridViewTextBoxColumn.Name = "isActiveDataGridViewTextBoxColumn";
-            this.isActiveDataGridViewTextBoxColumn.ReadOnly = true;
-            this.isActiveDataGridViewTextBoxColumn.Visible = false;
-            this.isActiveDataGridViewTextBoxColumn.Width = 125;
             // 
             // controlBindingSource
             // 
@@ -419,19 +330,6 @@
             // companyTableAdapter
             // 
             this.companyTableAdapter.ClearBeforeFill = true;
-            // 
-            // subjekteToolStripMenuItem
-            // 
-            this.subjekteToolStripMenuItem.Name = "subjekteToolStripMenuItem";
-            this.subjekteToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
-            this.subjekteToolStripMenuItem.Text = "Subjekte";
-            this.subjekteToolStripMenuItem.Click += new System.EventHandler(this.subjekteToolStripMenuItem_Click);
-            // 
-            // subjekteIInspektoreToolStripMenuItem
-            // 
-            this.subjekteIInspektoreToolStripMenuItem.Name = "subjekteIInspektoreToolStripMenuItem";
-            this.subjekteIInspektoreToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
-            this.subjekteIInspektoreToolStripMenuItem.Text = "Subjekte i inspektore";
             // 
             // Plan
             // 
@@ -466,7 +364,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem blaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bbToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dayMI;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView controlsGridView;
         private System.Windows.Forms.ToolStripMenuItem ponedjeljakToolStripMenuItem;
@@ -485,22 +383,14 @@
         private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ručnoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem automatskiToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastcontrolDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn company;
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewTextBoxColumn inspector;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicles_column;
-        private System.Windows.Forms.DataGridViewTextBoxColumn company_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn finishdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isfinishedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn is_regular;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reportcontentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn controljustifiedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem subjekteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subjekteIInspektoreToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn location;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastcontrolDataGridViewTextBoxColumn;
     }
 }
