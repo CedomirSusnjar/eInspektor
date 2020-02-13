@@ -102,6 +102,7 @@
             this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
             this.dodajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.dodajToolStripMenuItem.Text = "Dodaj...";
+            this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
             // 
             // ručnoToolStripMenuItem
             // 

@@ -31,13 +31,13 @@ namespace eInspektor.Views
         private void Plan_Load(object sender, EventArgs e)
         {
             this.companyTableAdapter.FillByDateLC(this.dataSources.company, DateTime.Today.AddYears(-1));
-            this.controlTableAdapter.FillByIsActive(this.dataSources.control);
-
+            dayMI.Text = "Dan - Ponedjeljak";
             db = new DatabaseModel();
-            fillCompanyNamesIntoTable();
-            fillInspectorNames();
-            fillVehicles();
-            this.hasChanges = false;   
+            getControlsByDayInWeek(DayOfWeek.Monday);           
+            // fillCompanyNamesIntoTable();
+            // fillInspectorNames();
+            // fillVehicles();
+            hasChanges = false;   
         }
 
         protected override async void OnFormClosing(FormClosingEventArgs e)
@@ -214,7 +214,7 @@ namespace eInspektor.Views
 
         private void subjekteIInspektoreToolStripMenuItem_Click(object sender, EventArgs e)
         {          
-            DateTime dt = DateTime.Today;
+            DateTime dt = DateTime.Today.AddYears(-1);
             var queryCompany = from v in db.companies
                                where v.last_control < dt
                                select new
@@ -243,18 +243,43 @@ namespace eInspektor.Views
 
             Dictionary<string, Tuple<Tuple<string,string>, string>> triple = new Dictionary<string, Tuple<Tuple<string,string>, string>>();
 
+            DateTime dtt = DateTime.Now;
+            while (dtt.DayOfWeek != DayOfWeek.Monday)
+            {
+               dtt = dtt.AddDays(1);
+            }
+
             for (int i = 0; i < limitedQuery.Count(); i++)//kontrola u bazu
             {
                 control c = new control();
                 c.company_id = limitedQuery.ToList()[i].id;
-                c.start_date = DateTime.Now;//napraviti nekako po danima u sedmici               
+                int l = i%5;
+                switch (l)
+                {
+                    case 1:
+                        c.start_date = dtt;
+                        break;
+                    case 2:
+                        c.start_date = dtt.AddDays(1);
+                        break;
+                    case 3:
+                        c.start_date = dtt.AddDays(2);
+                        break;
+                    case 4:
+                        c.start_date = dtt.AddDays(3);
+                        break;
+                    case 5:
+                        c.start_date = dtt.AddDays(4);
+                        break;
+                    default:
+                        c.start_date = dtt.AddDays(5);
+                        break;
+                }                            
                 db.controls.Add(c);
             }
             db.SaveChanges();
 
-            var queryControls = from v in db.controls
-                                let v1 = v.start_date == dt
-                                where v1
+            var queryControls = from v in db.controls                              
                                 select new
                                 {
                                     id = v.id,
@@ -267,20 +292,36 @@ namespace eInspektor.Views
                 vr.vehicle_id = queryVehicles.ToList()[i % queryVehicles.Count()].id;
                 vr.inspector_id = queryInspectors.ToList()[i % queryInspectors.Count()].id;
                 vr.control_id = queryControls.ToList()[i].id;
-                vr.date = DateTime.Now;
+                int l = i % 6;
+                switch (l)
+                {
+                    case 1:
+                        vr.date = dtt;
+                        break;
+                    case 2:
+                        vr.date = dtt.AddDays(1);
+                        break;
+                    case 3:
+                        vr.date = dtt.AddDays(2);
+                        break;
+                    case 4:
+                        vr.date = dtt.AddDays(3);
+                        break;
+                    case 5:
+                        vr.date = dtt.AddDays(4);
+                        break;
+                    default:
+                        vr.date = dtt.AddDays(5);
+                        break;
+                }
+                
                 triple.Add(queryCompany.ToList()[i].name, new Tuple<Tuple<string,string>, string>(new Tuple<string,string>(queryCompany.ToList()[i].location, queryInspectors.ToList()[i % queryInspectors.Count()].full_name), queryVehicles.ToList()[i % queryVehicles.Count()].registration_num));
                 db.vehicle_responsibility.Add(vr);             
             }
             db.SaveChanges();
 
-            controlsGridView.RowCount = triple.Count;
-            for (int i = 0; i < triple.Count; i++)
-            {               
-                controlsGridView.Rows[i].Cells["company"].Value = triple.ElementAt(i).Key;
-                controlsGridView.Rows[i].Cells["address"].Value = triple.ElementAt(i).Value.Item1.Item1;
-                controlsGridView.Rows[i].Cells["inspector"].Value = triple.ElementAt(i).Value.Item1.Item2;
-                controlsGridView.Rows[i].Cells["vehicles_column"].Value = triple.ElementAt(i).Value.Item2;
-            }
+            dayMI.Text = "Dan - Ponedjeljak";
+            getControlsByDayInWeek(DayOfWeek.Monday);
         }
 
         private void ponedjeljakToolStripMenuItem_Click(object sender, EventArgs e)
@@ -389,6 +430,11 @@ namespace eInspektor.Views
         {
             dayMI.Text = "Dan - Subota";
             getControlsByDayInWeek(DayOfWeek.Saturday);
+        }
+
+        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
