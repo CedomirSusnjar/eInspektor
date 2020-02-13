@@ -15,10 +15,14 @@ namespace eInspektor.Views
     public partial class ChangePswd : Form
     {
         int id;
-        public ChangePswd(int id)
+        bool isAdmin;
+        DatabaseModel db;
+        public ChangePswd(int id, bool isAdmin)
         {
             InitializeComponent();
             this.id = id;
+            this.isAdmin = isAdmin;
+            db = new DatabaseModel();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,43 +37,55 @@ namespace eInspektor.Views
             else
             {
                 shortPswdLbl.Visible = false;
-                DatabaseModel db = new DatabaseModel();
-                var query = from v in db.inspectors
-                            where v.id == this.id
-                            select v.password_hash;
-
-                string passwordHash = query.ToList().First();
-
-                using (SHA512 sha512Hash = SHA512.Create())
+                if (isAdmin)
                 {
-                    failedChangepswdLbl.Visible = false;
-                    byte[] sourceBytes = Encoding.UTF8.GetBytes("salt" + old);
-                    byte[] hashBytes = sha512Hash.ComputeHash(sourceBytes);
-                    string hash = BitConverter.ToString(hashBytes).Replace("-", String.Empty);
+                    var queryAdmin = from v in db.admins
+                                     where v.id == this.id
+                                     select new
+                                     {
+                                         password_hash = v.password_hash,
+                                         salt = v.salt
+                                     };
+                    changePassword(newPwd, old, queryAdmin.ToList().First().password_hash, queryAdmin.ToList().First().salt,true);
+                }
+                else
+                {
+                    var queryUser = from v in db.inspectors
+                                    where v.id == this.id
+                                    select new
+                                    {
+                                        password_hash = v.password_hash,
+                                        salt = v.salt
+                                    };
 
-                    if (passwordHash == hash)
-                    {
-
-                        var result = db.inspectors.SingleOrDefault(b => b.id == id);
-                        if (result != null)
-                        {
-                            byte[] sourceBytes1 = Encoding.UTF8.GetBytes("salt" + newPwd);
-                            byte[] hashBytes1 = sha512Hash.ComputeHash(sourceBytes1);
-                            string hash1 = BitConverter.ToString(hashBytes1).Replace("-", String.Empty);
-                            result.password_hash = hash1;
-                            db.SaveChanges();
-                            Close();
-                        }
-                    }
-                    else
-                    {
-                        failedChangepswdLbl.Visible = true;
-                    }
+                    changePassword(newPwd, old, queryUser.ToList().First().password_hash, queryUser.ToList().First().salt,false);
                 }
             }
+        }
 
-          
-
+        private void changePassword(string newPwd, string old, string password_hash, string salt, bool isAdmin)
+        {
+            string hash = Form1.generateHash(old, salt);      
+            if (password_hash == hash)
+            {
+                string hash1 = Form1.generateHash(newPwd, salt);
+                if (isAdmin)
+                {
+                   var result = db.admins.SingleOrDefault(b => b.id == id);
+                   result.password_hash = hash1;
+                }
+                else
+                {
+                    var result = db.inspectors.SingleOrDefault(b => b.id == id);
+                    result.password_hash = hash1;
+                }                          
+                db.SaveChanges();
+                Close();
             }
+            else
+            {
+                failedChangepswdLbl.Visible = true;
+            }
+        }
     }
 }

@@ -31,24 +31,22 @@ namespace eInspektor.Views
 
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
-
+            base.OnFormClosing(e);
+            if (e.CloseReason == CloseReason.UserClosing)
+                Application.Exit();
         }
 
-        private void odjavaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void promjenaLozinkeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new ChangePswd(id, true).Show();
         }
 
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        private void odjavaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void odjavaToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
+            Hide();
+            new Form1().Show();
         }
     }
 }

@@ -25,12 +25,15 @@ namespace eInspektor
             db = new DatabaseModel();
         }
 
-       
-
         private void button1_Click(object sender, EventArgs e)
         {
             string username = usernameTb.Text;
             string password = passwordTb.Text;
+
+            if (username.Length == 0 || password.Length == 0) {
+                failedLoginLbl.Visible = true;
+                return;
+            }
 
             var queryAdmin = from v in db.admins
                          where v.username == username
@@ -73,6 +76,7 @@ namespace eInspektor
                     {
                         usernameTb.Text = "";
                         passwordTb.Text = "";
+                        failedLoginLbl.Visible = true;
                     }
                 }               
             }
@@ -91,12 +95,13 @@ namespace eInspektor
                   {
                        usernameTb.Text = "";
                        passwordTb.Text = "";
-                  }               
+                       failedLoginLbl.Visible = true;
+                }               
             }
                          
         }
 
-        private string generateHash(string password, string salt)
+        public static string generateHash(string password, string salt)
         {
              using (SHA512 sha512Hash = SHA512.Create())
                  {

@@ -125,51 +125,51 @@
             // 
             // name
             // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.DataPropertyName = "name";
             this.name.HeaderText = "Naziv";
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
-            this.name.Width = 150;
             // 
             // address
             // 
+            this.address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.address.DataPropertyName = "location";
             this.address.HeaderText = "Adresa";
             this.address.MinimumWidth = 6;
             this.address.Name = "address";
-            this.address.Width = 150;
             // 
             // jib
             // 
+            this.jib.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.jib.DataPropertyName = "jib";
             this.jib.HeaderText = "JIB";
             this.jib.MinimumWidth = 6;
             this.jib.Name = "jib";
-            this.jib.Width = 125;
             // 
             // owner
             // 
+            this.owner.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.owner.DataPropertyName = "owner";
             this.owner.HeaderText = "Vlasnik";
             this.owner.MinimumWidth = 6;
             this.owner.Name = "owner";
-            this.owner.Width = 150;
             // 
             // dateLastCtrl
             // 
+            this.dateLastCtrl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dateLastCtrl.DataPropertyName = "last_control";
             this.dateLastCtrl.HeaderText = "Datum poslednje kontrole";
             this.dateLastCtrl.MinimumWidth = 6;
             this.dateLastCtrl.Name = "dateLastCtrl";
-            this.dateLastCtrl.Width = 200;
             // 
             // bookkeeper
             // 
+            this.bookkeeper.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.bookkeeper.DataPropertyName = "bookkeeper";
             this.bookkeeper.HeaderText = "Knjigovođa";
             this.bookkeeper.MinimumWidth = 6;
             this.bookkeeper.Name = "bookkeeper";
-            this.bookkeeper.Width = 125;
             // 
             // last_control_type
             // 
@@ -216,7 +216,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Subjects";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Subjekti";
             this.Load += new System.EventHandler(this.Subjects_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -239,6 +239,8 @@
         private DataSources dataSources1;
         private System.Windows.Forms.BindingSource companyBindingSource;
         private DataSourcesTableAdapters.companyTableAdapter companyTableAdapter1;
+        private System.Windows.Forms.ToolStripMenuItem sačuvajToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ukloniToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
@@ -248,7 +250,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bookkeeper;
         private System.Windows.Forms.DataGridViewTextBoxColumn last_control_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
-        private System.Windows.Forms.ToolStripMenuItem sačuvajToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ukloniToolStripMenuItem;
     }
 }

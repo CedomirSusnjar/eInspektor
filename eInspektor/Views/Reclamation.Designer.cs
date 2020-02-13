@@ -74,21 +74,21 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // sačuvajToolStripMenuItem
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
             // 
             // obrišiToolStripMenuItem
             // 
             this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
-            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
@@ -158,10 +158,10 @@
             // 
             // company_name_column
             // 
+            this.company_name_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.company_name_column.HeaderText = "Ime firme";
             this.company_name_column.MinimumWidth = 6;
             this.company_name_column.Name = "company_name_column";
-            this.company_name_column.Width = 125;
             // 
             // company_id
             // 
@@ -175,47 +175,47 @@
             // 
             // text
             // 
+            this.text.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.text.DataPropertyName = "text";
             this.text.HeaderText = "Sadržaj";
             this.text.MinimumWidth = 6;
             this.text.Name = "text";
-            this.text.Width = 125;
             // 
             // issuer
             // 
+            this.issuer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.issuer.DataPropertyName = "issuer";
             this.issuer.HeaderText = "Podnosilac";
             this.issuer.MinimumWidth = 6;
             this.issuer.Name = "issuer";
-            this.issuer.Width = 125;
             // 
             // date
             // 
+            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.date.DataPropertyName = "date";
             this.date.HeaderText = "Datum";
             this.date.MinimumWidth = 6;
             this.date.Name = "date";
-            this.date.Width = 125;
             // 
             // is_justified
             // 
+            this.is_justified.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.is_justified.DataPropertyName = "is_justified";
             this.is_justified.HeaderText = "Opravdana";
             this.is_justified.MinimumWidth = 6;
             this.is_justified.Name = "is_justified";
             this.is_justified.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.is_justified.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.is_justified.Width = 85;
             // 
             // is_resolved
             // 
+            this.is_resolved.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.is_resolved.DataPropertyName = "is_resolved";
             this.is_resolved.HeaderText = "Riješena";
             this.is_resolved.MinimumWidth = 6;
             this.is_resolved.Name = "is_resolved";
             this.is_resolved.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.is_resolved.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.is_resolved.Width = 75;
             // 
             // control_id
             // 

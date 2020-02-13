@@ -139,27 +139,27 @@
             // 
             // name
             // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.DataPropertyName = "first_name";
             this.name.HeaderText = "Ime";
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
-            this.name.Width = 200;
             // 
             // lastname
             // 
+            this.lastname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.lastname.DataPropertyName = "last_name";
             this.lastname.HeaderText = "Prezime";
             this.lastname.MinimumWidth = 6;
             this.lastname.Name = "lastname";
-            this.lastname.Width = 200;
             // 
             // shift
             // 
+            this.shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.shift.DataPropertyName = "shift";
             this.shift.HeaderText = "Smjena";
             this.shift.MinimumWidth = 6;
             this.shift.Name = "shift";
-            this.shift.Width = 125;
             // 
             // is_coordinator
             // 
@@ -172,27 +172,27 @@
             // 
             // username
             // 
+            this.username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.username.DataPropertyName = "username";
             this.username.HeaderText = "Korisničko ime";
             this.username.MinimumWidth = 6;
             this.username.Name = "username";
-            this.username.Width = 125;
             // 
             // unavailable
             // 
+            this.unavailable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.unavailable.DataPropertyName = "unavailable";
             this.unavailable.HeaderText = "Razlog nedostupnosti";
             this.unavailable.MinimumWidth = 6;
             this.unavailable.Name = "unavailable";
-            this.unavailable.Width = 125;
             // 
             // department
             // 
+            this.department.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.department.DataPropertyName = "department";
             this.department.HeaderText = "Odjeljenje";
             this.department.MinimumWidth = 6;
             this.department.Name = "department";
-            this.department.Width = 125;
             // 
             // salt
             // 
@@ -253,7 +253,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "InspectorView";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inspektori";
             this.Load += new System.EventHandler(this.InspectorView_Load);
             this.menuStrip1.ResumeLayout(false);

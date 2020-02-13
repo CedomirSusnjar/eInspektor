@@ -116,7 +116,7 @@ namespace eInspektor
 
         private void promjenaLozinkeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ChangePswd(id).Show();
+            new ChangePswd(id, false).Show();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

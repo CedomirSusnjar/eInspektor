@@ -25,20 +25,20 @@ namespace eInspektor.Views
 
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void Plan_Load(object sender, EventArgs e)
         {
-            this.companyTableAdapter.FillByIsActive(this.dataSources.company);
-            this.controlTableAdapter.FillByIsActive(this.dataSources.control);
+           // companyTableAdapter.FillByDateLC(dataSources.company, DateTime.Now);
+            controlTableAdapter.FillByIsActive(dataSources.control);
             //controlsGridView.DataSource = this.dataSources.vehicle;
 
             db = new DatabaseModel();
             fillCompanyNamesIntoTable();
             fillInspectorNames();
             fillVehicles();
-            this.hasChanges = false;   
+            hasChanges = false;   
         }
 
         protected override async void OnFormClosing(FormClosingEventArgs e)
@@ -174,5 +174,22 @@ namespace eInspektor.Views
             this.Hide();
         }
 
+        private void automatskiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+
+        }
+
+     
+
+        private void controlsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void subjekteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            companyTableAdapter.FillByDateLC(dataSources.company, DateTime.Now);
+        }
     }
 }

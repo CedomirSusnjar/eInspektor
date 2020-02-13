@@ -29,8 +29,8 @@ namespace eInspektor
 
         private void InspectorView_Load(object sender, EventArgs e)
         {
-            this.inspectorTableAdapter.Fill(this.dataSources.inspector);
-            this.dataGridView1.DataSource = this.dataSources.inspector;
+            inspectorTableAdapter.Fill(this.dataSources.inspector);
+            dataGridView1.DataSource = this.dataSources.inspector;
             db = new DatabaseModel();
         }
 
