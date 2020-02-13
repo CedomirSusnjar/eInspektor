@@ -29,8 +29,7 @@ namespace eInspektor
 
         private void Subjects_Load(object sender, EventArgs e)
         {
-            this.companyTableAdapter1.Fill(this.dataSources1.company);
-            dataGridView1.DataSource = this.dataSources1.company;
+            this.companyTableAdapter1.FillByIsActive(this.dataSources1.company);
             db = new DatabaseModel();
         }
         protected override async void OnFormClosing(FormClosingEventArgs e)
@@ -99,7 +98,7 @@ namespace eInspektor
                     company v = db.companies.Find(id);
                     if (v != null)
                     {
-                        db.companies.Remove(v);
+                        v.isActive = 0;
                     }
                 }
                 db.SaveChanges();

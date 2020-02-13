@@ -144,6 +144,14 @@ namespace eInspektor
             this.button1.Text = "Vozila";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+
+            //Set images so they can be resized nicely
+            button1Image = button1.Image;
+            button2Image = button2.Image;
+            button3Image = button3.Image;
+            button4Image = button4.Image;
+            button5Image = button5.Image;
+            button6Image = button6.Image;
             // 
             // menuStrip1
             // 
@@ -200,6 +208,9 @@ namespace eInspektor
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
+
+            
 
         }
 

@@ -15,7 +15,7 @@ namespace eInspektor
     {
         sbyte is_coordinator;
         string firstName, lastName;
-        int id;
+        public int id;
         public StartForm(int id, sbyte is_coordinator,string firstName,string lastName)
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace eInspektor
             this.lastName = lastName;
             this.is_coordinator = is_coordinator;
             loggedUsername.Text = firstName + " " + lastName + ", " + (is_coordinator == 1? "koordinator":"");
+
         }
 
         private void button2_Click(object sender, EventArgs e)

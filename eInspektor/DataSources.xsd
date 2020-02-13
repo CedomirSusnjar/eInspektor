@@ -302,7 +302,18 @@ WHERE  (isActive = 1)</CommandText>
               <Mapping SourceColumn="is_resolved" DataSetColumn="is_resolved" />
               <Mapping SourceColumn="isActive" DataSetColumn="isActive" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="is_projConnectionString (Settings)" DbObjectName="`is-proj`.complaint" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByIsActive" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByIsActive" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByIsActive">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, company_id, text, issuer, is_justified, `date`, control_id, is_resolved, isActive
+FROM     complaint
+WHERE  (isActive = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="controlTableAdapter" GeneratorDataComponentClassName="controlTableAdapter" Name="control" UserDataComponentName="controlTableAdapter">
             <MainSource>

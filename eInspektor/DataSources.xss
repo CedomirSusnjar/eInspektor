@@ -7,8 +7,8 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="0" ViewPortY="0" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:absence" ZOrder="24" X="1030" Y="802" Height="227" Width="223" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
-    <Shape ID="DesignTable:company" ZOrder="23" X="357" Y="436" Height="388" Width="272" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
-    <Shape ID="DesignTable:complaint" ZOrder="22" X="357" Y="70" Height="296" Width="238" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
+    <Shape ID="DesignTable:company" ZOrder="23" X="357" Y="436" Height="319" Width="232" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
+    <Shape ID="DesignTable:complaint" ZOrder="22" X="357" Y="70" Height="319" Width="238" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
     <Shape ID="DesignTable:control" ZOrder="21" X="70" Y="70" Height="388" Width="286" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
     <Shape ID="DesignTable:control_has_inspector" ZOrder="20" X="357" Y="802" Height="135" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
     <Shape ID="DesignTable:department" ZOrder="19" X="684" Y="1511" Height="135" Width="251" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
@@ -39,7 +39,7 @@
         </Point>
         <Point>
           <X>473</X>
-          <Y>366</Y>
+          <Y>389</Y>
         </Point>
       </RoutePoints>
     </Connector>
@@ -130,7 +130,7 @@
     <Connector ID="DesignRelation:fk_LAB_SAMPLE_COMPANY1" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>629</X>
+          <X>589</X>
           <Y>549</Y>
         </Point>
         <Point>
