@@ -37,9 +37,6 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.reportsGridView = new System.Windows.Forms.DataGridView();
-            this.controlBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSources = new eInspektor.DataSources();
-            this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +47,18 @@
             this.controljustifiedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.report_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.controlBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSources = new eInspektor.DataSources();
+            this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uzorciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kontroleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._is_projDataSet1 = new eInspektor._is_projDataSet();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSources)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._is_projDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -85,9 +90,14 @@
             // 
             // statistikaToolStripMenuItem
             // 
+            this.statistikaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem,
+            this.uzorciToolStripMenuItem,
+            this.kontroleToolStripMenuItem});
             this.statistikaToolStripMenuItem.Name = "statistikaToolStripMenuItem";
             this.statistikaToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.statistikaToolStripMenuItem.Text = "Statistika...";
+            this.statistikaToolStripMenuItem.Click += new System.EventHandler(this.statistikaToolStripMenuItem_Click);
             // 
             // searchLabel
             // 
@@ -140,20 +150,6 @@
             this.reportsGridView.RowTemplate.Height = 24;
             this.reportsGridView.Size = new System.Drawing.Size(813, 422);
             this.reportsGridView.TabIndex = 4;
-            // 
-            // controlBindingSource
-            // 
-            this.controlBindingSource.DataMember = "control";
-            this.controlBindingSource.DataSource = this.dataSources;
-            // 
-            // dataSources
-            // 
-            this.dataSources.DataSetName = "DataSources";
-            this.dataSources.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // controlTableAdapter
-            // 
-            this.controlTableAdapter.ClearBeforeFill = true;
             // 
             // id
             // 
@@ -252,6 +248,46 @@
             this.isActiveDataGridViewTextBoxColumn.Visible = false;
             this.isActiveDataGridViewTextBoxColumn.Width = 125;
             // 
+            // controlBindingSource
+            // 
+            this.controlBindingSource.DataMember = "control";
+            this.controlBindingSource.DataSource = this.dataSources;
+            // 
+            // dataSources
+            // 
+            this.dataSources.DataSetName = "DataSources";
+            this.dataSources.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // controlTableAdapter
+            // 
+            this.controlTableAdapter.ClearBeforeFill = true;
+            // 
+            // kontroleSaDrugimOdjelimaToolStripMenuItem
+            // 
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Name = "kontroleSaDrugimOdjelimaToolStripMenuItem";
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Text = "Kontrole sa drugim odjelima";
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Click += new System.EventHandler(this.kontroleSaDrugimOdjelimaToolStripMenuItem_Click);
+            // 
+            // uzorciToolStripMenuItem
+            // 
+            this.uzorciToolStripMenuItem.Name = "uzorciToolStripMenuItem";
+            this.uzorciToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
+            this.uzorciToolStripMenuItem.Text = "Uzorci";
+            this.uzorciToolStripMenuItem.Click += new System.EventHandler(this.uzorciToolStripMenuItem_Click);
+            // 
+            // kontroleToolStripMenuItem
+            // 
+            this.kontroleToolStripMenuItem.Name = "kontroleToolStripMenuItem";
+            this.kontroleToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
+            this.kontroleToolStripMenuItem.Text = "Kontrole";
+            this.kontroleToolStripMenuItem.Click += new System.EventHandler(this.kontroleToolStripMenuItem_Click);
+            // 
+            // _is_projDataSet1
+            // 
+            this._is_projDataSet1.DataSetName = "_is_projDataSet";
+            this._is_projDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -272,6 +308,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.reportsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSources)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._is_projDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +337,9 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn controljustifiedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn report_content;
         private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripMenuItem kontroleSaDrugimOdjelimaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uzorciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kontroleToolStripMenuItem;
+        private _is_projDataSet _is_projDataSet1;
     }
 }

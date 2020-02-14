@@ -107,5 +107,25 @@ namespace eInspektor
             detailsWindow.textLabel.Text = content;
             detailsWindow.ShowDialog(this);
         }
+
+        private void statistikaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kontroleSaDrugimOdjelimaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new JointControl().Show();
+        }
+
+        private void uzorciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new SamplesStatistics().Show();
+        }
+
+        private void kontroleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Controls().Show();
+        }
     }
 }
