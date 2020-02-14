@@ -34,6 +34,7 @@
             this.passwordTb = new System.Windows.Forms.TextBox();
             this.usernameTb = new System.Windows.Forms.TextBox();
             this.failedLoginLbl = new System.Windows.Forms.Label();
+            this.databasefailLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -93,11 +94,24 @@
             this.failedLoginLbl.Text = "Neuspješna prijava.";
             this.failedLoginLbl.Visible = false;
             // 
+            // databasefailLbl
+            // 
+            this.databasefailLbl.AutoSize = true;
+            this.databasefailLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.databasefailLbl.ForeColor = System.Drawing.Color.Red;
+            this.databasefailLbl.Location = new System.Drawing.Point(116, 27);
+            this.databasefailLbl.Name = "databasefailLbl";
+            this.databasefailLbl.Size = new System.Drawing.Size(313, 26);
+            this.databasefailLbl.TabIndex = 8;
+            this.databasefailLbl.Text = "Ne postoji konekcija sa bazom.";
+            this.databasefailLbl.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 262);
+            this.Controls.Add(this.databasefailLbl);
             this.Controls.Add(this.failedLoginLbl);
             this.Controls.Add(this.usernameTb);
             this.Controls.Add(this.passwordTb);
@@ -123,6 +137,7 @@
         private System.Windows.Forms.TextBox passwordTb;
         private System.Windows.Forms.TextBox usernameTb;
         private System.Windows.Forms.Label failedLoginLbl;
+        private System.Windows.Forms.Label databasefailLbl;
     }
 }
 

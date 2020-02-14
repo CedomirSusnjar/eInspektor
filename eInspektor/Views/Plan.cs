@@ -255,6 +255,7 @@ namespace eInspektor.Views
                 c.company_id = limitedQuery.ToList()[i].id;
                 c.control_justified = 1;
                 c.is_finished = 0;
+                c.isActive = 1;
                 int l = i%5;
                 switch (l)
                 {

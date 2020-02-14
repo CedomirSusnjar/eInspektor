@@ -23,6 +23,13 @@ namespace eInspektor
         {
             InitializeComponent();
             db = new DatabaseModel();
+            if (!db.Database.Exists())
+            {
+                button1.Enabled = false;
+                usernameTb.Enabled = false;
+                passwordTb.Enabled = false;
+                databasefailLbl.Visible = true;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
