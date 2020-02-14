@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eInspektor.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace eInspektor.Views
 {
     public partial class JointControl : Form
     {
+        DatabaseModel db;
         public JointControl()
         {
             InitializeComponent();
+            db = new DatabaseModel();
+        }
+
+        private void JointControl_Load(object sender, EventArgs e)
+        {         
         }
     }
 }

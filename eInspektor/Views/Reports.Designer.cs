@@ -33,6 +33,9 @@
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detaljiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statistikaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uzorciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kontroleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchLabel = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
@@ -50,9 +53,6 @@
             this.controlBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSources = new eInspektor.DataSources();
             this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
-            this.kontroleSaDrugimOdjelimaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uzorciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kontroleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._is_projDataSet1 = new eInspektor._is_projDataSet();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGridView)).BeginInit();
@@ -98,6 +98,27 @@
             this.statistikaToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.statistikaToolStripMenuItem.Text = "Statistika...";
             this.statistikaToolStripMenuItem.Click += new System.EventHandler(this.statistikaToolStripMenuItem_Click);
+            // 
+            // kontroleSaDrugimOdjelimaToolStripMenuItem
+            // 
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Name = "kontroleSaDrugimOdjelimaToolStripMenuItem";
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Text = "Zajedničke kontrole";
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Click += new System.EventHandler(this.kontroleSaDrugimOdjelimaToolStripMenuItem_Click);
+            // 
+            // uzorciToolStripMenuItem
+            // 
+            this.uzorciToolStripMenuItem.Name = "uzorciToolStripMenuItem";
+            this.uzorciToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.uzorciToolStripMenuItem.Text = "Uzorci";
+            this.uzorciToolStripMenuItem.Click += new System.EventHandler(this.uzorciToolStripMenuItem_Click);
+            // 
+            // kontroleToolStripMenuItem
+            // 
+            this.kontroleToolStripMenuItem.Name = "kontroleToolStripMenuItem";
+            this.kontroleToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.kontroleToolStripMenuItem.Text = "Kontrole";
+            this.kontroleToolStripMenuItem.Click += new System.EventHandler(this.kontroleToolStripMenuItem_Click);
             // 
             // searchLabel
             // 
@@ -261,27 +282,6 @@
             // controlTableAdapter
             // 
             this.controlTableAdapter.ClearBeforeFill = true;
-            // 
-            // kontroleSaDrugimOdjelimaToolStripMenuItem
-            // 
-            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Name = "kontroleSaDrugimOdjelimaToolStripMenuItem";
-            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
-            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Text = "Kontrole sa drugim odjelima";
-            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Click += new System.EventHandler(this.kontroleSaDrugimOdjelimaToolStripMenuItem_Click);
-            // 
-            // uzorciToolStripMenuItem
-            // 
-            this.uzorciToolStripMenuItem.Name = "uzorciToolStripMenuItem";
-            this.uzorciToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
-            this.uzorciToolStripMenuItem.Text = "Uzorci";
-            this.uzorciToolStripMenuItem.Click += new System.EventHandler(this.uzorciToolStripMenuItem_Click);
-            // 
-            // kontroleToolStripMenuItem
-            // 
-            this.kontroleToolStripMenuItem.Name = "kontroleToolStripMenuItem";
-            this.kontroleToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
-            this.kontroleToolStripMenuItem.Text = "Kontrole";
-            this.kontroleToolStripMenuItem.Click += new System.EventHandler(this.kontroleToolStripMenuItem_Click);
             // 
             // _is_projDataSet1
             // 

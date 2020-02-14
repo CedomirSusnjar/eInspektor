@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eInspektor.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,20 @@ namespace eInspektor.Views
 {
     public partial class Controls : Form
     {
+        DatabaseModel db;
         public Controls()
         {
             InitializeComponent();
+            db = new DatabaseModel();
+        }
+
+        private void Controls_Load(object sender, EventArgs e)
+        {
+            var query = from v in db.controls
+                        select new
+                        {
+
+                        };
         }
     }
 }
