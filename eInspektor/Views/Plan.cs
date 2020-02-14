@@ -253,6 +253,8 @@ namespace eInspektor.Views
             {
                 control c = new control();
                 c.company_id = limitedQuery.ToList()[i].id;
+                c.control_justified = 1;
+                c.is_finished = 0;
                 int l = i%5;
                 switch (l)
                 {
@@ -361,7 +363,7 @@ namespace eInspektor.Views
 
             Dictionary<string, Tuple<Tuple<string, string>, string>> triple = new Dictionary<string, Tuple<Tuple<string, string>, string>>();
             Dictionary<int, Tuple<Tuple<int, int>, DateTime>> controlGridViewTuple = new Dictionary<int, Tuple<Tuple<int, int>, DateTime>>();
-
+            Dictionary<int, Tuple<int, sbyte?>> twoBooleans = new Dictionary<int, Tuple<int, sbyte?>>();
 
             foreach (dynamic item in query)
             {
@@ -388,9 +390,15 @@ namespace eInspektor.Views
 
                 var control = from v in db.controls
                               where v.id == idf
-                              select v.company_id;
+                              select new
+                              {
+                                  company_id = v.company_id,
+                                  is_finished = v.is_finished,
+                                  control_justified = v.control_justified
+                              };
+                twoBooleans.Add(i, new Tuple<int, sbyte?>(control.ToList().First().is_finished, control.ToList().First().control_justified));
 
-                int idg = control.ToList().First();
+                int idg = control.ToList().First().company_id;
 
 
                 var company = from v in db.companies
@@ -417,6 +425,8 @@ namespace eInspektor.Views
                 controlsGridView.Rows[i].Cells["address"].Value = triple.ElementAt(i).Value.Item1.Item1;
                 controlsGridView.Rows[i].Cells["inspector"].Value = triple.ElementAt(i).Value.Item1.Item2;
                 controlsGridView.Rows[i].Cells["vehicles_column"].Value = triple.ElementAt(i).Value.Item2;
+                controlsGridView.Rows[i].Cells["control_justified"].Value = twoBooleans[i].Item2;
+                controlsGridView.Rows[i].Cells["is_finished"].Value = twoBooleans[i].Item1;
             }
         }
 

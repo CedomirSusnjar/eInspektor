@@ -53,13 +53,15 @@
             this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSources = new eInspektor.DataSources();
             this.controlsGridView = new System.Windows.Forms.DataGridView();
+            this.controlBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
+            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
             this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inspector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicles_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.controlBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
-            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
+            this.control_justified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.is_finished = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -279,7 +281,9 @@
             this.company,
             this.address,
             this.inspector,
-            this.vehicles_column});
+            this.vehicles_column,
+            this.control_justified,
+            this.is_finished});
             this.controlsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.controlsGridView.Location = new System.Drawing.Point(0, 0);
             this.controlsGridView.Name = "controlsGridView";
@@ -288,6 +292,19 @@
             this.controlsGridView.Size = new System.Drawing.Size(932, 436);
             this.controlsGridView.TabIndex = 0;
             this.controlsGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehicleGridView_CellValueChanged);
+            // 
+            // controlBindingSource
+            // 
+            this.controlBindingSource.DataMember = "control";
+            this.controlBindingSource.DataSource = this.dataSources;
+            // 
+            // controlTableAdapter
+            // 
+            this.controlTableAdapter.ClearBeforeFill = true;
+            // 
+            // companyTableAdapter
+            // 
+            this.companyTableAdapter.ClearBeforeFill = true;
             // 
             // company
             // 
@@ -319,18 +336,17 @@
             this.vehicles_column.MinimumWidth = 6;
             this.vehicles_column.Name = "vehicles_column";
             // 
-            // controlBindingSource
+            // control_justified
             // 
-            this.controlBindingSource.DataMember = "control";
-            this.controlBindingSource.DataSource = this.dataSources;
+            this.control_justified.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.control_justified.HeaderText = "Kontrola opravdana";
+            this.control_justified.Name = "control_justified";
             // 
-            // controlTableAdapter
+            // is_finished
             // 
-            this.controlTableAdapter.ClearBeforeFill = true;
-            // 
-            // companyTableAdapter
-            // 
-            this.companyTableAdapter.ClearBeforeFill = true;
+            this.is_finished.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.is_finished.HeaderText = "Kontrola završena";
+            this.is_finished.Name = "is_finished";
             // 
             // Plan
             // 
@@ -384,14 +400,16 @@
         private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ručnoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem automatskiToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn company;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inspector;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehicles_column;
         private System.Windows.Forms.ToolStripMenuItem subjekteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subjekteIInspektoreToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn location;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastcontrolDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn company;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inspector;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicles_column;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn control_justified;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn is_finished;
     }
 }
