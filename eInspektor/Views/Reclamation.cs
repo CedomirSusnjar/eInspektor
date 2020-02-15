@@ -33,10 +33,14 @@ namespace eInspektor
         private void Reclamation_Load(object sender, EventArgs e)
         {
             this.companyTableAdapter.Fill(this.dataSources1.company);
+            int justified = 0,resolved = 0;
+         
             db = new DatabaseModel();
+            
+
 
             this.complaintTableAdapter1.FillByIsActive(this.dataSources1.complaint);
-            dataGridView1.DataSource = this.dataSources1.complaint;
+            reclamationGV.DataSource = this.dataSources1.complaint;
 
             var query = from com in db.companies
                         select new
@@ -60,11 +64,21 @@ namespace eInspektor
             }
             this.company_name_column.DataSource = companyNames;
 
-            for(int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            for(int i = 0; i < reclamationGV.Rows.Count - 1; i++)
             {                
-                int compId = (int)dataGridView1.Rows[i].Cells["company_id"].Value;
-                dataGridView1.Rows[i].Cells["company_name_column"].Value = companyIdNames[compId];
+                int compId = (int)reclamationGV.Rows[i].Cells["company_id"].Value;
+                reclamationGV.Rows[i].Cells["company_name_column"].Value = companyIdNames[compId];
             }
+            for (int i = 0; i < reclamationGV.RowCount-1; i++)
+            {
+                if (reclamationGV.Rows[i].Cells["is_justified"].Value.ToString() == "1")
+                    justified++;
+                if (reclamationGV.Rows[i].Cells["is_resolved"].Value.ToString() == "1")
+                    resolved++;
+            }
+            resolvedRec.Text = resolved + "/" + (reclamationGV.RowCount-1);
+            justifiedRec.Text = justified + "/" + (reclamationGV.RowCount-1);
+
             this.hasChanges = false;
         }
         protected override async void OnFormClosing(FormClosingEventArgs e)
@@ -104,10 +118,10 @@ namespace eInspektor
         {
             // update subjects name column
             //TODO company name should be unique (in database)
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)      //It doesn't need to fill new row
+            for (int i = 0; i < reclamationGV.Rows.Count - 1; i++)      //It doesn't need to fill new row
             {
-                string compName = (string)dataGridView1.Rows[i].Cells["company_name_column"].Value;
-                dataGridView1.Rows[i].Cells["company_id"].Value = companyNamesId[compName];
+                string compName = (string)reclamationGV.Rows[i].Cells["company_name_column"].Value;
+                reclamationGV.Rows[i].Cells["company_id"].Value = companyNamesId[compName];
             }
 
             this.complaintTableAdapter1.Update(this.dataSources1.complaint);
@@ -116,7 +130,7 @@ namespace eInspektor
 
         private void obrišiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 0)
+            if (reclamationGV.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Niste odabrali nijednu reklamaciju.");
                 return;
@@ -125,13 +139,13 @@ namespace eInspektor
             DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabrane reklamacije?", "Brisanje reklamacija", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                int selIndex = dataGridView1.SelectedRows[0].Index;
-                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+                int selIndex = reclamationGV.SelectedRows[0].Index;
+                for (int i = 0; i < reclamationGV.SelectedRows.Count; i++)
                 {
                     int id = 0;
                     try
                     {
-                        id = (int)dataGridView1.SelectedRows[i].Cells[0].Value;
+                        id = (int)reclamationGV.SelectedRows[i].Cells[0].Value;
                     }
                     catch (NullReferenceException)
                     {
@@ -147,9 +161,9 @@ namespace eInspektor
                 }
                 db.SaveChanges();
                 Reclamation_Load(sender, e);
-                if (selIndex != 0 && selIndex < dataGridView1.Rows.Count)
+                if (selIndex != 0 && selIndex < reclamationGV.Rows.Count)
                 {
-                    dataGridView1.Rows[selIndex - 1].Selected = true;
+                    reclamationGV.Rows[selIndex - 1].Selected = true;
                 }
             }
         }
@@ -167,5 +181,23 @@ namespace eInspektor
             this.hasChanges = true;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /*if (searchTb.Text == "")
+            {
+                for (int i = 0; i < reclamationGV.RowCount; i++)
+                {
+                    reclamationGV.Rows[i].Visible = true;
+                }
+            }
+            else
+            {
+                for (int i = 1; i < reclamationGV.RowCount-1; i++)
+                {
+                    if (!reclamationGV.Rows[i].Cells["company_name_column"].Value.ToString().Contains(searchTb.Text))
+                        reclamationGV.Rows[i].Visible = false;
+                }
+            }*/
+        }
     }
 }

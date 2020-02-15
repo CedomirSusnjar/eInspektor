@@ -33,7 +33,13 @@
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.reclamationGV = new System.Windows.Forms.DataGridView();
+            this.complaintBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSources1 = new eInspektor.DataSources();
+            this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.complaintTableAdapter1 = new eInspektor.DataSourcesTableAdapters.complaintTableAdapter();
+            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.company_name_column = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,14 +50,12 @@
             this.is_resolved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.control_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.complaintBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSources1 = new eInspektor.DataSources();
-            this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.complaintTableAdapter1 = new eInspektor.DataSourcesTableAdapters.complaintTableAdapter();
-            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
+            this.resolvedRec = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.justifiedRec = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reclamationGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSources1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource1)).BeginInit();
@@ -92,14 +96,14 @@
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
-            // dataGridView1
+            // reclamationGV
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.reclamationGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.reclamationGV.AutoGenerateColumns = false;
+            this.reclamationGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reclamationGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.company_name_column,
             this.company_id,
@@ -110,15 +114,42 @@
             this.is_resolved,
             this.control_id,
             this.is_active});
-            this.dataGridView1.DataSource = this.complaintBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(950, 433);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-            this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
+            this.reclamationGV.DataSource = this.complaintBindingSource;
+            this.reclamationGV.Location = new System.Drawing.Point(0, 31);
+            this.reclamationGV.Name = "reclamationGV";
+            this.reclamationGV.RowHeadersWidth = 51;
+            this.reclamationGV.RowTemplate.Height = 24;
+            this.reclamationGV.Size = new System.Drawing.Size(950, 433);
+            this.reclamationGV.TabIndex = 1;
+            this.reclamationGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.reclamationGV.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
+            // 
+            // complaintBindingSource
+            // 
+            this.complaintBindingSource.DataMember = "complaint";
+            this.complaintBindingSource.DataSource = this.dataSources1;
+            // 
+            // dataSources1
+            // 
+            this.dataSources1.DataSetName = "DataSources";
+            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // complaintBindingSource1
+            // 
+            this.complaintBindingSource1.DataMember = "complaint";
+            // 
+            // complaintTableAdapter1
+            // 
+            this.complaintTableAdapter1.ClearBeforeFill = true;
+            // 
+            // companyBindingSource
+            // 
+            this.companyBindingSource.DataMember = "company";
+            this.companyBindingSource.DataSource = this.dataSources1;
+            // 
+            // companyTableAdapter
+            // 
+            this.companyTableAdapter.ClearBeforeFill = true;
             // 
             // id
             // 
@@ -132,7 +163,7 @@
             // company_name_column
             // 
             this.company_name_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.company_name_column.HeaderText = "Ime firme";
+            this.company_name_column.HeaderText = "Subjekt";
             this.company_name_column.MinimumWidth = 6;
             this.company_name_column.Name = "company_name_column";
             // 
@@ -208,39 +239,48 @@
             this.is_active.Visible = false;
             this.is_active.Width = 125;
             // 
-            // complaintBindingSource
+            // resolvedRec
             // 
-            this.complaintBindingSource.DataMember = "complaint";
-            this.complaintBindingSource.DataSource = this.dataSources1;
+            this.resolvedRec.Location = new System.Drawing.Point(424, 3);
+            this.resolvedRec.Name = "resolvedRec";
+            this.resolvedRec.Size = new System.Drawing.Size(75, 22);
+            this.resolvedRec.TabIndex = 3;
             // 
-            // dataSources1
+            // label1
             // 
-            this.dataSources1.DataSetName = "DataSources";
-            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(273, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Riješenih reklamacija:";
             // 
-            // complaintBindingSource1
+            // label2
             // 
-            this.complaintBindingSource1.DataMember = "complaint";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(546, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(161, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Opravdanih reklamacija:";
             // 
-            // complaintTableAdapter1
+            // justifiedRec
             // 
-            this.complaintTableAdapter1.ClearBeforeFill = true;
-            // 
-            // companyBindingSource
-            // 
-            this.companyBindingSource.DataMember = "company";
-            this.companyBindingSource.DataSource = this.dataSources1;
-            // 
-            // companyTableAdapter
-            // 
-            this.companyTableAdapter.ClearBeforeFill = true;
+            this.justifiedRec.Location = new System.Drawing.Point(713, 3);
+            this.justifiedRec.Name = "justifiedRec";
+            this.justifiedRec.Size = new System.Drawing.Size(75, 22);
+            this.justifiedRec.TabIndex = 5;
             // 
             // Reclamation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 467);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.justifiedRec);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.resolvedRec);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.reclamationGV);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Reclamation";
@@ -249,7 +289,7 @@
             this.Load += new System.EventHandler(this.Reclamation_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reclamationGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSources1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource1)).EndInit();
@@ -265,7 +305,7 @@
         private System.Windows.Forms.ToolStripMenuItem nazadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sačuvajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem obrišiToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView reclamationGV;
         private System.Windows.Forms.BindingSource complaintBindingSource1;
         private DataSources dataSources1;
         private System.Windows.Forms.BindingSource complaintBindingSource;
@@ -282,5 +322,9 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn is_resolved;
         private System.Windows.Forms.DataGridViewTextBoxColumn control_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
+        private System.Windows.Forms.TextBox resolvedRec;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox justifiedRec;
     }
 }
