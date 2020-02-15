@@ -34,18 +34,15 @@
             this.potvrdiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.vehiclesGridView = new System.Windows.Forms.DataGridView();
+            this.vehicle_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registrationnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxcapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSources = new eInspektor.DataSources();
             this.inspectorsGridView = new System.Windows.Forms.DataGridView();
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.refreshButton = new System.Windows.Forms.Button();
-            this.responsibilitiesGridView = new System.Windows.Forms.DataGridView();
-            this.dateLabel = new System.Windows.Forms.Label();
-            this.controlDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.regularControl = new System.Windows.Forms.CheckBox();
-            this.inspectorTableAdapter = new eInspektor.DataSourcesTableAdapters.inspectorTableAdapter();
-            this.vehicleTableAdapter = new eInspektor.DataSourcesTableAdapters.vehicleTableAdapter();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,16 +54,19 @@
             this.saltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordhashDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicle_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registrationnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxcapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.responsibilitiesGridView = new System.Windows.Forms.DataGridView();
             this.vehicleNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inspectorResponsibilityColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.inspector_id_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicle_id_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.controlDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.regularControl = new System.Windows.Forms.CheckBox();
+            this.inspectorTableAdapter = new eInspektor.DataSourcesTableAdapters.inspectorTableAdapter();
+            this.vehicleTableAdapter = new eInspektor.DataSourcesTableAdapters.vehicleTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -82,6 +82,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nazadToolStripMenuItem,
@@ -134,6 +135,7 @@
             this.vehiclesGridView.AllowUserToAddRows = false;
             this.vehiclesGridView.AllowUserToDeleteRows = false;
             this.vehiclesGridView.AutoGenerateColumns = false;
+            this.vehiclesGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.vehiclesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vehiclesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.vehicle_id,
@@ -152,6 +154,63 @@
             this.vehiclesGridView.Size = new System.Drawing.Size(402, 221);
             this.vehiclesGridView.TabIndex = 1;
             // 
+            // vehicle_id
+            // 
+            this.vehicle_id.DataPropertyName = "id";
+            this.vehicle_id.HeaderText = "id";
+            this.vehicle_id.MinimumWidth = 6;
+            this.vehicle_id.Name = "vehicle_id";
+            this.vehicle_id.ReadOnly = true;
+            this.vehicle_id.Visible = false;
+            this.vehicle_id.Width = 125;
+            // 
+            // nameData
+            // 
+            this.nameData.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameData.DataPropertyName = "name";
+            this.nameData.HeaderText = "Naziv";
+            this.nameData.MinimumWidth = 6;
+            this.nameData.Name = "nameData";
+            this.nameData.ReadOnly = true;
+            // 
+            // registrationnum
+            // 
+            this.registrationnum.DataPropertyName = "registration_num";
+            this.registrationnum.HeaderText = "registration_num";
+            this.registrationnum.MinimumWidth = 6;
+            this.registrationnum.Name = "registrationnum";
+            this.registrationnum.ReadOnly = true;
+            this.registrationnum.Visible = false;
+            this.registrationnum.Width = 125;
+            // 
+            // maxcapacity
+            // 
+            this.maxcapacity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.maxcapacity.DataPropertyName = "max_capacity";
+            this.maxcapacity.HeaderText = "Broj mjesta";
+            this.maxcapacity.MinimumWidth = 6;
+            this.maxcapacity.Name = "maxcapacity";
+            this.maxcapacity.ReadOnly = true;
+            // 
+            // tag
+            // 
+            this.tag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tag.DataPropertyName = "tag";
+            this.tag.HeaderText = "Oznaka";
+            this.tag.MinimumWidth = 6;
+            this.tag.Name = "tag";
+            this.tag.ReadOnly = true;
+            // 
+            // isActive
+            // 
+            this.isActive.DataPropertyName = "isActive";
+            this.isActive.HeaderText = "isActive";
+            this.isActive.MinimumWidth = 6;
+            this.isActive.Name = "isActive";
+            this.isActive.ReadOnly = true;
+            this.isActive.Visible = false;
+            this.isActive.Width = 125;
+            // 
             // vehicleBindingSource
             // 
             this.vehicleBindingSource.DataMember = "vehicle";
@@ -167,6 +226,7 @@
             this.inspectorsGridView.AllowUserToAddRows = false;
             this.inspectorsGridView.AllowUserToDeleteRows = false;
             this.inspectorsGridView.AutoGenerateColumns = false;
+            this.inspectorsGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.inspectorsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inspectorsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -189,85 +249,6 @@
             this.inspectorsGridView.RowTemplate.Height = 24;
             this.inspectorsGridView.Size = new System.Drawing.Size(402, 195);
             this.inspectorsGridView.TabIndex = 0;
-            // 
-            // inspectorBindingSource
-            // 
-            this.inspectorBindingSource.DataMember = "inspector";
-            this.inspectorBindingSource.DataSource = this.dataSources;
-            // 
-            // titleLabel
-            // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Location = new System.Drawing.Point(249, 23);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(46, 17);
-            this.titleLabel.TabIndex = 5;
-            this.titleLabel.Text = "label1";
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.Location = new System.Drawing.Point(303, 114);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(75, 23);
-            this.refreshButton.TabIndex = 4;
-            this.refreshButton.Text = "Osvježi";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
-            // 
-            // responsibilitiesGridView
-            // 
-            this.responsibilitiesGridView.AllowUserToAddRows = false;
-            this.responsibilitiesGridView.AllowUserToDeleteRows = false;
-            this.responsibilitiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.responsibilitiesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.vehicleNameColumn,
-            this.inspectorResponsibilityColumn,
-            this.inspector_id_column,
-            this.vehicle_id_column});
-            this.responsibilitiesGridView.Location = new System.Drawing.Point(73, 159);
-            this.responsibilitiesGridView.Name = "responsibilitiesGridView";
-            this.responsibilitiesGridView.RowHeadersWidth = 51;
-            this.responsibilitiesGridView.RowTemplate.Height = 24;
-            this.responsibilitiesGridView.Size = new System.Drawing.Size(444, 150);
-            this.responsibilitiesGridView.TabIndex = 3;
-            this.responsibilitiesGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.responsibilitiesGridView_CellValueChanged);
-            // 
-            // dateLabel
-            // 
-            this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(89, 66);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(108, 17);
-            this.dateLabel.TabIndex = 2;
-            this.dateLabel.Text = "Datum kontrole:";
-            // 
-            // controlDatePicker
-            // 
-            this.controlDatePicker.Location = new System.Drawing.Point(222, 61);
-            this.controlDatePicker.Name = "controlDatePicker";
-            this.controlDatePicker.Size = new System.Drawing.Size(200, 22);
-            this.controlDatePicker.TabIndex = 1;
-            this.controlDatePicker.Value = new System.DateTime(2020, 2, 9, 20, 42, 40, 0);
-            // 
-            // regularControl
-            // 
-            this.regularControl.AutoSize = true;
-            this.regularControl.Checked = true;
-            this.regularControl.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.regularControl.Location = new System.Drawing.Point(73, 114);
-            this.regularControl.Name = "regularControl";
-            this.regularControl.Size = new System.Drawing.Size(142, 21);
-            this.regularControl.TabIndex = 0;
-            this.regularControl.Text = "Redovna kontrola";
-            this.regularControl.UseVisualStyleBackColor = true;
-            // 
-            // inspectorTableAdapter
-            // 
-            this.inspectorTableAdapter.ClearBeforeFill = true;
-            // 
-            // vehicleTableAdapter
-            // 
-            this.vehicleTableAdapter.ClearBeforeFill = true;
             // 
             // id
             // 
@@ -375,62 +356,48 @@
             this.isActiveDataGridViewTextBoxColumn.Visible = false;
             this.isActiveDataGridViewTextBoxColumn.Width = 125;
             // 
-            // vehicle_id
+            // inspectorBindingSource
             // 
-            this.vehicle_id.DataPropertyName = "id";
-            this.vehicle_id.HeaderText = "id";
-            this.vehicle_id.MinimumWidth = 6;
-            this.vehicle_id.Name = "vehicle_id";
-            this.vehicle_id.ReadOnly = true;
-            this.vehicle_id.Visible = false;
-            this.vehicle_id.Width = 125;
+            this.inspectorBindingSource.DataMember = "inspector";
+            this.inspectorBindingSource.DataSource = this.dataSources;
             // 
-            // nameData
+            // titleLabel
             // 
-            this.nameData.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameData.DataPropertyName = "name";
-            this.nameData.HeaderText = "Naziv";
-            this.nameData.MinimumWidth = 6;
-            this.nameData.Name = "nameData";
-            this.nameData.ReadOnly = true;
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Location = new System.Drawing.Point(249, 23);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(46, 17);
+            this.titleLabel.TabIndex = 5;
+            this.titleLabel.Text = "label1";
             // 
-            // registrationnum
+            // refreshButton
             // 
-            this.registrationnum.DataPropertyName = "registration_num";
-            this.registrationnum.HeaderText = "registration_num";
-            this.registrationnum.MinimumWidth = 6;
-            this.registrationnum.Name = "registrationnum";
-            this.registrationnum.ReadOnly = true;
-            this.registrationnum.Visible = false;
-            this.registrationnum.Width = 125;
+            this.refreshButton.Location = new System.Drawing.Point(303, 114);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshButton.TabIndex = 4;
+            this.refreshButton.Text = "Osvježi";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
-            // maxcapacity
+            // responsibilitiesGridView
             // 
-            this.maxcapacity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.maxcapacity.DataPropertyName = "max_capacity";
-            this.maxcapacity.HeaderText = "Broj mjesta";
-            this.maxcapacity.MinimumWidth = 6;
-            this.maxcapacity.Name = "maxcapacity";
-            this.maxcapacity.ReadOnly = true;
-            // 
-            // tag
-            // 
-            this.tag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tag.DataPropertyName = "tag";
-            this.tag.HeaderText = "Oznaka";
-            this.tag.MinimumWidth = 6;
-            this.tag.Name = "tag";
-            this.tag.ReadOnly = true;
-            // 
-            // isActive
-            // 
-            this.isActive.DataPropertyName = "isActive";
-            this.isActive.HeaderText = "isActive";
-            this.isActive.MinimumWidth = 6;
-            this.isActive.Name = "isActive";
-            this.isActive.ReadOnly = true;
-            this.isActive.Visible = false;
-            this.isActive.Width = 125;
+            this.responsibilitiesGridView.AllowUserToAddRows = false;
+            this.responsibilitiesGridView.AllowUserToDeleteRows = false;
+            this.responsibilitiesGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.responsibilitiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.responsibilitiesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.vehicleNameColumn,
+            this.inspectorResponsibilityColumn,
+            this.inspector_id_column,
+            this.vehicle_id_column});
+            this.responsibilitiesGridView.Location = new System.Drawing.Point(73, 159);
+            this.responsibilitiesGridView.Name = "responsibilitiesGridView";
+            this.responsibilitiesGridView.RowHeadersWidth = 51;
+            this.responsibilitiesGridView.RowTemplate.Height = 24;
+            this.responsibilitiesGridView.Size = new System.Drawing.Size(444, 150);
+            this.responsibilitiesGridView.TabIndex = 3;
+            this.responsibilitiesGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.responsibilitiesGridView_CellValueChanged);
             // 
             // vehicleNameColumn
             // 
@@ -461,6 +428,43 @@
             this.vehicle_id_column.Name = "vehicle_id_column";
             this.vehicle_id_column.Visible = false;
             this.vehicle_id_column.Width = 125;
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Location = new System.Drawing.Point(89, 66);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(108, 17);
+            this.dateLabel.TabIndex = 2;
+            this.dateLabel.Text = "Datum kontrole:";
+            // 
+            // controlDatePicker
+            // 
+            this.controlDatePicker.Location = new System.Drawing.Point(222, 61);
+            this.controlDatePicker.Name = "controlDatePicker";
+            this.controlDatePicker.Size = new System.Drawing.Size(200, 22);
+            this.controlDatePicker.TabIndex = 1;
+            this.controlDatePicker.Value = new System.DateTime(2020, 2, 9, 20, 42, 40, 0);
+            // 
+            // regularControl
+            // 
+            this.regularControl.AutoSize = true;
+            this.regularControl.Checked = true;
+            this.regularControl.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.regularControl.Location = new System.Drawing.Point(73, 114);
+            this.regularControl.Name = "regularControl";
+            this.regularControl.Size = new System.Drawing.Size(142, 21);
+            this.regularControl.TabIndex = 0;
+            this.regularControl.Text = "Redovna kontrola";
+            this.regularControl.UseVisualStyleBackColor = true;
+            // 
+            // inspectorTableAdapter
+            // 
+            this.inspectorTableAdapter.ClearBeforeFill = true;
+            // 
+            // vehicleTableAdapter
+            // 
+            this.vehicleTableAdapter.ClearBeforeFill = true;
             // 
             // NewControlsView
             // 

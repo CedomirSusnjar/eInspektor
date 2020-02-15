@@ -48,6 +48,7 @@
             // samplesGV
             // 
             this.samplesGV.AllowUserToAddRows = false;
+            this.samplesGV.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.samplesGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.samplesGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.company,
@@ -87,7 +88,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nazadToolStripMenuItem});

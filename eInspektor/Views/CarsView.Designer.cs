@@ -135,7 +135,7 @@
             // 
             // menuStrip
             // 
-            this.menuStrip.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.menuStrip.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,

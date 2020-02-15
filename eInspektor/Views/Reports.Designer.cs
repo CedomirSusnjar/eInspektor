@@ -115,6 +115,7 @@
             // searchLabel
             // 
             this.searchLabel.AutoSize = true;
+            this.searchLabel.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.searchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLabel.Location = new System.Drawing.Point(449, 5);
             this.searchLabel.Name = "searchLabel";

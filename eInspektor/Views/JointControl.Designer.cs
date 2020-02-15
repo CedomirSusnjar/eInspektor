@@ -55,10 +55,10 @@
             this.subj_name,
             this.inspectors});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(931, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(931, 422);
             this.dataGridView1.TabIndex = 0;
             // 
             // dep_name
@@ -97,7 +97,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(931, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(931, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -111,6 +111,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.label1.Location = new System.Drawing.Point(12, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 17);
@@ -129,6 +130,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.label2.Location = new System.Drawing.Point(496, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(151, 17);
