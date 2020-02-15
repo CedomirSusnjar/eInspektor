@@ -120,7 +120,8 @@ namespace eInspektor
 
         private void uzorciToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new SamplesStatistics().Show();
+            this.Hide();
+            new SamplesStatistics(this).Show();
         }
 
         private void kontroleToolStripMenuItem_Click(object sender, EventArgs e)

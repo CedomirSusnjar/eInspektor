@@ -35,7 +35,6 @@
             this.statistikaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kontroleSaDrugimOdjelimaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uzorciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kontroleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchLabel = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
@@ -63,6 +62,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nazadToolStripMenuItem,
@@ -70,7 +70,7 @@
             this.statistikaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(813, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1077, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -84,19 +84,18 @@
             // detaljiToolStripMenuItem
             // 
             this.detaljiToolStripMenuItem.Name = "detaljiToolStripMenuItem";
-            this.detaljiToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
-            this.detaljiToolStripMenuItem.Text = "Izvještaj...";
+            this.detaljiToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.detaljiToolStripMenuItem.Text = "Izvjestaj";
             this.detaljiToolStripMenuItem.Click += new System.EventHandler(this.detaljiToolStripMenuItem_Click);
             // 
             // statistikaToolStripMenuItem
             // 
             this.statistikaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kontroleSaDrugimOdjelimaToolStripMenuItem,
-            this.uzorciToolStripMenuItem,
-            this.kontroleToolStripMenuItem});
+            this.uzorciToolStripMenuItem});
             this.statistikaToolStripMenuItem.Name = "statistikaToolStripMenuItem";
-            this.statistikaToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
-            this.statistikaToolStripMenuItem.Text = "Statistika...";
+            this.statistikaToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.statistikaToolStripMenuItem.Text = "Ostalo";
             this.statistikaToolStripMenuItem.Click += new System.EventHandler(this.statistikaToolStripMenuItem_Click);
             // 
             // kontroleSaDrugimOdjelimaToolStripMenuItem
@@ -113,32 +112,27 @@
             this.uzorciToolStripMenuItem.Text = "Uzorci";
             this.uzorciToolStripMenuItem.Click += new System.EventHandler(this.uzorciToolStripMenuItem_Click);
             // 
-            // kontroleToolStripMenuItem
-            // 
-            this.kontroleToolStripMenuItem.Name = "kontroleToolStripMenuItem";
-            this.kontroleToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.kontroleToolStripMenuItem.Text = "Kontrole";
-            this.kontroleToolStripMenuItem.Click += new System.EventHandler(this.kontroleToolStripMenuItem_Click);
-            // 
             // searchLabel
             // 
             this.searchLabel.AutoSize = true;
-            this.searchLabel.Location = new System.Drawing.Point(315, 5);
+            this.searchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchLabel.Location = new System.Drawing.Point(449, 5);
             this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(158, 17);
+            this.searchLabel.Size = new System.Drawing.Size(165, 18);
             this.searchLabel.TabIndex = 1;
             this.searchLabel.Text = "Pretraži po imenu firme:";
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(479, 2);
+            this.searchTextBox.Location = new System.Drawing.Point(654, 4);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(233, 22);
             this.searchTextBox.TabIndex = 2;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(718, 2);
+            this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchButton.Location = new System.Drawing.Point(893, 4);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 3;
@@ -150,6 +144,7 @@
             // 
             this.reportsGridView.AllowUserToAddRows = false;
             this.reportsGridView.AutoGenerateColumns = false;
+            this.reportsGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.reportsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reportsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -169,7 +164,7 @@
             this.reportsGridView.ReadOnly = true;
             this.reportsGridView.RowHeadersWidth = 51;
             this.reportsGridView.RowTemplate.Height = 24;
-            this.reportsGridView.Size = new System.Drawing.Size(813, 422);
+            this.reportsGridView.Size = new System.Drawing.Size(1077, 422);
             this.reportsGridView.TabIndex = 4;
             // 
             // id
@@ -292,7 +287,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 450);
+            this.ClientSize = new System.Drawing.Size(1077, 450);
             this.Controls.Add(this.reportsGridView);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
@@ -339,7 +334,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem kontroleSaDrugimOdjelimaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uzorciToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kontroleToolStripMenuItem;
         private _is_projDataSet _is_projDataSet1;
     }
 }

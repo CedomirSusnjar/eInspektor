@@ -33,6 +33,7 @@
             // 
             // textLabel
             // 
+            this.textLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textLabel.Location = new System.Drawing.Point(0, 0);
             this.textLabel.Name = "textLabel";

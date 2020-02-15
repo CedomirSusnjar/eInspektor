@@ -53,6 +53,7 @@
             // vehicleGridView
             // 
             this.vehicleGridView.AutoGenerateColumns = false;
+            this.vehicleGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.vehicleGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vehicleGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn11,
@@ -134,6 +135,7 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,

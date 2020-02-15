@@ -76,6 +76,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.blaToolStripMenuItem,
@@ -226,6 +227,7 @@
             // companiesGridView
             // 
             this.companiesGridView.AutoGenerateColumns = false;
+            this.companiesGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.companiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.companiesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -276,6 +278,7 @@
             this.controlsGridView.AllowUserToAddRows = false;
             this.controlsGridView.AllowUserToDeleteRows = false;
             this.controlsGridView.AllowUserToResizeColumns = false;
+            this.controlsGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.controlsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.controlsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.company,

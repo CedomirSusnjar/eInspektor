@@ -40,7 +40,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.searchTB1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.samplesGV)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // samplesGV
@@ -53,10 +55,10 @@
             this.date,
             this.description});
             this.samplesGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samplesGV.Location = new System.Drawing.Point(0, 24);
+            this.samplesGV.Location = new System.Drawing.Point(0, 28);
             this.samplesGV.Name = "samplesGV";
             this.samplesGV.RowTemplate.Height = 24;
-            this.samplesGV.Size = new System.Drawing.Size(902, 426);
+            this.samplesGV.Size = new System.Drawing.Size(902, 422);
             this.samplesGV.TabIndex = 0;
             // 
             // company
@@ -85,16 +87,19 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nazadToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(902, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(902, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // searchTb
             // 
-            this.searchTb.Location = new System.Drawing.Point(169, 1);
+            this.searchTb.Location = new System.Drawing.Point(279, 0);
             this.searchTb.Name = "searchTb";
             this.searchTb.Size = new System.Drawing.Size(128, 22);
             this.searchTb.TabIndex = 2;
@@ -102,7 +107,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 4);
+            this.label1.Location = new System.Drawing.Point(122, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(151, 17);
             this.label1.TabIndex = 3;
@@ -110,7 +115,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(303, 1);
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(413, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -121,7 +127,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(449, 4);
+            this.label2.Location = new System.Drawing.Point(537, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 17);
             this.label2.TabIndex = 5;
@@ -129,20 +135,28 @@
             // 
             // searchTB1
             // 
-            this.searchTB1.Location = new System.Drawing.Point(606, 1);
+            this.searchTB1.Location = new System.Drawing.Point(681, 1);
             this.searchTB1.Name = "searchTB1";
             this.searchTB1.Size = new System.Drawing.Size(128, 22);
             this.searchTB1.TabIndex = 6;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(740, 1);
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Location = new System.Drawing.Point(815, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
             this.button2.Text = "Pretraži";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // nazadToolStripMenuItem
+            // 
+            this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nazadToolStripMenuItem.Text = "Nazad";
+            this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // SamplesStatistics
             // 
@@ -163,6 +177,8 @@
             this.Text = "Uzorci";
             this.Load += new System.EventHandler(this.SamplesStatistics_Load);
             ((System.ComponentModel.ISupportInitialize)(this.samplesGV)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +198,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox searchTB1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem nazadToolStripMenuItem;
     }
 }

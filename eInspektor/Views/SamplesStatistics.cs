@@ -14,10 +14,12 @@ namespace eInspektor.Views
     public partial class SamplesStatistics : Form
     {
         DatabaseModel db;
-        public SamplesStatistics()
+        Reports report;
+        public SamplesStatistics(Reports report)
         {
             InitializeComponent();
             db = new DatabaseModel();
+            this.report = report;
         }
 
         private void SamplesStatistics_Load(object sender, EventArgs e)
@@ -104,6 +106,12 @@ namespace eInspektor.Views
                         samplesGV.Rows[i].Visible = false;
                 }
             }
+        }
+
+        private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            report.Show();
+            Close();
         }
     }
 
