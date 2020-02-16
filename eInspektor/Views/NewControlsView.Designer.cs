@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.potvrdiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,14 +99,14 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // potvrdiToolStripMenuItem
             // 
             this.potvrdiToolStripMenuItem.Name = "potvrdiToolStripMenuItem";
-            this.potvrdiToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.potvrdiToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
             this.potvrdiToolStripMenuItem.Text = "Potvrdi";
             this.potvrdiToolStripMenuItem.Click += new System.EventHandler(this.potvrdiToolStripMenuItem_Click);
             // 
@@ -136,6 +139,14 @@
             this.vehiclesGridView.AllowUserToDeleteRows = false;
             this.vehiclesGridView.AutoGenerateColumns = false;
             this.vehiclesGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.vehiclesGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.vehiclesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vehiclesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.vehicle_id,
@@ -145,10 +156,26 @@
             this.tag,
             this.isActive});
             this.vehiclesGridView.DataSource = this.vehicleBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.vehiclesGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.vehiclesGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.vehiclesGridView.Location = new System.Drawing.Point(0, 201);
             this.vehiclesGridView.Name = "vehiclesGridView";
             this.vehiclesGridView.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.vehiclesGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.vehiclesGridView.RowHeadersWidth = 51;
             this.vehiclesGridView.RowTemplate.Height = 24;
             this.vehiclesGridView.Size = new System.Drawing.Size(402, 221);

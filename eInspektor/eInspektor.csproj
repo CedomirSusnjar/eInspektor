@@ -137,6 +137,18 @@
     <Compile Include="Views\NewControlsView.Designer.cs">
       <DependentUpon>NewControlsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\NewInspectorAdminView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewInspectorAdminView.Designer.cs">
+      <DependentUpon>NewInspectorAdminView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewInspectorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewInspectorView.Designer.cs">
+      <DependentUpon>NewInspectorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Plan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +230,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\NewControlsView.resx">
       <DependentUpon>NewControlsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewInspectorAdminView.resx">
+      <DependentUpon>NewInspectorAdminView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewInspectorView.resx">
+      <DependentUpon>NewInspectorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Plan.resx">
       <DependentUpon>Plan.cs</DependentUpon>
