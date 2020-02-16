@@ -30,7 +30,7 @@ namespace eInspektor.Views
 
         private void Plan_Load(object sender, EventArgs e)
         {
-            this.companyTableAdapter.FillByDateLC(this.dataSources.company, DateTime.Today.AddYears(-1));
+            this.companyTableAdapter.FillByIsActive(this.dataSources.company/*, DateTime.Today.AddYears(-1)*/);
             dayMI.Text = "Dan - Ponedjeljak";
             db = new DatabaseModel();
             getControlsByDayInWeek(DayOfWeek.Monday);           
@@ -369,7 +369,14 @@ namespace eInspektor.Views
             foreach (dynamic item in query)
             {
                 if (item.date.DayOfWeek == dayOfWeek)
-                    controlGridViewTuple.Add(item.control_id, new Tuple<Tuple<int, int>, DateTime>(new Tuple<int, int>(item.inspector_id, item.vehicle_id), item.date));
+                    try
+                    {
+                        controlGridViewTuple.Add(item.control_id, new Tuple<Tuple<int, int>, DateTime>(new Tuple<int, int>(item.inspector_id, item.vehicle_id), item.date));
+                    }
+                    catch (Exception)
+                    {
+                        //It is already added
+                    }
             }
 
             for (int i = 0; i < controlGridViewTuple.Count(); i++)
@@ -416,7 +423,14 @@ namespace eInspektor.Views
                 string insp_name = insp.ToList().First().full_name;
 
 
-                triple.Add(key: company_name, value: new Tuple<Tuple<string, string>, string>(new Tuple<string, string>(location, insp_name), vehicle_reg_num));
+                try
+                {
+                    triple.Add(key: company_name, value: new Tuple<Tuple<string, string>, string>(new Tuple<string, string>(location, insp_name), vehicle_reg_num));
+                }
+                catch (Exception)
+                {
+                    //Already added
+                }
 
             }
             controlsGridView.RowCount = triple.Count;
@@ -445,6 +459,19 @@ namespace eInspektor.Views
 
         private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void fillByIsActiveToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.companyTableAdapter.FillByIsActive(this.dataSources.company);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
     }

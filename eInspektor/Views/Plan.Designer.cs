@@ -62,6 +62,8 @@
             this.vehicles_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.control_justified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.is_finished = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.id_subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -86,14 +88,14 @@
             this.dayMI});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1249, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1249, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // blaToolStripMenuItem
             // 
             this.blaToolStripMenuItem.Name = "blaToolStripMenuItem";
-            this.blaToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.blaToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.blaToolStripMenuItem.Text = "Nazad";
             this.blaToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
@@ -103,14 +105,14 @@
             this.ručnoToolStripMenuItem,
             this.automatskiToolStripMenuItem});
             this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.dodajToolStripMenuItem.Text = "Dodaj...";
             this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
             // 
             // ručnoToolStripMenuItem
             // 
             this.ručnoToolStripMenuItem.Name = "ručnoToolStripMenuItem";
-            this.ručnoToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.ručnoToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
             this.ručnoToolStripMenuItem.Text = "Ručno";
             this.ručnoToolStripMenuItem.Click += new System.EventHandler(this.ručnoToolStripMenuItem_Click);
             // 
@@ -120,34 +122,34 @@
             this.subjekteToolStripMenuItem,
             this.subjekteIInspektoreToolStripMenuItem});
             this.automatskiToolStripMenuItem.Name = "automatskiToolStripMenuItem";
-            this.automatskiToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.automatskiToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
             this.automatskiToolStripMenuItem.Text = "Automatski";
             // 
             // subjekteToolStripMenuItem
             // 
             this.subjekteToolStripMenuItem.Name = "subjekteToolStripMenuItem";
-            this.subjekteToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.subjekteToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
             this.subjekteToolStripMenuItem.Text = "Subjekte";
             this.subjekteToolStripMenuItem.Click += new System.EventHandler(this.subjekteToolStripMenuItem_Click);
             // 
             // subjekteIInspektoreToolStripMenuItem
             // 
             this.subjekteIInspektoreToolStripMenuItem.Name = "subjekteIInspektoreToolStripMenuItem";
-            this.subjekteIInspektoreToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.subjekteIInspektoreToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
             this.subjekteIInspektoreToolStripMenuItem.Text = "Subjekte i inspektore";
             this.subjekteIInspektoreToolStripMenuItem.Click += new System.EventHandler(this.subjekteIInspektoreToolStripMenuItem_Click);
             // 
             // bbToolStripMenuItem
             // 
             this.bbToolStripMenuItem.Name = "bbToolStripMenuItem";
-            this.bbToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.bbToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.bbToolStripMenuItem.Text = "Sačuvaj";
             this.bbToolStripMenuItem.Click += new System.EventHandler(this.sacuvaj_ToolStripMenuItem_Click);
             // 
             // obrišiToolStripMenuItem
             // 
             this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
-            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
@@ -162,55 +164,55 @@
             this.petakToolStripMenuItem,
             this.subotaToolStripMenuItem});
             this.dayMI.Name = "dayMI";
-            this.dayMI.Size = new System.Drawing.Size(138, 24);
+            this.dayMI.Size = new System.Drawing.Size(140, 24);
             this.dayMI.Text = "Dan - Ponedjeljak";
             // 
             // ponedjeljakToolStripMenuItem
             // 
             this.ponedjeljakToolStripMenuItem.Name = "ponedjeljakToolStripMenuItem";
-            this.ponedjeljakToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.ponedjeljakToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.ponedjeljakToolStripMenuItem.Text = "Ponedjeljak";
             this.ponedjeljakToolStripMenuItem.Click += new System.EventHandler(this.ponedjeljakToolStripMenuItem_Click);
             // 
             // utorakToolStripMenuItem
             // 
             this.utorakToolStripMenuItem.Name = "utorakToolStripMenuItem";
-            this.utorakToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.utorakToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.utorakToolStripMenuItem.Text = "Utorak";
             this.utorakToolStripMenuItem.Click += new System.EventHandler(this.utorakToolStripMenuItem_Click);
             // 
             // srijedaToolStripMenuItem
             // 
             this.srijedaToolStripMenuItem.Name = "srijedaToolStripMenuItem";
-            this.srijedaToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.srijedaToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.srijedaToolStripMenuItem.Text = "Srijeda";
             this.srijedaToolStripMenuItem.Click += new System.EventHandler(this.srijedaToolStripMenuItem_Click);
             // 
             // četvrtakToolStripMenuItem
             // 
             this.četvrtakToolStripMenuItem.Name = "četvrtakToolStripMenuItem";
-            this.četvrtakToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.četvrtakToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.četvrtakToolStripMenuItem.Text = "Četvrtak";
             this.četvrtakToolStripMenuItem.Click += new System.EventHandler(this.četvrtakToolStripMenuItem_Click);
             // 
             // petakToolStripMenuItem
             // 
             this.petakToolStripMenuItem.Name = "petakToolStripMenuItem";
-            this.petakToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.petakToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.petakToolStripMenuItem.Text = "Petak";
             this.petakToolStripMenuItem.Click += new System.EventHandler(this.petakToolStripMenuItem_Click);
             // 
             // subotaToolStripMenuItem
             // 
             this.subotaToolStripMenuItem.Name = "subotaToolStripMenuItem";
-            this.subotaToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.subotaToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.subotaToolStripMenuItem.Text = "Subota";
             this.subotaToolStripMenuItem.Click += new System.EventHandler(this.subotaToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -220,7 +222,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.controlsGridView);
-            this.splitContainer1.Size = new System.Drawing.Size(1249, 436);
+            this.splitContainer1.Size = new System.Drawing.Size(1249, 434);
             this.splitContainer1.SplitterDistance = 313;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -232,14 +234,16 @@
             this.companiesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.location,
-            this.lastcontrolDataGridViewTextBoxColumn});
+            this.lastcontrolDataGridViewTextBoxColumn,
+            this.id_subject,
+            this.nameColumn});
             this.companiesGridView.DataSource = this.companyBindingSource;
             this.companiesGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.companiesGridView.Location = new System.Drawing.Point(0, 0);
             this.companiesGridView.Name = "companiesGridView";
             this.companiesGridView.RowHeadersWidth = 51;
             this.companiesGridView.RowTemplate.Height = 24;
-            this.companiesGridView.Size = new System.Drawing.Size(313, 436);
+            this.companiesGridView.Size = new System.Drawing.Size(313, 434);
             this.companiesGridView.TabIndex = 0;
             // 
             // name
@@ -247,6 +251,7 @@
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.DataPropertyName = "name";
             this.name.HeaderText = "Subjekt";
+            this.name.MinimumWidth = 6;
             this.name.Name = "name";
             // 
             // location
@@ -254,6 +259,7 @@
             this.location.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.location.DataPropertyName = "location";
             this.location.HeaderText = "Lokacija";
+            this.location.MinimumWidth = 6;
             this.location.Name = "location";
             // 
             // lastcontrolDataGridViewTextBoxColumn
@@ -261,6 +267,7 @@
             this.lastcontrolDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.lastcontrolDataGridViewTextBoxColumn.DataPropertyName = "last_control";
             this.lastcontrolDataGridViewTextBoxColumn.HeaderText = "Datum poslednje kontrole";
+            this.lastcontrolDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.lastcontrolDataGridViewTextBoxColumn.Name = "lastcontrolDataGridViewTextBoxColumn";
             // 
             // companyBindingSource
@@ -292,7 +299,7 @@
             this.controlsGridView.Name = "controlsGridView";
             this.controlsGridView.RowHeadersWidth = 51;
             this.controlsGridView.RowTemplate.Height = 24;
-            this.controlsGridView.Size = new System.Drawing.Size(932, 436);
+            this.controlsGridView.Size = new System.Drawing.Size(932, 434);
             this.controlsGridView.TabIndex = 0;
             this.controlsGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehicleGridView_CellValueChanged);
             // 
@@ -343,13 +350,33 @@
             // 
             this.control_justified.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.control_justified.HeaderText = "Kontrola opravdana";
+            this.control_justified.MinimumWidth = 6;
             this.control_justified.Name = "control_justified";
             // 
             // is_finished
             // 
             this.is_finished.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.is_finished.HeaderText = "Kontrola završena";
+            this.is_finished.MinimumWidth = 6;
             this.is_finished.Name = "is_finished";
+            // 
+            // id_subject
+            // 
+            this.id_subject.DataPropertyName = "id";
+            this.id_subject.HeaderText = "Column1";
+            this.id_subject.MinimumWidth = 6;
+            this.id_subject.Name = "id_subject";
+            this.id_subject.Visible = false;
+            this.id_subject.Width = 125;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.DataPropertyName = "name";
+            this.nameColumn.HeaderText = "name";
+            this.nameColumn.MinimumWidth = 6;
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.Visible = false;
+            this.nameColumn.Width = 125;
             // 
             // Plan
             // 
@@ -414,5 +441,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicles_column;
         private System.Windows.Forms.DataGridViewCheckBoxColumn control_justified;
         private System.Windows.Forms.DataGridViewCheckBoxColumn is_finished;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_subject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
     }
 }
