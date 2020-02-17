@@ -38,6 +38,7 @@
             this.subjekteIInspektoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.izvještajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dayMI = new System.Windows.Forms.ToolStripMenuItem();
             this.ponedjeljakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utorakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,20 +51,20 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastcontrolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSources = new eInspektor.DataSources();
             this.controlsGridView = new System.Windows.Forms.DataGridView();
-            this.controlBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
-            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
             this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inspector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicles_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.control_justified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.is_finished = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.id_subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.controlBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.controlTableAdapter = new eInspektor.DataSourcesTableAdapters.controlTableAdapter();
+            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -85,10 +86,11 @@
             this.dodajToolStripMenuItem,
             this.bbToolStripMenuItem,
             this.obrišiToolStripMenuItem,
+            this.izvještajToolStripMenuItem,
             this.dayMI});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1249, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1249, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -153,6 +155,13 @@
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
+            // izvještajToolStripMenuItem
+            // 
+            this.izvještajToolStripMenuItem.Name = "izvještajToolStripMenuItem";
+            this.izvještajToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.izvještajToolStripMenuItem.Text = "Izvještaj";
+            this.izvještajToolStripMenuItem.Click += new System.EventHandler(this.izvještajToolStripMenuItem_Click);
+            // 
             // dayMI
             // 
             this.dayMI.CheckOnClick = true;
@@ -212,7 +221,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -222,7 +231,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.controlsGridView);
-            this.splitContainer1.Size = new System.Drawing.Size(1249, 434);
+            this.splitContainer1.Size = new System.Drawing.Size(1249, 436);
             this.splitContainer1.SplitterDistance = 313;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -243,7 +252,7 @@
             this.companiesGridView.Name = "companiesGridView";
             this.companiesGridView.RowHeadersWidth = 51;
             this.companiesGridView.RowTemplate.Height = 24;
-            this.companiesGridView.Size = new System.Drawing.Size(313, 434);
+            this.companiesGridView.Size = new System.Drawing.Size(313, 436);
             this.companiesGridView.TabIndex = 0;
             // 
             // name
@@ -269,6 +278,24 @@
             this.lastcontrolDataGridViewTextBoxColumn.HeaderText = "Datum poslednje kontrole";
             this.lastcontrolDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.lastcontrolDataGridViewTextBoxColumn.Name = "lastcontrolDataGridViewTextBoxColumn";
+            // 
+            // id_subject
+            // 
+            this.id_subject.DataPropertyName = "id";
+            this.id_subject.HeaderText = "Column1";
+            this.id_subject.MinimumWidth = 6;
+            this.id_subject.Name = "id_subject";
+            this.id_subject.Visible = false;
+            this.id_subject.Width = 125;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.DataPropertyName = "name";
+            this.nameColumn.HeaderText = "name";
+            this.nameColumn.MinimumWidth = 6;
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.Visible = false;
+            this.nameColumn.Width = 125;
             // 
             // companyBindingSource
             // 
@@ -299,22 +326,9 @@
             this.controlsGridView.Name = "controlsGridView";
             this.controlsGridView.RowHeadersWidth = 51;
             this.controlsGridView.RowTemplate.Height = 24;
-            this.controlsGridView.Size = new System.Drawing.Size(932, 434);
+            this.controlsGridView.Size = new System.Drawing.Size(932, 436);
             this.controlsGridView.TabIndex = 0;
             this.controlsGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehicleGridView_CellValueChanged);
-            // 
-            // controlBindingSource
-            // 
-            this.controlBindingSource.DataMember = "control";
-            this.controlBindingSource.DataSource = this.dataSources;
-            // 
-            // controlTableAdapter
-            // 
-            this.controlTableAdapter.ClearBeforeFill = true;
-            // 
-            // companyTableAdapter
-            // 
-            this.companyTableAdapter.ClearBeforeFill = true;
             // 
             // company
             // 
@@ -360,23 +374,18 @@
             this.is_finished.MinimumWidth = 6;
             this.is_finished.Name = "is_finished";
             // 
-            // id_subject
+            // controlBindingSource
             // 
-            this.id_subject.DataPropertyName = "id";
-            this.id_subject.HeaderText = "Column1";
-            this.id_subject.MinimumWidth = 6;
-            this.id_subject.Name = "id_subject";
-            this.id_subject.Visible = false;
-            this.id_subject.Width = 125;
+            this.controlBindingSource.DataMember = "control";
+            this.controlBindingSource.DataSource = this.dataSources;
             // 
-            // nameColumn
+            // controlTableAdapter
             // 
-            this.nameColumn.DataPropertyName = "name";
-            this.nameColumn.HeaderText = "name";
-            this.nameColumn.MinimumWidth = 6;
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.Visible = false;
-            this.nameColumn.Width = 125;
+            this.controlTableAdapter.ClearBeforeFill = true;
+            // 
+            // companyTableAdapter
+            // 
+            this.companyTableAdapter.ClearBeforeFill = true;
             // 
             // Plan
             // 
@@ -443,5 +452,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn is_finished;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_subject;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
+        private System.Windows.Forms.ToolStripMenuItem izvještajToolStripMenuItem;
     }
 }

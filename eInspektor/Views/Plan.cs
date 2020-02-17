@@ -462,17 +462,21 @@ namespace eInspektor.Views
 
         }
 
-        private void fillByIsActiveToolStripButton_Click(object sender, EventArgs e)
+        
+        private void izvještajToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            //Checks for selecting a single row
+            if(controlsGridView.SelectedRows.Count != 1)
             {
-                this.companyTableAdapter.FillByIsActive(this.dataSources.company);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                MessageBox.Show("Odaberite jednu kontrolu.");
+                return;
             }
 
+            var reportsView = new ReportView();
+            reportsView.controlId = (int)controlsGridView.SelectedRows[0].Cells["company_id"].Value;
+            reportsView.lbcompanyName.Text = (string)controlsGridView.SelectedRows[0].Cells["company"].Value;
+            reportsView.ShowDialog();
+            Plan_Load(sender, e);
         }
     }
 }
