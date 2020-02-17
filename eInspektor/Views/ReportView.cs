@@ -27,6 +27,13 @@ namespace eInspektor.Views
             c.finish_date = dateTimePicker1.Value;
             c.control_justified = cbJustified.Checked ? (sbyte)1 : (sbyte)0;
             c.report_content = tbContent.Text;
+
+            foreach (var comp in c.complaints)
+            {
+                comp.is_resolved = (sbyte)1;
+                comp.is_justified = c.control_justified;
+            }            
+
             db.SaveChanges();
             this.Close();
         }
