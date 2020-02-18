@@ -54,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.justifiedRec = new System.Windows.Forms.TextBox();
+            this.kontrolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reclamationGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).BeginInit();
@@ -69,7 +70,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nazadToolStripMenuItem,
             this.sačuvajToolStripMenuItem,
-            this.obrišiToolStripMenuItem});
+            this.obrišiToolStripMenuItem,
+            this.kontrolaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(950, 28);
@@ -79,21 +81,21 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // sačuvajToolStripMenuItem
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
             // 
             // obrišiToolStripMenuItem
             // 
             this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
-            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
@@ -243,7 +245,7 @@
             // 
             // resolvedRec
             // 
-            this.resolvedRec.Location = new System.Drawing.Point(447, 5);
+            this.resolvedRec.Location = new System.Drawing.Point(610, 6);
             this.resolvedRec.Name = "resolvedRec";
             this.resolvedRec.Size = new System.Drawing.Size(75, 22);
             this.resolvedRec.TabIndex = 3;
@@ -253,7 +255,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(267, 6);
+            this.label1.Location = new System.Drawing.Point(453, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(151, 18);
             this.label1.TabIndex = 2;
@@ -264,7 +266,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(584, 6);
+            this.label2.Location = new System.Drawing.Point(691, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 18);
             this.label2.TabIndex = 4;
@@ -272,10 +274,17 @@
             // 
             // justifiedRec
             // 
-            this.justifiedRec.Location = new System.Drawing.Point(778, 5);
+            this.justifiedRec.Location = new System.Drawing.Point(863, 3);
             this.justifiedRec.Name = "justifiedRec";
             this.justifiedRec.Size = new System.Drawing.Size(75, 22);
             this.justifiedRec.TabIndex = 5;
+            // 
+            // kontrolaToolStripMenuItem
+            // 
+            this.kontrolaToolStripMenuItem.Name = "kontrolaToolStripMenuItem";
+            this.kontrolaToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
+            this.kontrolaToolStripMenuItem.Text = "Kontrola...";
+            this.kontrolaToolStripMenuItem.Click += new System.EventHandler(this.kontrolaToolStripMenuItem_Click);
             // 
             // Reclamation
             // 
@@ -332,5 +341,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox justifiedRec;
+        private System.Windows.Forms.ToolStripMenuItem kontrolaToolStripMenuItem;
     }
 }

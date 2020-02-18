@@ -365,7 +365,7 @@ namespace eInspektor.Views
             Dictionary<string, Tuple<Tuple<string, string>, string>> triple = new Dictionary<string, Tuple<Tuple<string, string>, string>>();
             Dictionary<int, Tuple<Tuple<int, int>, DateTime>> controlGridViewTuple = new Dictionary<int, Tuple<Tuple<int, int>, DateTime>>();
             Dictionary<int, Tuple<int, sbyte?>> twoBooleans = new Dictionary<int, Tuple<int, sbyte?>>();
-            int[] company_ids = new int[query.Count()];
+            int[] control_ids = new int[query.Count()];
                 
             foreach (dynamic item in query)
             {
@@ -401,17 +401,18 @@ namespace eInspektor.Views
                               where v.id == idf
                               select new
                               {
+                                  id = v.id,
                                   company_id = v.company_id,
                                   is_finished = v.is_finished,
                                   control_justified = v.control_justified
                               };
                 twoBooleans.Add(i, new Tuple<int, sbyte?>(control.ToList().First().is_finished, control.ToList().First().control_justified));
 
-                int idg = control.ToList().First().company_id;
-
+                int idg = control.ToList().First().id;
+                int idCom = control.ToList().First().company_id;
 
                 var company = from v in db.companies
-                              where v.id == idg
+                              where v.id == idCom
                               select new
                               {
                                   name = v.name,
@@ -422,7 +423,7 @@ namespace eInspektor.Views
                 string company_name = company.ToList().First().name;
                 string location = company.ToList().First().location;
                 string insp_name = insp.ToList().First().full_name;
-                company_ids[i] = idg;
+                control_ids[i] = idg;
 
 
                 try
@@ -444,7 +445,7 @@ namespace eInspektor.Views
                 controlsGridView.Rows[i].Cells["vehicles_column"].Value = triple.ElementAt(i).Value.Item2;
                 controlsGridView.Rows[i].Cells["control_justified"].Value = twoBooleans[i].Item2;
                 controlsGridView.Rows[i].Cells["is_finished"].Value = twoBooleans[i].Item1;
-                controlsGridView.Rows[i].Cells["control_id"].Value = company_ids[i];
+                controlsGridView.Rows[i].Cells["control_id"].Value = control_ids[i];
             }
         }
 
@@ -474,6 +475,8 @@ namespace eInspektor.Views
                 MessageBox.Show("Odaberite jednu kontrolu.");
                 return;
             }
+
+            Console.WriteLine("Id konreoleee:  " + (int)controlsGridView.SelectedRows[0].Cells["control_id"].Value);
 
             var reportsView = new ReportView();
             reportsView.controlId = (int)controlsGridView.SelectedRows[0].Cells["control_id"].Value;

@@ -15,6 +15,7 @@ namespace eInspektor.Views
     {
         public Plan plan;
         private int companyId;
+        public List<int> reclamationIDs = null;
         private List<vehicle> selectedVehicles;
         private List<inspector> selectedInspectors;
         private List<string> inspectorNames;
@@ -112,6 +113,15 @@ namespace eInspektor.Views
             db.controls.Add(c);
             db.SaveChanges();   //Must  be saved to get the auto generated id
 
+            //Insert related complaints if they exist
+            if(reclamationIDs != null)
+            {
+                foreach (var item in reclamationIDs)
+                {
+                    c.complaints.Add(db.complaints.Find(item));
+                }
+            }
+
             //Insert inspectors to control_has_inspectors table
             for (int i = 0; i < inspectorsGridView.SelectedRows.Count; i++)
             {
@@ -203,7 +213,8 @@ namespace eInspektor.Views
             await Task.Delay(100);      //Doesn't work othervise
             base.OnFormClosing(e);
             this.Close();
-            plan.Show();
+            if (plan != null)
+                plan.Show();
         }
 
     }

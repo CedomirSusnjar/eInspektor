@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using eInspektor.Model;
+using eInspektor.Views;
 
 namespace eInspektor
 {
@@ -36,8 +37,6 @@ namespace eInspektor
             int justified = 0,resolved = 0;
          
             db = new DatabaseModel();
-            
-
 
             this.complaintTableAdapter1.FillByIsActive(this.dataSources1.complaint);
             reclamationGV.DataSource = this.dataSources1.complaint;
@@ -117,7 +116,6 @@ namespace eInspektor
         private void sačuvajToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // update subjects name column
-            //TODO company name should be unique (in database)
             for (int i = 0; i < reclamationGV.Rows.Count - 1; i++)      //It doesn't need to fill new row
             {
                 string compName = (string)reclamationGV.Rows[i].Cells["company_name_column"].Value;
@@ -180,24 +178,29 @@ namespace eInspektor
         {
             this.hasChanges = true;
         }
-
-        private void button1_Click(object sender, EventArgs e)
+               
+        private void kontrolaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*if (searchTb.Text == "")
+            if(reclamationGV.SelectedRows.Count < 1)
             {
-                for (int i = 0; i < reclamationGV.RowCount; i++)
-                {
-                    reclamationGV.Rows[i].Visible = true;
-                }
+                MessageBox.Show("Morate odabrati najmanje jednu žalbu!");
+                return;
             }
-            else
+            //Check if all are for same company
+            int compId = (int)reclamationGV.SelectedRows[0].Cells["company_id"].Value;
+            List<int> reclamationIds = new List<int>();
+            for(int i = 0; i < reclamationGV.SelectedRows.Count; i++)
             {
-                for (int i = 1; i < reclamationGV.RowCount-1; i++)
+                if(compId != (int)reclamationGV.SelectedRows[i].Cells["company_id"].Value)
                 {
-                    if (!reclamationGV.Rows[i].Cells["company_name_column"].Value.ToString().Contains(searchTb.Text))
-                        reclamationGV.Rows[i].Visible = false;
+                    MessageBox.Show("Sve odabrane žalbe moraju biti na istu firmu!");
+                    return;
                 }
-            }*/
+                reclamationIds.Add((int)reclamationGV.SelectedRows[i].Cells["id"].Value);
+            }
+            var window = new NewControlsView(compId);
+            window.reclamationIDs = reclamationIds;
+            window.ShowDialog();
         }
     }
 }
