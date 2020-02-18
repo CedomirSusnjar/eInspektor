@@ -365,7 +365,8 @@ namespace eInspektor.Views
             Dictionary<string, Tuple<Tuple<string, string>, string>> triple = new Dictionary<string, Tuple<Tuple<string, string>, string>>();
             Dictionary<int, Tuple<Tuple<int, int>, DateTime>> controlGridViewTuple = new Dictionary<int, Tuple<Tuple<int, int>, DateTime>>();
             Dictionary<int, Tuple<int, sbyte?>> twoBooleans = new Dictionary<int, Tuple<int, sbyte?>>();
-
+            int[] company_ids = new int[query.Count()];
+                
             foreach (dynamic item in query)
             {
                 if (item.date.DayOfWeek == dayOfWeek)
@@ -421,6 +422,7 @@ namespace eInspektor.Views
                 string company_name = company.ToList().First().name;
                 string location = company.ToList().First().location;
                 string insp_name = insp.ToList().First().full_name;
+                company_ids[i] = idg;
 
 
                 try
@@ -442,6 +444,7 @@ namespace eInspektor.Views
                 controlsGridView.Rows[i].Cells["vehicles_column"].Value = triple.ElementAt(i).Value.Item2;
                 controlsGridView.Rows[i].Cells["control_justified"].Value = twoBooleans[i].Item2;
                 controlsGridView.Rows[i].Cells["is_finished"].Value = twoBooleans[i].Item1;
+                controlsGridView.Rows[i].Cells["company_id"].Value = company_ids[i];
             }
         }
 
