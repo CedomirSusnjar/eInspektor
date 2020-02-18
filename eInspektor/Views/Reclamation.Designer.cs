@@ -35,16 +35,6 @@
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reclamationGV = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company_name_column = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.issuer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_justified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.is_resolved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.control_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.complaintBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSources1 = new eInspektor.DataSources();
             this.complaintTableAdapter1 = new eInspektor.DataSourcesTableAdapters.complaintTableAdapter();
@@ -56,6 +46,16 @@
             this.justifiedRec = new System.Windows.Forms.TextBox();
             this.kontrolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company_name_column = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issuer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_justified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.is_resolved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.control_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reclamationGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).BeginInit();
@@ -113,14 +113,14 @@
             this.reclamationGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.company_id,
+            this.company_name_column,
             this.text,
             this.issuer,
             this.date,
             this.is_justified,
             this.is_resolved,
             this.control_id,
-            this.is_active,
-            this.company_name_column});
+            this.is_active});
             this.reclamationGV.DataSource = this.complaintBindingSource;
             this.reclamationGV.Location = new System.Drawing.Point(0, 31);
             this.reclamationGV.Name = "reclamationGV";
@@ -130,94 +130,6 @@
             this.reclamationGV.TabIndex = 1;
             this.reclamationGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.reclamationGV.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // company_name_column
-            // 
-            this.company_name_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.company_name_column.HeaderText = "Subjekt";
-            this.company_name_column.MinimumWidth = 6;
-            this.company_name_column.Name = "company_name_column";
-            // 
-            // company_id
-            // 
-            this.company_id.DataPropertyName = "company_id";
-            this.company_id.HeaderText = "company_id";
-            this.company_id.MinimumWidth = 6;
-            this.company_id.Name = "company_id";
-            this.company_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.company_id.Visible = false;
-            this.company_id.Width = 125;
-            // 
-            // text
-            // 
-            this.text.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.text.DataPropertyName = "text";
-            this.text.HeaderText = "Sadržaj";
-            this.text.MinimumWidth = 6;
-            this.text.Name = "text";
-            // 
-            // issuer
-            // 
-            this.issuer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.issuer.DataPropertyName = "issuer";
-            this.issuer.HeaderText = "Podnosilac";
-            this.issuer.MinimumWidth = 6;
-            this.issuer.Name = "issuer";
-            // 
-            // date
-            // 
-            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.date.DataPropertyName = "date";
-            this.date.HeaderText = "Datum";
-            this.date.MinimumWidth = 6;
-            this.date.Name = "date";
-            // 
-            // is_justified
-            // 
-            this.is_justified.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.is_justified.DataPropertyName = "is_justified";
-            this.is_justified.HeaderText = "Opravdana";
-            this.is_justified.MinimumWidth = 6;
-            this.is_justified.Name = "is_justified";
-            this.is_justified.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.is_justified.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // is_resolved
-            // 
-            this.is_resolved.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.is_resolved.DataPropertyName = "is_resolved";
-            this.is_resolved.HeaderText = "Riješena";
-            this.is_resolved.MinimumWidth = 6;
-            this.is_resolved.Name = "is_resolved";
-            this.is_resolved.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.is_resolved.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // control_id
-            // 
-            this.control_id.DataPropertyName = "control_id";
-            this.control_id.HeaderText = "control_id";
-            this.control_id.MinimumWidth = 6;
-            this.control_id.Name = "control_id";
-            this.control_id.Visible = false;
-            this.control_id.Width = 125;
-            // 
-            // is_active
-            // 
-            this.is_active.DataPropertyName = "isActive";
-            this.is_active.HeaderText = "isActive";
-            this.is_active.MinimumWidth = 6;
-            this.is_active.Name = "is_active";
-            this.is_active.Visible = false;
-            this.is_active.Width = 125;
             // 
             // complaintBindingSource
             // 
@@ -289,6 +201,94 @@
             // 
             this.complaintBindingSource1.DataMember = "complaint";
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // company_id
+            // 
+            this.company_id.DataPropertyName = "company_id";
+            this.company_id.HeaderText = "company_id";
+            this.company_id.MinimumWidth = 6;
+            this.company_id.Name = "company_id";
+            this.company_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.company_id.Visible = false;
+            this.company_id.Width = 125;
+            // 
+            // company_name_column
+            // 
+            this.company_name_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.company_name_column.HeaderText = "Subjekt";
+            this.company_name_column.MinimumWidth = 6;
+            this.company_name_column.Name = "company_name_column";
+            // 
+            // text
+            // 
+            this.text.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.text.DataPropertyName = "text";
+            this.text.HeaderText = "Sadržaj";
+            this.text.MinimumWidth = 6;
+            this.text.Name = "text";
+            // 
+            // issuer
+            // 
+            this.issuer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.issuer.DataPropertyName = "issuer";
+            this.issuer.HeaderText = "Podnosilac";
+            this.issuer.MinimumWidth = 6;
+            this.issuer.Name = "issuer";
+            // 
+            // date
+            // 
+            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.date.DataPropertyName = "date";
+            this.date.HeaderText = "Datum";
+            this.date.MinimumWidth = 6;
+            this.date.Name = "date";
+            // 
+            // is_justified
+            // 
+            this.is_justified.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.is_justified.DataPropertyName = "is_justified";
+            this.is_justified.HeaderText = "Opravdana";
+            this.is_justified.MinimumWidth = 6;
+            this.is_justified.Name = "is_justified";
+            this.is_justified.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.is_justified.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // is_resolved
+            // 
+            this.is_resolved.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.is_resolved.DataPropertyName = "is_resolved";
+            this.is_resolved.HeaderText = "Riješena";
+            this.is_resolved.MinimumWidth = 6;
+            this.is_resolved.Name = "is_resolved";
+            this.is_resolved.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.is_resolved.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // control_id
+            // 
+            this.control_id.DataPropertyName = "control_id";
+            this.control_id.HeaderText = "control_id";
+            this.control_id.MinimumWidth = 6;
+            this.control_id.Name = "control_id";
+            this.control_id.Visible = false;
+            this.control_id.Width = 125;
+            // 
+            // is_active
+            // 
+            this.is_active.DataPropertyName = "isActive";
+            this.is_active.HeaderText = "isActive";
+            this.is_active.MinimumWidth = 6;
+            this.is_active.Name = "is_active";
+            this.is_active.Visible = false;
+            this.is_active.Width = 125;
+            // 
             // Reclamation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -330,9 +330,14 @@
         private DataSourcesTableAdapters.complaintTableAdapter complaintTableAdapter1;
         private System.Windows.Forms.BindingSource companyBindingSource;
         private DataSourcesTableAdapters.companyTableAdapter companyTableAdapter;
+        private System.Windows.Forms.TextBox resolvedRec;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox justifiedRec;
+        private System.Windows.Forms.ToolStripMenuItem kontrolaToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewComboBoxColumn company_name_column;
         private System.Windows.Forms.DataGridViewTextBoxColumn company_id;
+        private System.Windows.Forms.DataGridViewComboBoxColumn company_name_column;
         private System.Windows.Forms.DataGridViewTextBoxColumn text;
         private System.Windows.Forms.DataGridViewTextBoxColumn issuer;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
@@ -340,10 +345,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn is_resolved;
         private System.Windows.Forms.DataGridViewTextBoxColumn control_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
-        private System.Windows.Forms.TextBox resolvedRec;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox justifiedRec;
-        private System.Windows.Forms.ToolStripMenuItem kontrolaToolStripMenuItem;
     }
 }

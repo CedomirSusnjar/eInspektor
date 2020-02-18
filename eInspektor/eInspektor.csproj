@@ -66,6 +66,7 @@
       <DependentUpon>DataSources.xsd</DependentUpon>
     </Compile>
     <Compile Include="Model\absence.cs" />
+    <Compile Include="Model\AbsenceReason.cs" />
     <Compile Include="Model\admin.cs" />
     <Compile Include="Model\company.cs" />
     <Compile Include="Model\complaint.cs" />

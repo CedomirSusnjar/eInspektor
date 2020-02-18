@@ -32,7 +32,16 @@ namespace eInspektor
         {
             this.inspectorTableAdapter.FillByIsActive(this.dataSources.inspector);
             this.dataGridView1.DataSource = this.dataSources.inspector;
+            unavailableReason.DataSource = Enum.GetValues(typeof(AbsenceReason)).Cast<AbsenceReason>();
+            unavailableReason.ValueType = typeof(AbsenceReason);
             db = new DatabaseModel();
+
+            //Initiate absences reasons
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Cells["unavailableReason"].Value = (AbsenceReason)dataGridView1.Rows[i].Cells["unavailable"].Value;                
+            }
+            hasChanges = false;
         }
 
         protected override async void OnFormClosing(FormClosingEventArgs e)
@@ -70,6 +79,11 @@ namespace eInspektor
 
         private void sačuvajToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Update absences reasons
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Cells["unavailable"].Value = (int)dataGridView1.Rows[i].Cells["unavailableReason"].Value;
+            }
             this.inspectorTableAdapter.Update(this.dataSources.inspector);
             this.hasChanges = false;
         }
@@ -126,8 +140,8 @@ namespace eInspektor
         {
             e.Row.Cells["is_active"].Value = 1;
             e.Row.Cells["is_coordinator"].Value = 1;
-            e.Row.Cells["salt"].Value = "salt";         //TODO make this random
-            e.Row.Cells["password_hash"].Value = "123"; //TODO make this meaningful
+            e.Row.Cells["salt"].Value = "salt";         
+            e.Row.Cells["password_hash"].Value = "123"; 
 
         }
 

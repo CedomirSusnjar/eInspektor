@@ -37,23 +37,24 @@
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_coordinator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unavailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.password_hash = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inspectorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataSources = new eInspektor.DataSources();
             this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jointcontrolBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.joint_controlTableAdapter = new eInspektor.DataSourcesTableAdapters.joint_controlTableAdapter();
             this.inspectorTableAdapter = new eInspektor.DataSourcesTableAdapters.inspectorTableAdapter();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_coordinator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unavailableReason = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.unavailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password_hash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource1)).BeginInit();
@@ -127,6 +128,7 @@
             this.shift,
             this.is_coordinator,
             this.username,
+            this.unavailableReason,
             this.unavailable,
             this.department,
             this.salt,
@@ -142,6 +144,29 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehicleGridView_CellValueChanged);
             this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
+            // 
+            // inspectorBindingSource1
+            // 
+            this.inspectorBindingSource1.DataMember = "inspector";
+            this.inspectorBindingSource1.DataSource = this.dataSources;
+            // 
+            // dataSources
+            // 
+            this.dataSources.DataSetName = "DataSources";
+            this.dataSources.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // jointcontrolBindingSource
+            // 
+            this.jointcontrolBindingSource.DataMember = "joint_control";
+            this.jointcontrolBindingSource.DataSource = this.dataSources;
+            // 
+            // joint_controlTableAdapter
+            // 
+            this.joint_controlTableAdapter.ClearBeforeFill = true;
+            // 
+            // inspectorTableAdapter
+            // 
+            this.inspectorTableAdapter.ClearBeforeFill = true;
             // 
             // id
             // 
@@ -193,6 +218,15 @@
             this.username.MinimumWidth = 6;
             this.username.Name = "username";
             // 
+            // unavailableReason
+            // 
+            this.unavailableReason.HeaderText = "Razlog nedostupnosti";
+            this.unavailableReason.MinimumWidth = 6;
+            this.unavailableReason.Name = "unavailableReason";
+            this.unavailableReason.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.unavailableReason.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.unavailableReason.Width = 125;
+            // 
             // unavailable
             // 
             this.unavailable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -200,6 +234,7 @@
             this.unavailable.HeaderText = "Razlog nedostupnosti";
             this.unavailable.MinimumWidth = 6;
             this.unavailable.Name = "unavailable";
+            this.unavailable.Visible = false;
             // 
             // department
             // 
@@ -235,29 +270,6 @@
             this.is_active.Name = "is_active";
             this.is_active.Visible = false;
             this.is_active.Width = 125;
-            // 
-            // inspectorBindingSource1
-            // 
-            this.inspectorBindingSource1.DataMember = "inspector";
-            this.inspectorBindingSource1.DataSource = this.dataSources;
-            // 
-            // dataSources
-            // 
-            this.dataSources.DataSetName = "DataSources";
-            this.dataSources.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // jointcontrolBindingSource
-            // 
-            this.jointcontrolBindingSource.DataMember = "joint_control";
-            this.jointcontrolBindingSource.DataSource = this.dataSources;
-            // 
-            // joint_controlTableAdapter
-            // 
-            this.joint_controlTableAdapter.ClearBeforeFill = true;
-            // 
-            // inspectorTableAdapter
-            // 
-            this.inspectorTableAdapter.ClearBeforeFill = true;
             // 
             // InspectorView
             // 
@@ -302,17 +314,18 @@
         private DataSourcesTableAdapters.joint_controlTableAdapter joint_controlTableAdapter;
         private System.Windows.Forms.BindingSource inspectorBindingSource1;
         private DataSourcesTableAdapters.inspectorTableAdapter inspectorTableAdapter;
+        private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastname;
         private System.Windows.Forms.DataGridViewTextBoxColumn shift;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_coordinator;
         private System.Windows.Forms.DataGridViewTextBoxColumn username;
+        private System.Windows.Forms.DataGridViewComboBoxColumn unavailableReason;
         private System.Windows.Forms.DataGridViewTextBoxColumn unavailable;
         private System.Windows.Forms.DataGridViewTextBoxColumn department;
         private System.Windows.Forms.DataGridViewTextBoxColumn salt;
         private System.Windows.Forms.DataGridViewTextBoxColumn password_hash;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
-        private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
     }
 }
