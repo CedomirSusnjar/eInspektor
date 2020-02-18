@@ -100,7 +100,7 @@ namespace eInspektor.Views
                     int id = 0;
                     try
                     {
-                        id = (int)controlsGridView.SelectedRows[i].Cells["id"].Value;
+                        id = (int)controlsGridView.SelectedRows[i].Cells["control_id"].Value;
                     }
                     catch (NullReferenceException)
                     {
@@ -444,7 +444,7 @@ namespace eInspektor.Views
                 controlsGridView.Rows[i].Cells["vehicles_column"].Value = triple.ElementAt(i).Value.Item2;
                 controlsGridView.Rows[i].Cells["control_justified"].Value = twoBooleans[i].Item2;
                 controlsGridView.Rows[i].Cells["is_finished"].Value = twoBooleans[i].Item1;
-                controlsGridView.Rows[i].Cells["company_id"].Value = company_ids[i];
+                controlsGridView.Rows[i].Cells["control_id"].Value = company_ids[i];
             }
         }
 
@@ -476,7 +476,7 @@ namespace eInspektor.Views
             }
 
             var reportsView = new ReportView();
-            reportsView.controlId = (int)controlsGridView.SelectedRows[0].Cells["company_id"].Value;
+            reportsView.controlId = (int)controlsGridView.SelectedRows[0].Cells["control_id"].Value;
             reportsView.lbcompanyName.Text = (string)controlsGridView.SelectedRows[0].Cells["company"].Value;
             reportsView.ShowDialog();
             Plan_Load(sender, e);

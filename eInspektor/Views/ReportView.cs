@@ -32,8 +32,11 @@ namespace eInspektor.Views
             {
                 comp.is_resolved = (sbyte)1;
                 comp.is_justified = c.control_justified;
-            }            
+            }
 
+            //Update company last control date
+            c.company.last_control = c.finish_date;
+            
             db.SaveChanges();
             this.Close();
         }
