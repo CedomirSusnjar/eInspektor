@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dep_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +47,8 @@
             // 
             // dataGridView1
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -55,40 +58,46 @@
             this.subj_name,
             this.inspectors});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(931, 422);
+            this.dataGridView1.Size = new System.Drawing.Size(931, 426);
             this.dataGridView1.TabIndex = 0;
             // 
             // dep_name
             // 
             this.dep_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dep_name.HeaderText = "Odsjek";
+            this.dep_name.MinimumWidth = 6;
             this.dep_name.Name = "dep_name";
             // 
             // start_date
             // 
             this.start_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.start_date.HeaderText = "Datum početka kontrole";
+            this.start_date.MinimumWidth = 6;
             this.start_date.Name = "start_date";
             // 
             // finish_date
             // 
             this.finish_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.finish_date.HeaderText = "Datum završetka kontrole";
+            this.finish_date.MinimumWidth = 6;
             this.finish_date.Name = "finish_date";
             // 
             // subj_name
             // 
             this.subj_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.subj_name.HeaderText = "Subjekt";
+            this.subj_name.MinimumWidth = 6;
             this.subj_name.Name = "subj_name";
             // 
             // inspectors
             // 
             this.inspectors.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.inspectors.HeaderText = "Inspektori";
+            this.inspectors.MinimumWidth = 6;
             this.inspectors.Name = "inspectors";
             // 
             // menuStrip1
@@ -97,7 +106,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(931, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(931, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 

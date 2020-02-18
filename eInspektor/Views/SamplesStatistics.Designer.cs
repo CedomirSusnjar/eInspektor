@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.samplesGV = new System.Windows.Forms.DataGridView();
             this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inspector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.searchTB1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.samplesGV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +49,8 @@
             // samplesGV
             // 
             this.samplesGV.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.samplesGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.samplesGV.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.samplesGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.samplesGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -58,6 +61,7 @@
             this.samplesGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.samplesGV.Location = new System.Drawing.Point(0, 28);
             this.samplesGV.Name = "samplesGV";
+            this.samplesGV.RowHeadersWidth = 51;
             this.samplesGV.RowTemplate.Height = 24;
             this.samplesGV.Size = new System.Drawing.Size(902, 422);
             this.samplesGV.TabIndex = 0;
@@ -66,24 +70,28 @@
             // 
             this.company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.company.HeaderText = "Subjekt";
+            this.company.MinimumWidth = 6;
             this.company.Name = "company";
             // 
             // inspector
             // 
             this.inspector.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.inspector.HeaderText = "Inspektor";
+            this.inspector.MinimumWidth = 6;
             this.inspector.Name = "inspector";
             // 
             // date
             // 
             this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.date.HeaderText = "Datum preuzimanja";
+            this.date.MinimumWidth = 6;
             this.date.Name = "date";
             // 
             // description
             // 
             this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.description.HeaderText = "Opis";
+            this.description.MinimumWidth = 6;
             this.description.Name = "description";
             // 
             // menuStrip1
@@ -97,6 +105,13 @@
             this.menuStrip1.Size = new System.Drawing.Size(902, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // nazadToolStripMenuItem
+            // 
+            this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.nazadToolStripMenuItem.Text = "Nazad";
+            this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // searchTb
             // 
@@ -151,13 +166,6 @@
             this.button2.Text = "Pretraži";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // nazadToolStripMenuItem
-            // 
-            this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.nazadToolStripMenuItem.Text = "Nazad";
-            this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // SamplesStatistics
             // 

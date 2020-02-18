@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.blaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,14 +93,14 @@
             this.dayMI});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1249, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1249, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // blaToolStripMenuItem
             // 
             this.blaToolStripMenuItem.Name = "blaToolStripMenuItem";
-            this.blaToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.blaToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
             this.blaToolStripMenuItem.Text = "Nazad";
             this.blaToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
@@ -108,14 +110,14 @@
             this.ručnoToolStripMenuItem,
             this.automatskiToolStripMenuItem});
             this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.dodajToolStripMenuItem.Text = "Dodaj...";
             this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
             // 
             // ručnoToolStripMenuItem
             // 
             this.ručnoToolStripMenuItem.Name = "ručnoToolStripMenuItem";
-            this.ručnoToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.ručnoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.ručnoToolStripMenuItem.Text = "Ručno";
             this.ručnoToolStripMenuItem.Click += new System.EventHandler(this.ručnoToolStripMenuItem_Click);
             // 
@@ -125,7 +127,7 @@
             this.subjekteToolStripMenuItem,
             this.subjekteIInspektoreToolStripMenuItem});
             this.automatskiToolStripMenuItem.Name = "automatskiToolStripMenuItem";
-            this.automatskiToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.automatskiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.automatskiToolStripMenuItem.Text = "Automatski";
             // 
             // subjekteToolStripMenuItem
@@ -145,21 +147,21 @@
             // bbToolStripMenuItem
             // 
             this.bbToolStripMenuItem.Name = "bbToolStripMenuItem";
-            this.bbToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.bbToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.bbToolStripMenuItem.Text = "Sačuvaj";
             this.bbToolStripMenuItem.Click += new System.EventHandler(this.sacuvaj_ToolStripMenuItem_Click);
             // 
             // obrišiToolStripMenuItem
             // 
             this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
-            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
             // izvještajToolStripMenuItem
             // 
             this.izvještajToolStripMenuItem.Name = "izvještajToolStripMenuItem";
-            this.izvještajToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.izvještajToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
             this.izvještajToolStripMenuItem.Text = "Izvještaj";
             this.izvještajToolStripMenuItem.Click += new System.EventHandler(this.izvještajToolStripMenuItem_Click);
             // 
@@ -174,7 +176,7 @@
             this.petakToolStripMenuItem,
             this.subotaToolStripMenuItem});
             this.dayMI.Name = "dayMI";
-            this.dayMI.Size = new System.Drawing.Size(140, 24);
+            this.dayMI.Size = new System.Drawing.Size(140, 26);
             this.dayMI.Text = "Dan - Ponedjeljak";
             // 
             // ponedjeljakToolStripMenuItem
@@ -222,7 +224,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -232,7 +234,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.controlsGridView);
-            this.splitContainer1.Size = new System.Drawing.Size(1249, 436);
+            this.splitContainer1.Size = new System.Drawing.Size(1249, 434);
             this.splitContainer1.SplitterDistance = 313;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -240,6 +242,8 @@
             // 
             this.companiesGridView.AllowUserToAddRows = false;
             this.companiesGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.companiesGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.companiesGridView.AutoGenerateColumns = false;
             this.companiesGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.companiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -256,7 +260,7 @@
             this.companiesGridView.ReadOnly = true;
             this.companiesGridView.RowHeadersWidth = 51;
             this.companiesGridView.RowTemplate.Height = 24;
-            this.companiesGridView.Size = new System.Drawing.Size(313, 436);
+            this.companiesGridView.Size = new System.Drawing.Size(313, 434);
             this.companiesGridView.TabIndex = 0;
             // 
             // name
@@ -321,6 +325,8 @@
             this.controlsGridView.AllowUserToAddRows = false;
             this.controlsGridView.AllowUserToDeleteRows = false;
             this.controlsGridView.AllowUserToResizeColumns = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.controlsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.controlsGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.controlsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.controlsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -337,7 +343,7 @@
             this.controlsGridView.ReadOnly = true;
             this.controlsGridView.RowHeadersWidth = 51;
             this.controlsGridView.RowTemplate.Height = 24;
-            this.controlsGridView.Size = new System.Drawing.Size(932, 436);
+            this.controlsGridView.Size = new System.Drawing.Size(932, 434);
             this.controlsGridView.TabIndex = 0;
             this.controlsGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehicleGridView_CellValueChanged);
             // 

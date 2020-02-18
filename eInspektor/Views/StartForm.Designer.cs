@@ -79,7 +79,6 @@ namespace eInspektor
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Image = global::eInspektor.Properties.Resources.store;
             this.button6.Location = new System.Drawing.Point(535, 214);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(262, 205);
@@ -94,7 +93,6 @@ namespace eInspektor
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Image = global::eInspektor.Properties.Resources.stats;
             this.button5.Location = new System.Drawing.Point(269, 214);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(260, 205);
@@ -109,7 +107,6 @@ namespace eInspektor
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Image = global::eInspektor.Properties.Resources.customer;
             this.button4.Location = new System.Drawing.Point(3, 214);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(260, 205);
@@ -139,7 +136,6 @@ namespace eInspektor
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::eInspektor.Properties.Resources.calendar;
             this.button2.Location = new System.Drawing.Point(3, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(260, 205);
@@ -154,7 +150,6 @@ namespace eInspektor
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::eInspektor.Properties.Resources.automobile;
             this.button1.Location = new System.Drawing.Point(269, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(260, 205);

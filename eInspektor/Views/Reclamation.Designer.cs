@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,6 @@
             this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.complaintBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSources1 = new eInspektor.DataSources();
-            this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.complaintTableAdapter1 = new eInspektor.DataSourcesTableAdapters.complaintTableAdapter();
             this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
@@ -55,12 +55,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.justifiedRec = new System.Windows.Forms.TextBox();
             this.kontrolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reclamationGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSources1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -74,33 +75,35 @@
             this.kontrolaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(950, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(950, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // sačuvajToolStripMenuItem
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
             // 
             // obrišiToolStripMenuItem
             // 
             this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
-            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
             // 
             // reclamationGV
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.reclamationGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.reclamationGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -109,7 +112,6 @@
             this.reclamationGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reclamationGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.company_name_column,
             this.company_id,
             this.text,
             this.issuer,
@@ -117,7 +119,8 @@
             this.is_justified,
             this.is_resolved,
             this.control_id,
-            this.is_active});
+            this.is_active,
+            this.company_name_column});
             this.reclamationGV.DataSource = this.complaintBindingSource;
             this.reclamationGV.Location = new System.Drawing.Point(0, 31);
             this.reclamationGV.Name = "reclamationGV";
@@ -226,10 +229,6 @@
             this.dataSources1.DataSetName = "DataSources";
             this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // complaintBindingSource1
-            // 
-            this.complaintBindingSource1.DataMember = "complaint";
-            // 
             // complaintTableAdapter1
             // 
             this.complaintTableAdapter1.ClearBeforeFill = true;
@@ -282,9 +281,13 @@
             // kontrolaToolStripMenuItem
             // 
             this.kontrolaToolStripMenuItem.Name = "kontrolaToolStripMenuItem";
-            this.kontrolaToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
+            this.kontrolaToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
             this.kontrolaToolStripMenuItem.Text = "Kontrola...";
             this.kontrolaToolStripMenuItem.Click += new System.EventHandler(this.kontrolaToolStripMenuItem_Click);
+            // 
+            // complaintBindingSource1
+            // 
+            this.complaintBindingSource1.DataMember = "complaint";
             // 
             // Reclamation
             // 
@@ -307,8 +310,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.reclamationGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSources1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detaljiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,14 +78,14 @@
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // detaljiToolStripMenuItem
             // 
             this.detaljiToolStripMenuItem.Name = "detaljiToolStripMenuItem";
-            this.detaljiToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.detaljiToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.detaljiToolStripMenuItem.Text = "Izvjestaj";
             this.detaljiToolStripMenuItem.Click += new System.EventHandler(this.detaljiToolStripMenuItem_Click);
             // 
@@ -94,21 +95,21 @@
             this.kontroleSaDrugimOdjelimaToolStripMenuItem,
             this.uzorciToolStripMenuItem});
             this.statistikaToolStripMenuItem.Name = "statistikaToolStripMenuItem";
-            this.statistikaToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.statistikaToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.statistikaToolStripMenuItem.Text = "Ostalo";
             this.statistikaToolStripMenuItem.Click += new System.EventHandler(this.statistikaToolStripMenuItem_Click);
             // 
             // kontroleSaDrugimOdjelimaToolStripMenuItem
             // 
             this.kontroleSaDrugimOdjelimaToolStripMenuItem.Name = "kontroleSaDrugimOdjelimaToolStripMenuItem";
-            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.kontroleSaDrugimOdjelimaToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.kontroleSaDrugimOdjelimaToolStripMenuItem.Text = "Zajedničke kontrole";
             this.kontroleSaDrugimOdjelimaToolStripMenuItem.Click += new System.EventHandler(this.kontroleSaDrugimOdjelimaToolStripMenuItem_Click);
             // 
             // uzorciToolStripMenuItem
             // 
             this.uzorciToolStripMenuItem.Name = "uzorciToolStripMenuItem";
-            this.uzorciToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.uzorciToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.uzorciToolStripMenuItem.Text = "Uzorci";
             this.uzorciToolStripMenuItem.Click += new System.EventHandler(this.uzorciToolStripMenuItem_Click);
             // 
@@ -144,6 +145,8 @@
             // reportsGridView
             // 
             this.reportsGridView.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.reportsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.reportsGridView.AutoGenerateColumns = false;
             this.reportsGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.reportsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
