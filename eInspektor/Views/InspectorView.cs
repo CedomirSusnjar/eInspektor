@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using eInspektor.Model;
+using eInspektor.Views;
 
 namespace eInspektor
 {
@@ -133,6 +134,13 @@ namespace eInspektor
         private void vehicleGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             this.hasChanges = true;
+        }
+
+        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewInspectorView niv = new NewInspectorView();
+            niv.ShowDialog();
+            InspectorView_Load(sender, e);
         }
     }
 }

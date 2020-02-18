@@ -24,9 +24,7 @@ namespace eInspektor.Views
 
         private void AdminView_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSources.inspector' table. You can move, or remove it, as needed.
             this.inspectorTableAdapter.Fill(this.dataSources.inspector);
-            // TODO: This line of code loads data into the '_is_projDataSet.admin' table. You can move, or remove it, as needed.
             this.adminTableAdapter.Fill(this._is_projDataSet.admin);
 
         }
@@ -47,6 +45,13 @@ namespace eInspektor.Views
         {
             Hide();
             new Form1().Show();
+        }
+
+        private void dodajKorisnikaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewInspectorAdminView niv = new NewInspectorAdminView();
+            niv.ShowDialog();
+            AdminView_Load(sender, e);
         }
     }
 }

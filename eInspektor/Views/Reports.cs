@@ -94,7 +94,7 @@ namespace eInspektor
                 //Msg to select a row
                 var popup = new MessageForm();
                 popup.Text = "Greška";
-                popup.textLabel.Text = "Izaerite jedan red!";
+                popup.textLabel.Text = "Izaberite jedan red!";
                 popup.ShowDialog(this);
                 return;
             }

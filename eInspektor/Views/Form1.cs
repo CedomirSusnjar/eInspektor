@@ -71,6 +71,12 @@ namespace eInspektor
                 }
                 else
                 {
+                    if(queryUser.ToList().First().is_coordinator == 0)
+                    {
+                        failedLoginLbl.Visible = true;
+                        return;
+                    }
+
                     failedLoginLbl.Visible = false;
                     string hash = generateHash(password, queryUser.ToList().First().salt);
 

@@ -137,6 +137,18 @@
     <Compile Include="Views\NewControlsView.Designer.cs">
       <DependentUpon>NewControlsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\NewInspectorAdminView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewInspectorAdminView.Designer.cs">
+      <DependentUpon>NewInspectorAdminView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewInspectorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewInspectorView.Designer.cs">
+      <DependentUpon>NewInspectorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Plan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,12 @@
     </Compile>
     <Compile Include="Views\Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReportView.Designer.cs">
+      <DependentUpon>ReportView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SamplesStatistics.cs">
       <SubType>Form</SubType>
@@ -219,6 +237,12 @@
     <EmbeddedResource Include="Views\NewControlsView.resx">
       <DependentUpon>NewControlsView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewInspectorAdminView.resx">
+      <DependentUpon>NewInspectorAdminView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewInspectorView.resx">
+      <DependentUpon>NewInspectorView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Plan.resx">
       <DependentUpon>Plan.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReportView.resx">
+      <DependentUpon>ReportView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SamplesStatistics.resx">
       <DependentUpon>SamplesStatistics.cs</DependentUpon>
