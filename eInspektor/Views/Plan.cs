@@ -382,6 +382,17 @@ namespace eInspektor.Views
 
             for (int i = 0; i < controlGridViewTuple.Count(); i++)
             {
+                int idf = controlGridViewTuple.ElementAt(i).Key;
+                var control = from v in db.controls
+                              where v.id == idf && v.isActive == 1
+                              select new
+                              {
+                                  id = v.id,
+                                  company_id = v.company_id,
+                                  is_finished = v.is_finished,
+                                  control_justified = v.control_justified
+                              };
+
                 int ide = controlGridViewTuple[controlGridViewTuple.ElementAt(i).Key].Item1.Item1;
                 var insp = from v in db.inspectors
                            where v.id == ide
@@ -395,17 +406,9 @@ namespace eInspektor.Views
                               where v.id == idd
                               select v.registration_num;
 
-                int idf = controlGridViewTuple.ElementAt(i).Key;
+               
 
-                var control = from v in db.controls
-                              where v.id == idf
-                              select new
-                              {
-                                  id = v.id,
-                                  company_id = v.company_id,
-                                  is_finished = v.is_finished,
-                                  control_justified = v.control_justified
-                              };
+                
                 twoBooleans.Add(i, new Tuple<int, sbyte?>(control.ToList().First().is_finished, control.ToList().First().control_justified));
 
                 int idg = control.ToList().First().id;
