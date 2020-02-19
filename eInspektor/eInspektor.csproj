@@ -65,14 +65,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSources.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Model\absence.cs" />
     <Compile Include="Model\AbsenceReason.cs" />
     <Compile Include="Model\admin.cs" />
     <Compile Include="Model\company.cs" />
     <Compile Include="Model\complaint.cs" />
     <Compile Include="Model\control.cs" />
     <Compile Include="Model\DatabaseModel.cs" />
-    <Compile Include="Model\department.cs" />
     <Compile Include="Model\inspector.cs" />
     <Compile Include="Model\lab_sample.cs" />
     <Compile Include="Model\vehicle.cs" />

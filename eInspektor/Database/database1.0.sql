@@ -74,28 +74,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `is-proj`.`ABSENCE`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `is-proj`.`ABSENCE` ;
-
-CREATE TABLE IF NOT EXISTS `is-proj`.`ABSENCE` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `inspector_id` INT NOT NULL,
-  `date_from` DATE NOT NULL,
-  `date_to` DATE NULL,
-  `duration_days` INT NULL,
-  `absence_purpose` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_ABSENCE_INSPECTOR1_idx` (`inspector_id` ASC) VISIBLE,
-  CONSTRAINT `fk_ABSENCE_INSPECTOR1`
-    FOREIGN KEY (`inspector_id`)
-    REFERENCES `is-proj`.`INSPECTOR` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `is-proj`.`CONTROL`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `is-proj`.`CONTROL` ;
@@ -231,42 +209,6 @@ CREATE TABLE IF NOT EXISTS `is-proj`.`CONTROL_has_INSPECTOR` (
   CONSTRAINT `fk_CONTROL_has_INSPECTOR_INSPECTOR1`
     FOREIGN KEY (`inspector_id`)
     REFERENCES `is-proj`.`INSPECTOR` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `is-proj`.`DEPARTMENT`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `is-proj`.`DEPARTMENT` ;
-
-CREATE TABLE IF NOT EXISTS `is-proj`.`DEPARTMENT` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `is-proj`.`JOINT_CONTROL`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `is-proj`.`JOINT_CONTROL` ;
-
-CREATE TABLE IF NOT EXISTS `is-proj`.`JOINT_CONTROL` (
-  `control_id` INT NOT NULL,
-  `department_id` INT NOT NULL,
-  INDEX `fk_JOINT_CONTROL_DEPARTMENT1_idx` (`department_id` ASC) VISIBLE,
-  INDEX `fk_JOINT_CONTROL_CONTROL1_idx` (`control_id` ASC) VISIBLE,
-  PRIMARY KEY (`control_id`),
-  CONSTRAINT `fk_JOINT_CONTROL_DEPARTMENT1`
-    FOREIGN KEY (`department_id`)
-    REFERENCES `is-proj`.`DEPARTMENT` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_JOINT_CONTROL_CONTROL1`
-    FOREIGN KEY (`control_id`)
-    REFERENCES `is-proj`.`CONTROL` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -12,7 +12,6 @@ namespace eInspektor.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public inspector()
         {
-            absences = new HashSet<absence>();
             lab_sample = new HashSet<lab_sample>();
             vehicle_responsibility = new HashSet<vehicle_responsibility>();
             controls = new HashSet<control>();
@@ -51,9 +50,6 @@ namespace eInspektor.Model
         public string password_hash { get; set; }
 
         public sbyte isActive { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<absence> absences { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lab_sample> lab_sample { get; set; }

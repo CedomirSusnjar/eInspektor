@@ -8,16 +8,14 @@ namespace eInspektor.Model
     public partial class DatabaseModel : DbContext
     {
         public DatabaseModel()
-            : base("name=DatabaseModel")
+            : base("name=DatabaseModel1")
         {
         }
 
-        public virtual DbSet<absence> absences { get; set; }
         public virtual DbSet<admin> admins { get; set; }
         public virtual DbSet<company> companies { get; set; }
         public virtual DbSet<complaint> complaints { get; set; }
         public virtual DbSet<control> controls { get; set; }
-        public virtual DbSet<department> departments { get; set; }
         public virtual DbSet<inspector> inspectors { get; set; }
         public virtual DbSet<lab_sample> lab_sample { get; set; }
         public virtual DbSet<vehicle> vehicles { get; set; }
@@ -25,10 +23,6 @@ namespace eInspektor.Model
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<absence>()
-                .Property(e => e.absence_purpose)
-                .IsUnicode(false);
-
             modelBuilder.Entity<admin>()
                 .Property(e => e.username)
                 .IsUnicode(false);
@@ -106,10 +100,6 @@ namespace eInspektor.Model
                 .WithMany(e => e.controls)
                 .Map(m => m.ToTable("control_has_inspector", "is-proj"));
 
-            modelBuilder.Entity<department>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
             modelBuilder.Entity<inspector>()
                 .Property(e => e.first_name)
                 .IsUnicode(false);
@@ -133,12 +123,6 @@ namespace eInspektor.Model
             modelBuilder.Entity<inspector>()
                 .Property(e => e.password_hash)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<inspector>()
-                .HasMany(e => e.absences)
-                .WithRequired(e => e.inspector)
-                .HasForeignKey(e => e.inspector_id)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<inspector>()
                 .HasMany(e => e.lab_sample)
