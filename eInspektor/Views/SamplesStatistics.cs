@@ -15,6 +15,8 @@ namespace eInspektor.Views
     {
         DatabaseModel db;
         Reports report;
+        private bool hasChanges = false;
+        public Reports lastscreen;
         public SamplesStatistics(Reports report)
         {
             InitializeComponent();
@@ -24,95 +26,130 @@ namespace eInspektor.Views
 
         private void SamplesStatistics_Load(object sender, EventArgs e)
         {
-            var query = from v in db.lab_sample
-                        select new
-                        {
-                            id = v.id,
-                            company_id = v.company_id,
-                            inspector_id = v.inspector_id,
-                            date = v.date,
-                            description = v.description
-                        };
-            var list = query.ToList();
-
-
-            Dictionary<int, Tuple<Tuple<string, string>, Tuple<string,DateTime>>> triple = new Dictionary<int, Tuple<Tuple<string, string>, Tuple<string,DateTime>>>();
-
-            foreach (dynamic item in list)
-            {
-                int cid = item.company_id;
-                int iid = item.inspector_id;
-               
-                var queryCompany1 = from v in db.companies
-                                   where v.id == cid
-                                   select v.name;
-               
-                var queryInspector1 = from v in db.inspectors
-                                     where v.id == iid
-                                     select new
-                                     {
-                                         full_name = v.first_name + " " + v.last_name
-                                     };
-
-                string insp_name = queryInspector1.ToList().First().full_name;
-                string company_name = queryCompany1.ToList().First();
-
-                triple.Add(item.id, new Tuple<Tuple<string, string>, Tuple<string,DateTime>>(new Tuple<string, string>(insp_name, item.description),new Tuple<string, DateTime>(company_name,item.date)));
-            }
-
-            samplesGV.RowCount = triple.Count;
-            for (int i = 0; i < triple.Count; i++)
-            {
-                samplesGV.Rows[i].Cells["company"].Value = triple.ElementAt(i).Value.Item2.Item1;
-                samplesGV.Rows[i].Cells["inspector"].Value = triple.ElementAt(i).Value.Item1.Item1;
-                samplesGV.Rows[i].Cells["date"].Value = triple.ElementAt(i).Value.Item2.Item2;
-                samplesGV.Rows[i].Cells["description"].Value = triple.ElementAt(i).Value.Item1.Item2;
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (searchTb.Text == "")
-            {
-                for (int i = 0; i < samplesGV.RowCount; i++)
-                {
-                    samplesGV.Rows[i].Visible = true;
-                }
-            }
-            else
-            {
-                for (int i = 0; i < samplesGV.RowCount; i++)
-                {                  
-                        if (!samplesGV.Rows[i].Cells["inspector"].Value.ToString().Contains(searchTb.Text))
-                            samplesGV.Rows[i].Visible = false;                                                
-                }
-            }
+            this.lab_sampleTableAdapter.FillByIsActive(this.dataSources.lab_sample);
+            db = new DatabaseModel();
+            insertNames();
+            hasChanges = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (searchTB1.Text == "")
+            if ("".Equals(searchTB1.Text.Trim()))
             {
-                for (int i = 0; i < samplesGV.RowCount; i++)
-                {
-                    samplesGV.Rows[i].Visible = true;
-                }
+                SamplesStatistics_Load(sender, e);
+                return;
             }
-            else
+            try
             {
-                for (int i = 0; i < samplesGV.RowCount; i++)
-                {
-                    if (!samplesGV.Rows[i].Cells["company"].Value.ToString().Contains(searchTB1.Text))
-                        samplesGV.Rows[i].Visible = false;
-                }
+                //% is for regex
+                this.lab_sampleTableAdapter.FillByActiveFilter(this.dataSources.lab_sample, "%" + searchTB1.Text + "%");
             }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+            insertNames();
         }
 
-        private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sacuvajToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            report.Show();
-            Close();
+            //TODO no changes possible?
         }
-    }
 
+        private void insertNames()
+        {
+            for (int i = 0; i < samplesGV.Rows.Count; i++) 
+            {
+                samplesGV.Rows[i].Cells["companyColumn"].Value = db.companies.Find((int)samplesGV.Rows[i].Cells["companyid"].Value).name;
+                samplesGV.Rows[i].Cells["inspectorColumn"].Value = db.inspectors.Find((int)samplesGV.Rows[i].Cells["inspectorid"].Value).first_name + " " + db.inspectors.Find((int)samplesGV.Rows[i].Cells["inspectorid"].Value).last_name;
+            }
+        }
+
+        protected override async void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                if (this.hasChanges)
+                {
+                    DialogResult result = MessageBox.Show("Izmjene nisu sačuvane. Želite li ih sačuvati prije nego što napustite rad sa nalozima?", "Nalozi", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes || result == DialogResult.No)
+                    {
+                        if (result == DialogResult.Yes)
+                        {
+                            //Save changes
+                            sacuvajToolStripMenuItem_Click(null, e);
+                        }
+                        await Task.Delay(100);      //Doesn't work othervise
+                        base.OnFormClosing(e);
+                        this.Close();
+                        lastscreen.Show();
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    //There has been no modifications to table
+                    base.OnFormClosing(e);
+                    lastscreen.Show();
+                }
+            }
+        }
+
+        private void samplesGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            hasChanges = true;
+        }
+
+        private void brišiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (samplesGV.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Niste odabrali nijedan uzorak.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Da li ste sigurni da želite obrisati odabrane uzorke?", "Brisanje uzoraka", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int selIndex = samplesGV.SelectedRows[0].Index;
+                for (int i = 0; i < samplesGV.SelectedRows.Count; i++)
+                {
+                    int id = 0;
+                    try
+                    {
+                        id = (int)samplesGV.SelectedRows[i].Cells["idColumn"].Value;
+                    }
+                    catch (NullReferenceException)
+                    {
+                        //the row is already deleted
+                        continue;
+                    }
+
+                    lab_sample ls = db.lab_sample.Find(id);
+                    
+                    if (ls != null)
+                    {
+                        ls.isActive = 0;
+                    }
+                }
+                db.SaveChanges();
+                SamplesStatistics_Load(sender, e);
+                if (selIndex != 0 && selIndex < samplesGV.Rows.Count)
+                {
+                    samplesGV.Rows[selIndex - 1].Selected = true;
+                }
+            }
+        }
+
+        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewLabSample ns = new NewLabSample();
+            ns.ShowDialog();
+            SamplesStatistics_Load(sender, e);
+        }
+
+    }
 }

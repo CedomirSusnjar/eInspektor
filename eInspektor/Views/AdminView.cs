@@ -38,7 +38,7 @@ namespace eInspektor.Views
 
         private void promjenaLozinkeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            new ChangePswd(id, true).Show();
         }
 
         private void odjavaToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -52,30 +52,6 @@ namespace eInspektor.Views
             NewInspectorAdminView niv = new NewInspectorAdminView();
             niv.ShowDialog();
             AdminView_Load(sender, e);
-        }
-
-        private void promjeniLozinkuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void ličnaLozinkaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new ChangePswd(id, true).Show();
-        }
-
-        private void lozinkaInspektoraToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (inspectorsGv.SelectedRows.Count != 1)
-            {
-                var popup = new MessageForm();
-                popup.Text = "Greška";
-                popup.textLabel.Text = "Izaberite jedan red!";
-                popup.ShowDialog(this);
-                popup.StartPosition = FormStartPosition.CenterScreen;
-                return;
-            }
-            new ChangePswd((int)inspectorsGv.CurrentRow.Cells["idDataGridViewTextBoxColumn1"].Value, false).Show();
         }
     }
 }

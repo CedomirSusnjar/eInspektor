@@ -34,8 +34,18 @@
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kontrolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reclamationGV = new System.Windows.Forms.DataGridView();
+            this.complaintBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSources1 = new eInspektor.DataSources();
+            this.complaintTableAdapter1 = new eInspektor.DataSourcesTableAdapters.complaintTableAdapter();
+            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
+            this.resolvedRec = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.justifiedRec = new System.Windows.Forms.TextBox();
+            this.kontrolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.company_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.company_name_column = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -46,16 +56,6 @@
             this.is_resolved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.control_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.complaintBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSources1 = new eInspektor.DataSources();
-            this.complaintTableAdapter1 = new eInspektor.DataSourcesTableAdapters.complaintTableAdapter();
-            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.companyTableAdapter = new eInspektor.DataSourcesTableAdapters.companyTableAdapter();
-            this.resolvedRec = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.justifiedRec = new System.Windows.Forms.TextBox();
-            this.complaintBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reclamationGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complaintBindingSource)).BeginInit();
@@ -75,37 +75,30 @@
             this.kontrolaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1106, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(950, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // nazadToolStripMenuItem
             // 
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
-            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // sačuvajToolStripMenuItem
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
             // 
             // obrišiToolStripMenuItem
             // 
             this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
-            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
             this.obrišiToolStripMenuItem.Text = "Obriši";
             this.obrišiToolStripMenuItem.Click += new System.EventHandler(this.obrišiToolStripMenuItem_Click);
-            // 
-            // kontrolaToolStripMenuItem
-            // 
-            this.kontrolaToolStripMenuItem.Name = "kontrolaToolStripMenuItem";
-            this.kontrolaToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
-            this.kontrolaToolStripMenuItem.Text = "Kontrola...";
-            this.kontrolaToolStripMenuItem.Click += new System.EventHandler(this.kontrolaToolStripMenuItem_Click);
             // 
             // reclamationGV
             // 
@@ -133,10 +126,80 @@
             this.reclamationGV.Name = "reclamationGV";
             this.reclamationGV.RowHeadersWidth = 51;
             this.reclamationGV.RowTemplate.Height = 24;
-            this.reclamationGV.Size = new System.Drawing.Size(1106, 433);
+            this.reclamationGV.Size = new System.Drawing.Size(950, 433);
             this.reclamationGV.TabIndex = 1;
             this.reclamationGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.reclamationGV.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
+            // 
+            // complaintBindingSource
+            // 
+            this.complaintBindingSource.DataMember = "complaint";
+            this.complaintBindingSource.DataSource = this.dataSources1;
+            // 
+            // dataSources1
+            // 
+            this.dataSources1.DataSetName = "DataSources";
+            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // complaintTableAdapter1
+            // 
+            this.complaintTableAdapter1.ClearBeforeFill = true;
+            // 
+            // companyBindingSource
+            // 
+            this.companyBindingSource.DataMember = "company";
+            this.companyBindingSource.DataSource = this.dataSources1;
+            // 
+            // companyTableAdapter
+            // 
+            this.companyTableAdapter.ClearBeforeFill = true;
+            // 
+            // resolvedRec
+            // 
+            this.resolvedRec.Location = new System.Drawing.Point(610, 6);
+            this.resolvedRec.Name = "resolvedRec";
+            this.resolvedRec.Size = new System.Drawing.Size(75, 22);
+            this.resolvedRec.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(453, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 18);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Riješenih reklamacija:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(691, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 18);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Opravdanih reklamacija:";
+            // 
+            // justifiedRec
+            // 
+            this.justifiedRec.Location = new System.Drawing.Point(863, 3);
+            this.justifiedRec.Name = "justifiedRec";
+            this.justifiedRec.Size = new System.Drawing.Size(75, 22);
+            this.justifiedRec.TabIndex = 5;
+            // 
+            // kontrolaToolStripMenuItem
+            // 
+            this.kontrolaToolStripMenuItem.Name = "kontrolaToolStripMenuItem";
+            this.kontrolaToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
+            this.kontrolaToolStripMenuItem.Text = "Kontrola...";
+            this.kontrolaToolStripMenuItem.Click += new System.EventHandler(this.kontrolaToolStripMenuItem_Click);
+            // 
+            // complaintBindingSource1
+            // 
+            this.complaintBindingSource1.DataMember = "complaint";
             // 
             // id
             // 
@@ -226,74 +289,11 @@
             this.is_active.Visible = false;
             this.is_active.Width = 125;
             // 
-            // complaintBindingSource
-            // 
-            this.complaintBindingSource.DataMember = "complaint";
-            this.complaintBindingSource.DataSource = this.dataSources1;
-            // 
-            // dataSources1
-            // 
-            this.dataSources1.DataSetName = "DataSources";
-            this.dataSources1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // complaintTableAdapter1
-            // 
-            this.complaintTableAdapter1.ClearBeforeFill = true;
-            // 
-            // companyBindingSource
-            // 
-            this.companyBindingSource.DataMember = "company";
-            this.companyBindingSource.DataSource = this.dataSources1;
-            // 
-            // companyTableAdapter
-            // 
-            this.companyTableAdapter.ClearBeforeFill = true;
-            // 
-            // resolvedRec
-            // 
-            this.resolvedRec.Location = new System.Drawing.Point(627, 5);
-            this.resolvedRec.Name = "resolvedRec";
-            this.resolvedRec.Size = new System.Drawing.Size(75, 22);
-            this.resolvedRec.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(453, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Riješenih reklamacija:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(825, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 18);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Opravdanih reklamacija:";
-            // 
-            // justifiedRec
-            // 
-            this.justifiedRec.Location = new System.Drawing.Point(1019, 5);
-            this.justifiedRec.Name = "justifiedRec";
-            this.justifiedRec.Size = new System.Drawing.Size(75, 22);
-            this.justifiedRec.TabIndex = 5;
-            // 
-            // complaintBindingSource1
-            // 
-            this.complaintBindingSource1.DataMember = "complaint";
-            // 
             // Reclamation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 467);
+            this.ClientSize = new System.Drawing.Size(950, 467);
             this.Controls.Add(this.justifiedRec);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.resolvedRec);

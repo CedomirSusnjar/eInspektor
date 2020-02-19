@@ -38,7 +38,10 @@ insert into joint_control values (1, 1);
 insert into joint_control values (2, 1);
 insert into joint_control values (3, 1);
 
-
+insert into lab_sample values (null, 1, 1, '2020-1-15', 'a1 - Neblagovremeno izdat racun.', 1);
+insert into lab_sample values (null, 2, 2, '2020-1-15', 'b2 - Prasina sa radnog mjesta.', 1);
+insert into lab_sample values (null, 3, 3, '2020-1-15', 'b3 - Uzorak vode iz sistema.', 1);
+insert into lab_sample values (null, 4, 1, '2020-1-15', 'a2 - Hrana iz kuhinje.', 1);
 
 
 

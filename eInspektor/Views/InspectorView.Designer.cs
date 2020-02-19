@@ -217,6 +217,7 @@
             this.username.HeaderText = "Korisničko ime";
             this.username.MinimumWidth = 6;
             this.username.Name = "username";
+            this.username.ReadOnly = true;
             // 
             // unavailableReason
             // 
