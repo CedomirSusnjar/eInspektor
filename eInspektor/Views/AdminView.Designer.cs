@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.adminBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._is_projDataSet = new eInspektor._is_projDataSet();
             this.adminTableAdapter = new eInspektor._is_projDataSetTableAdapters.adminTableAdapter();
@@ -48,7 +48,7 @@
             this.saltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordhashDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.inspectorsGv = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +60,8 @@
             this.saltDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordhashDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ličnaLozinkaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lozinkaInspektoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.adminBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._is_projDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource)).BeginInit();
@@ -70,7 +72,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsGv)).BeginInit();
             this.SuspendLayout();
             // 
             // adminBindingSource
@@ -118,21 +120,24 @@
             // odjavaToolStripMenuItem
             // 
             this.odjavaToolStripMenuItem.Name = "odjavaToolStripMenuItem";
-            this.odjavaToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.odjavaToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.odjavaToolStripMenuItem.Text = "Odjava";
             this.odjavaToolStripMenuItem.Click += new System.EventHandler(this.odjavaToolStripMenuItem_Click_1);
             // 
             // promjenaLozinkeToolStripMenuItem
             // 
+            this.promjenaLozinkeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ličnaLozinkaToolStripMenuItem,
+            this.lozinkaInspektoraToolStripMenuItem});
             this.promjenaLozinkeToolStripMenuItem.Name = "promjenaLozinkeToolStripMenuItem";
-            this.promjenaLozinkeToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.promjenaLozinkeToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
             this.promjenaLozinkeToolStripMenuItem.Text = "Promjena lozinke";
             this.promjenaLozinkeToolStripMenuItem.Click += new System.EventHandler(this.promjenaLozinkeToolStripMenuItem_Click);
             // 
             // dodajKorisnikaToolStripMenuItem
             // 
             this.dodajKorisnikaToolStripMenuItem.Name = "dodajKorisnikaToolStripMenuItem";
-            this.dodajKorisnikaToolStripMenuItem.Size = new System.Drawing.Size(126, 24);
+            this.dodajKorisnikaToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.dodajKorisnikaToolStripMenuItem.Text = "Dodaj korisnika";
             this.dodajKorisnikaToolStripMenuItem.Click += new System.EventHandler(this.dodajKorisnikaToolStripMenuItem_Click);
             // 
@@ -148,15 +153,15 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
+            this.splitContainer1.Panel2.Controls.Add(this.inspectorsGv);
             this.splitContainer1.Size = new System.Drawing.Size(1241, 422);
             this.splitContainer1.SplitterDistance = 413;
             this.splitContainer1.TabIndex = 3;
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -219,15 +224,15 @@
             this.isActiveDataGridViewTextBoxColumn.Visible = false;
             this.isActiveDataGridViewTextBoxColumn.Width = 125;
             // 
-            // dataGridView2
+            // inspectorsGv
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.inspectorsGv.AllowUserToAddRows = false;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.inspectorsGv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.inspectorsGv.AutoGenerateColumns = false;
+            this.inspectorsGv.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.inspectorsGv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inspectorsGv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn1,
             this.firstnameDataGridViewTextBoxColumn,
             this.lastnameDataGridViewTextBoxColumn,
@@ -239,14 +244,14 @@
             this.saltDataGridViewTextBoxColumn1,
             this.passwordhashDataGridViewTextBoxColumn1,
             this.isActiveDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.inspectorBindingSource;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(824, 422);
-            this.dataGridView2.TabIndex = 0;
+            this.inspectorsGv.DataSource = this.inspectorBindingSource;
+            this.inspectorsGv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.inspectorsGv.Location = new System.Drawing.Point(0, 0);
+            this.inspectorsGv.Name = "inspectorsGv";
+            this.inspectorsGv.RowHeadersWidth = 51;
+            this.inspectorsGv.RowTemplate.Height = 24;
+            this.inspectorsGv.Size = new System.Drawing.Size(824, 422);
+            this.inspectorsGv.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -343,6 +348,20 @@
             this.isActiveDataGridViewTextBoxColumn1.Visible = false;
             this.isActiveDataGridViewTextBoxColumn1.Width = 125;
             // 
+            // ličnaLozinkaToolStripMenuItem
+            // 
+            this.ličnaLozinkaToolStripMenuItem.Name = "ličnaLozinkaToolStripMenuItem";
+            this.ličnaLozinkaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.ličnaLozinkaToolStripMenuItem.Text = "Lična lozinka";
+            this.ličnaLozinkaToolStripMenuItem.Click += new System.EventHandler(this.ličnaLozinkaToolStripMenuItem_Click);
+            // 
+            // lozinkaInspektoraToolStripMenuItem
+            // 
+            this.lozinkaInspektoraToolStripMenuItem.Name = "lozinkaInspektoraToolStripMenuItem";
+            this.lozinkaInspektoraToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.lozinkaInspektoraToolStripMenuItem.Text = "Lozinka inspektora";
+            this.lozinkaInspektoraToolStripMenuItem.Click += new System.EventHandler(this.lozinkaInspektoraToolStripMenuItem_Click);
+            // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -366,7 +385,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsGv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,7 +403,7 @@
         private System.Windows.Forms.ToolStripMenuItem promjenaLozinkeToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView inspectorsGv;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saltDataGridViewTextBoxColumn;
@@ -402,5 +421,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordhashDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn1;
         private System.Windows.Forms.ToolStripMenuItem dodajKorisnikaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ličnaLozinkaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lozinkaInspektoraToolStripMenuItem;
     }
 }
